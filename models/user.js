@@ -7,15 +7,16 @@ const schema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  type: { type: String, required: true }
+  type: { type: String, required: true },
+  isAdmin: { type: Boolean }
 })
 
-schema.pre('save', function(next) {
+schema.pre('save', function (next) {
   this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
   next()
 })
 
-schema.methods.validatePassword = function(password) {
+schema.methods.validatePassword = function (password) {
   console.log(bcrypt.compareSync(password, this.password))
   return bcrypt.compareSync(password, this.password)
 }

@@ -5,6 +5,7 @@ async function makeComment(req, res, next) {
   const commentData = req.body
   const companyId = req.params.companyId
   commentData.user = req.currentUser
+  const currentUser = req.currentUser
 
   try {
 
@@ -14,7 +15,9 @@ async function makeComment(req, res, next) {
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
-
+    if (commentData.user.equals(currentUser.type === 'company-admin')) {
+      return res.status(401).send({ message: 'Unauthorized' })
+    }
     company.comments.push(commentData)
 
 
@@ -44,7 +47,7 @@ async function updateComment(req, res, next) {
     const comment = company.comments.id(commentId)
 
 
-    if (!comment.user.equals(currentUser._id)) {
+    if (!currentUser.isAdmin && !comment.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
 
@@ -75,7 +78,7 @@ async function removeComment(req, res, next) {
     // ? .id is a mongoose method for grabbing a document out of an array of documents.
     const comment = company.comments.id(commentId)
 
-    if (!comment.user.equals(currentUser._id)) {
+    if (!currentUser.isAdmin && !comment.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
 

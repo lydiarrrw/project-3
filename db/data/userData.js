@@ -4,7 +4,8 @@ export default function getUserData() {
       name: 'moderator',
       email: 'mod@job.com',
       password: 'modmod',
-      type: 'mod'
+      type: 'mod',
+      isAdmin: true
     },
     {
       name: 'Max',
@@ -42,7 +43,7 @@ export default function getUserData() {
       password: 'douglasdouglas',
       type: 'company-admin'
     },
-    
+
     {
       name: 'Biblo Baggins',
       email: 'bilbo@floogle.com',
