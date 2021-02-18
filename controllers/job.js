@@ -7,21 +7,15 @@ async function postJob(req, res, next) {
   jobData.user = req.currentUser
 
   try {
-
     const company = await Company.findById(companyId).populate('jobs.user').populate('user')
 
 
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
-
     company.jobs.push(jobData)
-
-
     const savedCompany = await company.save()
-
     res.send(savedCompany)
-
   } catch (err) {
     next(err)
   }
@@ -33,9 +27,7 @@ async function updateJob(req, res, next) {
   const { jobId, companyId } = req.params
 
   try {
-
     const company = await Company.findById(companyId).populate('user').populate('jobs.user')
-
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
@@ -48,7 +40,6 @@ async function updateJob(req, res, next) {
     if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
-
     job.set(jobData)
 
     const savedCompany = await company.save()
