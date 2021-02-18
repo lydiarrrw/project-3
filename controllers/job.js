@@ -37,7 +37,7 @@ async function updateJob(req, res, next) {
     console.log('job user', job.user)
     console.log('current user', currentUser._id)
 
-    if (!job.user.equals(currentUser._id)) {
+    if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
     job.set(jobData)
@@ -67,7 +67,7 @@ async function removeJob(req, res, next) {
     // ? .id is a mongoose method for grabbing a document out of an array of documents.
     const job = company.jobs.id(jobId)
 
-    if (!job.user.equals(currentUser._id)) {
+    if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
 
