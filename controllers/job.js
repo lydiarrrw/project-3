@@ -90,8 +90,21 @@ async function removeJob(req, res, next) {
   }
 }
 
+async function getSingleJob(req, res, next) {
+  const id = req.params.id
+
+  try {
+    const company = await Company.findById(id).populate('user').populate('jobs.user')
+    res.send(company)
+  } catch (err) {
+    next(err)
+  }
+}
+
+
 export default {
   postJob,
   updateJob,
-  removeJob
+  removeJob,
+  getSingleJob
 }
