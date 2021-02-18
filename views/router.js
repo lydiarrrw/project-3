@@ -11,7 +11,7 @@ import secureRoute from '../middleware/secureRoute.js'
 
 router.route('/companies')
   .get(company.getCompanyData)
-  // .post(secureRoute, company.makeCompany)
+// .post(secureRoute, company.makeCompany)
 
 router.route('/company/:id')
   .get(company.getSingleCompany)
@@ -20,6 +20,7 @@ router.route('/company/:id')
 
 router.route('/register')
   .post(user.register)
+  .get(user.getUser)
 
 router.route('/login')
   .post(user.login)
