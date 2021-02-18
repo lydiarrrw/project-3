@@ -4,6 +4,9 @@ import { secret } from '../config/environment.js'
 
 
 async function register(req, res, next) {
+  if (req.body.isAdmin) {
+    delete req.body.isAdmin
+  }
   const body = req.body
   try {
     const user = await User.create(body)
@@ -41,7 +44,11 @@ async function login(req, res, next) {
     const token = jwt.sign(
       { userId: user._id },
       secret,
+<<<<<<< HEAD
+      { expiresIn: '12h' } 
+=======
       { expiresIn: '12h' }
+>>>>>>> development
     )
     console.log(token)
 

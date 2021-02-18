@@ -11,7 +11,7 @@ async function getCompanyData(_req, res, next) {
 
 // async function createCompany(req, res, next) {
 //   const body = req.body
- 
+
 //   body.user = req.currentUser
 //   try {
 //     const newCompany = await Company.create(body)
@@ -37,13 +37,13 @@ async function removeCompany(req, res, next) {
   const currentUser = req.currentUser
 
   try {
- 
+
     const companyToRemove = await Company.findById(id).populate('user').populate('comments.user')
 
     console.log(typeof companyToRemove.user)
     console.log(typeof currentUser._id)
 
-    if (!currentUser._id.equals(companyToRemove.user)) {
+    if (!currentUser.isAdmin && !currentUser._id.equals(companyToRemove.user)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
 
@@ -62,12 +62,12 @@ async function updateCompany(req, res, next) {
 
   try {
     const companyToUpdate = await Company.findById(id)
- 
+
     if (!companyToUpdate) {
       return res.send({ message: 'No company found' })
     }
- 
-    if (!companyToUpdate.user.equals(currentUser._id)) {
+
+    if (!currentUser.isAdmin && !companyToUpdate.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
 
