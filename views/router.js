@@ -36,6 +36,7 @@ router.route('/company/:id/job')
   .post(secureRoute, job.postJob)
 
 router.route('/company/:id/job/:jobId')
+  .get(job.getSingleJob)
   .put(secureRoute, job.updateJob)
   .delete(secureRoute, job.removeJob)
 
