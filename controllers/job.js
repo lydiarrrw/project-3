@@ -5,23 +5,17 @@ async function postJob(req, res, next) {
   const jobData = req.body
   const companyId = req.params.companyId
   jobData.user = req.currentUser
- 
-  try {
 
+  try {
     const company = await Company.findById(companyId).populate('jobs.user').populate('user')
 
-   
+
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
-
     company.jobs.push(jobData)
-
-
     const savedCompany = await company.save()
-
     res.send(savedCompany)
-
   } catch (err) {
     next(err)
   }
@@ -33,21 +27,19 @@ async function updateJob(req, res, next) {
   const { jobId, companyId } = req.params
 
   try {
-
     const company = await Company.findById(companyId).populate('user').populate('jobs.user')
-
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
 
-   
-    const job = company.jobs.id(jobId)
 
- 
+    const job = company.jobs.id(jobId)
+    console.log('job user', job.user)
+    console.log('current user', currentUser._id)
+
     if (!job.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }
-
     job.set(jobData)
 
     const savedCompany = await company.save()
@@ -90,8 +82,26 @@ async function removeJob(req, res, next) {
   }
 }
 
+async function getSingleJob(req, res, next) {
+
+  const companyId = req.params.companyId
+  const jobId = req.params.jobId
+
+  try {
+    const company = await Company.findById(companyId).populate('user').populate('jobs.user')
+
+    const job = company.jobs.id(jobId)
+
+    res.send(job)
+  } catch (err) {
+    next(err)
+  }
+}
+
+
 export default {
   postJob,
   updateJob,
-  removeJob
+  removeJob,
+  getSingleJob
 }
