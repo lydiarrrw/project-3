@@ -22,7 +22,7 @@ const jobSchema = new mongoose.Schema({
 })
 
 const companySchema = new mongoose.Schema({
-  companyName: { type: String, required: true, unique: true },
+  company: { type: String, required: true, unique: true },
   website: { type: String, required: true },
   about: { type: String, required: true },
   industry: { type: [String], required: true },
