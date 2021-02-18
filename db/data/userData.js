@@ -41,45 +41,60 @@ export default function getUserData() {
       email: 'douglas@mango.com',
       password: 'douglasdouglas',
       type: ['company-admin']
+    },
+    {
+      Name: 'Pauline Prince',
+      Email: 'pauline.prince@charitycrunch.org',
+      Password: 'password',
+      Type: ['Company Admin']
+    },
+    {
+      Name: 'Elizabeth Jayanta',
+      Email: 'elizabeth.jayanta@techcal.co.uk',
+      Password: 'password',
+      Type: ['Company Admin']
+    },
+    {
+      Name: 'Jay Vasudha',
+      Email: 'jv@languagepirates.com',
+      Password: 'password',
+      Type: ['Company Admin']
+    },
+    {
+      Name: 'Katrina Casimiro',
+      Email: 'itskatrina@me.com',
+      Password: 'password',
+      Type: ['Job Hunter']
+    },
+    {
+      Name: 'Zohar Madison',
+      Email: 'z.madison@email.com',
+      Password: 'password',
+      Type: ['Job Hunter']
+    },
+    {
+      Name: 'Soleil Annika',
+      Email: 'soleil.annika@lookmail.com',
+      Password: 'password',
+      Type: ['Job Hunter']
+    },
+    {
+      name: 'Biblo Baggins',
+      email: 'bilbo@floogle.com',
+      password: 'notsecure',
+      type: ['Company Admin']
+    },
+    {
+      name: 'Toby Maguire',
+      email: 'peter@Oscorp.com',
+      password: 'spider',
+      type: ['Company Admin']
+    },
+    {
+      name: 'Jimothy Smyth',
+      email: 'jdog@codecog.com',
+      password: 'randompassword',
+      type: ['Company Admin']
     }
   ]
 }
-User
-[
-  {
-    Name: 'Pauline Prince',
-    Email: 'pauline.prince@charitycrunch.org',
-    Password: 'password',
-    Type: ['Company Admin']
-  },
-  {
-    Name: 'Elizabeth Jayanta',
-    Email: 'elizabeth.jayanta@techcal.co.uk',
-    Password: 'password',
-    Type: ['Company Admin']
-  },
-  {
-    Name: 'Jay Vasudha',
-    Email: 'jv@languagepirates.com',
-    Password: 'password',
-    Type: ['Company Admin']
-  },
-  {
-    Name: 'Katrina Casimiro',
-    Email: 'itskatrina@me.com',
-    Password: 'password',
-    Type: ['Job Hunter']
-  },
-  {
-    Name: 'Zohar Madison',
-    Email: 'z.madison@email.com',
-    Password: 'password',
-    Type: ['Job Hunter']
-  },
-  {
-    Name: 'Soleil Annika',
-    Email: 'soleil.annika@lookmail.com',
-    Password: 'password',
-    Type: ['Job Hunter']
-  },
-]
