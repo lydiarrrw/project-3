@@ -194,7 +194,7 @@ export default function getCompanyData(users) {
       website: 'www.floogle.com',
       about: 'Established in 1994, Floogle began as a small website, allowing users to search for   anything beginning with the letter F. The company then went on to expand, and is now the  leading search engine website dedicated to searching for other search engine websites.',
       industry: 'Internet, Cloud Computing, Computer Software',
-      logo: '',
+      logo: 'logo',
       jobs: [
         {
           title: 'Software Engineer - Junior/ Associate',
@@ -212,7 +212,7 @@ export default function getCompanyData(users) {
         },
         {
           title: 'Full Stack Developer',
-          descrition: 'We are looking for a Full Stack Developer for our creative consultancy   client. You will work on innovative projects that span offices across Europe, providing   expert skills in front end development to cross-functional teams. You will be   responsible for the design and production of innovative website and web application   user interfaces. This involves working closely with creative designers and developers   to turn static designs into interactive and engaging experiences',
+          description: 'We are looking for a Full Stack Developer for our creative consultancy   client. You will work on innovative projects that span offices across Europe, providing   expert skills in front end development to cross-functional teams. You will be   responsible for the design and production of innovative website and web application   user interfaces. This involves working closely with creative designers and developers   to turn static designs into interactive and engaging experiences',
           salary: '£30,000',
           location: 'London',
           user: users[1]
@@ -243,7 +243,7 @@ export default function getCompanyData(users) {
         },
         {
           title: 'Junior Programmer',
-          descrition: 'We’re working with a brilliant emerging talent in the world of indie game  development. This studio functions partly as a work-for-hire and porting house, and is   also hard at work on their own IP. If you’re looking for variety, you can’t go wrong  with a multi-platform studio which gets to work with the likes of Sony and Nintendo!',
+          description: 'We’re working with a brilliant emerging talent in the world of indie game  development. This studio functions partly as a work-for-hire and porting house, and is   also hard at work on their own IP. If you’re looking for variety, you can’t go wrong  with a multi-platform studio which gets to work with the likes of Sony and Nintendo!',
           salary: '£26,000',
           location: 'London',
           user: users[1]
@@ -256,7 +256,7 @@ export default function getCompanyData(users) {
       website: 'www.code-cog.net',
       about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing   companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
       industry: 'internet',
-      logo: '',
+      logo: 'logo',
       jobs: [
         {
           title: 'Junior Developer C#',
@@ -274,7 +274,7 @@ export default function getCompanyData(users) {
         },
         {
           title: 'Junior iOS / Mobile Developer',
-          descrition: 'An exciting, creative visual FX / graphics company is seeking a talented   junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
+          description: 'An exciting, creative visual FX / graphics company is seeking a talented   junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
           salary: '£28,000',
           location: 'London',
           user: users[1]
