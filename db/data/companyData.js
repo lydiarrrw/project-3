@@ -103,21 +103,21 @@ export default function getCompanyData(users) {
       jobs: [
         {
           title: 'Front End Engineer',
-          description: 'desc',
+          description: 'We expect our developers to contribute more than just code. You’ll be involved in defining how things work, what they do, and why we do that instead of something else.',
           salary: 'Competitive dependent on experience',
           location: 'London',
           user: users[1]
         },
         {
           title: 'Senior Backend Engineer',
-          description: 'desc',
+          description: 'Here at TechCal, we celebrate the many ways we work. With a team of over one hundred, we connect from Atlanta coworking spaces, Minnesota forests, Hawaii beaches and our beautiful headquarters in Manhattan, where this position will be based. ',
           salary: 'Competitive dependent on experience',
           location: 'London',
           user: users[1]
         },
         {
           title: 'Senior Full Stack Software Engineer',
-          description: 'desc',
+          description: 'We expect our developers to contribute more than just code. You’ll be involved in defining how things work, what they do, and why we do that instead of something else. ',
           salary: 'Competitive dependent on experience',
           location: 'London',
           user: users[1]
@@ -135,21 +135,21 @@ export default function getCompanyData(users) {
       jobs: [
         {
           title: 'Junior Data Engineer',
-          description: 'desc',
+          description: 'As a Data Engineer, you will be working within a team of senior business intelligence focused engineers. You will be working with fundraising and web analytics data that is collected through the Charity Crunch product as well as external vendor data.',
           salary: '£25,000',
           location: 'Manchester',
           user: users[1]
         },
         {
           title: 'Senior Data Engineer',
-          description: 'desc',
+          description: 'You will work within a team of business intelligence focused engineers to extend the data platform. You will use your knowledge and experience to evangelise best practices Your primary objectives will be the development and maintenance of the SQL Server BI platform and to lead the next evolution to the cloud.',
           salary: '£50,000',
           location: 'Manchester',
           user: users[1]
         },
         {
           title: 'Software Engineer – Full-Stack – .NET, React, Redux',
-          description: 'desc',
+          description: 'You’ll be part of an agile team focused on one area of the platform, working in short iterations to continuously deliver product features. You’ll interact with Engineering Managers, Product Managers, Engineers, Data Engineers, DBAs and Designers in your day-to-day and have opportunities to get involved in cross-team projects and new product roadmap initiatives.',
           salary: '£50,000',
           location: 'Manchester',
           user: users[1]
@@ -166,21 +166,21 @@ export default function getCompanyData(users) {
       jobs: [
         {
           title: 'VP of Marketing',
-          description: 'desc',
+          description: 'Your clear purpose is to focus on filling the top of the funnel with quality traffic that converts into registrations and you will work closely with the Commercial Team to ensure we hit our registration, revenue and retention goals.',
           salary: '£60,000',
           location: 'Edinburgh',
           user: users[1]
         },
         {
           title: 'Frontend Engineer (React)',
-          description: 'desc',
+          description: 'Being a part of a small, focused team, you will be working closely with other engineers, a designer and a product manager towards both improving the existing experiences and building new ones.',
           salary: '£30,000',
           location: 'Edinburgh',
           user: users[1]
         },
         {
           title: 'Head of Design',
-          description: 'desc',
+          description: 'In your role as a Design Manager, you will be managing a small team and working across both Language Pirates’s web and mobile product.',
           salary: 'Commensurate with experience',
           location: 'Edinburgh',
           user: users[1]
