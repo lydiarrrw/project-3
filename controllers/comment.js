@@ -5,12 +5,12 @@ async function makeComment(req, res, next) {
   const commentData = req.body
   const companyId = req.params.companyId
   commentData.user = req.currentUser
- 
+
   try {
 
     const company = await Company.findById(companyId).populate('comments.user').populate('user')
 
-   
+
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
@@ -40,10 +40,10 @@ async function updateComment(req, res, next) {
       return res.status(404).send({ message: 'Not found' })
     }
 
-   
+
     const comment = company.comments.id(commentId)
 
- 
+
     if (!comment.user.equals(currentUser._id)) {
       return res.status(401).send({ message: 'Unauthorized' })
     }

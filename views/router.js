@@ -11,7 +11,7 @@ import secureRoute from '../middleware/secureRoute.js'
 
 router.route('/companies')
   .get(company.getCompanyData)
-  // .post(secureRoute, company.makeCompany)
+// .post(secureRoute, company.makeCompany)
 
 router.route('/company/:id')
   .get(company.getSingleCompany)
@@ -20,21 +20,22 @@ router.route('/company/:id')
 
 router.route('/register')
   .post(user.register)
+  .get(user.getUser)
 
 router.route('/login')
   .post(user.login)
 
-router.route('/company/:id/comment')
+router.route('/company/:companyId/comment')
   .post(secureRoute, comment.makeComment)
 
-router.route('/company/:id/comment/:commentId')
+router.route('/company/:companyId/comment/:commentId')
   .put(secureRoute, comment.updateComment)
   .delete(secureRoute, comment.removeComment)
 
-router.route('/company/:id/job')
+router.route('/company/:companyId/job')
   .post(secureRoute, job.postJob)
 
-router.route('/company/:id/job/:jobId')
+router.route('/company/:companyId/job/:jobId')
   .get(job.getSingleJob)
   .put(secureRoute, job.updateJob)
   .delete(secureRoute, job.removeJob)
