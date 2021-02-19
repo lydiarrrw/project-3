@@ -281,6 +281,99 @@ export default function getCompanyData(users) {
         }],
       user: users[9],
       rating: 4.6
+    },
+    {
+      company: 'CodeData',
+      website: 'www.codedata.net',
+      about: 'Codedata\'s mission is to make life easier for small businesses. They are the pipes that connect small business data, whether that’s a lender pulling information from a company’s cloud accounting package, or a payment terminal immediately pushing sales information into company accounts.',
+      industry: 'fintech',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Solutions Engineer',
+          description: 'As a Solutions Engineer you will draw on your customer facing skills and technical knowledge to help customers successfully adopt CodeData’s products. You will manage all aspects of adoption, helping customers accelerate their journey to integrate with our platform and optimise their business processes.',
+          salary: '£65,000',
+          location: 'London (Remote Available)',
+          user: users[17]
+        },
+        {
+          title: 'Frontend Engineer',
+          description: 'We are looking for a Front End Engineer to join us and help shape the future of our product. Working closely with the wider engineering, you will pioneer front end development and be relied upon as one of our greatest technical expert.',
+          salary: '£74,000',
+          location: 'London (Remote Available)',
+          user: users[17]
+        },
+        {
+          title: 'Front End Developer',
+          description: 'You will be one of the first 3 engineering hires on our team. You will work closely with the founder to decide how we can best use technology to achieve our company mission.',
+          salary: '£57,000',
+          location: 'London (Remote Available)',
+          user: users[17]
+        }],
+      user: users[17],
+      rating: 4.2
+    },
+    {
+      company: 'Ohiku',
+      website: 'www.ohiku.net',
+      about: 'Ohiku provides end-to-end connected sensor solutions which make buildings smarter - quickly, affordably and securely.',
+      industry: 'internet',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Front End Engineer',
+          description: 'We’re looking for people who write clean, efficient and readable code. We have a Front end built in React, so a skill set in that or similar would be great.',
+          salary: '£67,000',
+          location: 'Waterloo',
+          user: users[19]
+        },
+        {
+          title: 'Data Scientist',
+          description: 'You’ll have a degree (or PhD) in a numerate discipline or significant experience working in a commercial setting. You\'ll have commercial experience building robust ML models in a production environment.',
+          salary: '£82,000',
+          location: 'Waterloo',
+          user: users[19]
+        },
+        {
+          title: 'Commercial Analytics',
+          description: 'This person should feel comfortable working with large amounts of data, be self-motivated and proactive in analyzing, investigating and organizing information found across multiple datasets and sources.',
+          salary: '£53,000',
+          location: 'Waterloo',
+          user: users[19]
+        }],
+      user: users[19],
+      rating: 4.7
+    },
+    {
+      company: 'Pathwork',
+      website: 'www.pathwork.com',
+      about: 'Pathwork have one goal: Saving the NHS millions. The company wants to solve the staffing crisis in the NHS with a platform for Locum shifts.',
+      industry: 'healthcare',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Frontend Software Engineer',
+          description: 'You\'ll play a key part in developing and guiding our product. You should have a broad practical knowledge in different areas of software development.',
+          salary: '£58,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        },
+        {
+          title: 'Data Analyst',
+          description: 'A minimum of 2 years experience working in Business Analytics, System Analysis or a related field. Highly analytical mindset and approach to business problems.',
+          salary: '£42,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        },
+        {
+          title: 'Data Operations Analyst',
+          description: '1 to 3 years of experience in a data or technical operations role. Experience with Microsoft SQL Server or other SQL package. Preferably including SSRS.',
+          salary: '£37,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        }],
+      user: users[21],
+      rating: 3.8
     }
   ]
 }
