@@ -14,24 +14,29 @@ export default function Companies() {
     fetchData()
   }, [])
 
+
+
   return <section className="all-companies">
-    <h1 className="title is-2 is-centered">Companies</h1>
+    <h1 className="title is-2 has-text-danger">Companies</h1>
     <div className="columns is-multiline">
       {companies.map(company => {
-        return <div className="column is-half" key={company._id}>
+        return <div className="column is-one-quarter" key={company._id}>
           <div className="card">
-            <div className="card-image">
-              <img src={company.logo} />
-            </div>
-            <div className="card-header">
-              <div className="card-header-title is-2">
-                {company.company}
-              </div>
-            </div>
             <div className="card-content">
-              <strong>About: </strong>{company.about}
-              {<br></br>}
-              <strong>Website: </strong>{company.website}
+              <div className="media">
+                <div className="media-left">
+                  <figure className="image is-48x48">
+                    <img className="logos" src={company.logo} />
+                  </figure>
+                  <div className="media-content">
+                    <p className="title is-4">{company.company}</p>
+                    <p className="subtitle is-6">{company.website}</p>
+                  </div>
+                </div>
+              </div>
+              <strong>About: </strong>{company.about.length >= 100
+                ? company.about.slice(0, 100) + '...'
+                : company.about}
               {<br></br>}
               <strong>Rating: </strong>{company.rating}
             </div>
