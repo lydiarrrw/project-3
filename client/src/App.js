@@ -7,7 +7,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Companies from './components/Companies'
 import Company from './components/Company'
-//import Jobs from './components/Jobs'
+// //import Jobs from './components/Jobs'
 import Job from './components/Job'
 import PostJob from './components/PostJob'
 
@@ -18,10 +18,10 @@ const App = () => (
   <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route exact path="/register" component={Register}/>
-      <Route exact path="/login" component={Login}/>
-      <Route exact path="/companies" component={Companies}/>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/companies" component={Companies} />
       <Route exact path="/company" component={Company} />
       <Route exact path="/job/:jobId" component={Job} />
       <Route exact path="/company/:companyId/job" component={PostJob} />
