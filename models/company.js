@@ -3,11 +3,11 @@ import uniqueValidator from 'mongoose-unique-validator'
 
 
 const commentSchema = new mongoose.Schema({
-  
+
   text: { type: String, required: true },
 
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-}, { 
+}, {
   timestamps: true
 })
 
@@ -17,7 +17,7 @@ const jobSchema = new mongoose.Schema({
   salary: { type: String, required: true },
   location: { type: String, required: true },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
-}, { 
+}, {
   timestamps: true
 })
 
@@ -27,10 +27,10 @@ const companySchema = new mongoose.Schema({
   about: { type: String, required: true },
   industry: { type: [String], required: true },
   logo: { type: String, required: true },
-  jobs: [ jobSchema ],
+  jobs: [jobSchema],
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   rating: { type: Number },
-  comments: [ commentSchema ]
+  comments: [commentSchema]
 })
 
 companySchema.plugin(uniqueValidator)
