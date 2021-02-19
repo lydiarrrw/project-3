@@ -15,7 +15,7 @@ async function makeComment(req, res, next) {
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
-    if (commentData.user.equals(currentUser.type === 'company-admin')) {
+    if (currentUser.type === 'company-admin') {
       return res.status(401).send({ message: 'Unauthorized' })
     }
     company.comments.push(commentData)
