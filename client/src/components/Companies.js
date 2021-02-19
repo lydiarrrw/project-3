@@ -20,8 +20,13 @@ export default function Companies() {
       {companies.map(company => {
         return <div className="column is-half" key={company._id}>
           <div className="card">
+            <div className="card-image">
+              <img src={company.logo} />
+            </div>
             <div className="card-header">
-              <div className="card-header-title is-2">{company.company}</div>
+              <div className="card-header-title is-2">
+                {company.company}
+              </div>
             </div>
             <div className="card-content">
               <strong>About: </strong>{company.about}

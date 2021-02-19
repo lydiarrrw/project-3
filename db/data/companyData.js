@@ -6,7 +6,7 @@ export default function getCompanyData(users) {
       website: 'vulcan.com',
       about: 'A cutting edge fintech wealth management organisation with offices in Central London. Our primary objective is to provide wealth management advice to a portfolio of high net worth clients, using market leading financial technology.',
       industry: 'FinTech',
-      logo: 'logo.png',
+      logo: 'https://i.imgur.com/Bn1bU5Z.jpg',
       jobs: [
         {
           title: 'Java Developer',
@@ -37,7 +37,7 @@ export default function getCompanyData(users) {
       website: 'ridgeway.com',
       about: 'Ridgeway builds crypto-backed lending technology and scalable institutional-grade crypto custody and blockchain monitoring products.',
       industry: 'Block-Chain',
-      logo: 'logo.png',
+      logo: 'https://i.imgur.com/FgzlHZL.jpg',
       jobs: [
         {
           title: 'Product Manager',
@@ -68,7 +68,7 @@ export default function getCompanyData(users) {
       website: 'mango.com',
       about: 'Mango is a full-service digital agency with digital designers, programmers, SEO specialists, content creators, digital marketers all working together in-house. Our clients include Google, Marks & Spencers, NatWest. Come join our team!',
       industry: 'eCommerce',
-      logo: 'logo.png',
+      logo: 'https://i.imgur.com/3BHkoIS.jpg',
       jobs: [
         {
           title: 'SEO analyst',
@@ -99,7 +99,7 @@ export default function getCompanyData(users) {
       website: 'www.techcal.com',
       about: 'Infinitely flexible. Incredibly productive for teams of all sizes. TechCal manages your calendar, from big project details to micro tasks. Collaborate anywhere, even on different devices',
       industry: 'tech',
-      logo: 'https://cdn.pixabay.com/photo/2019/08/11/18/50/icon-4399684_1280.png',
+      logo: 'https://i.imgur.com/S6ni2j0.jpg',
       jobs: [
         {
           title: 'Front End Engineer',
@@ -131,7 +131,7 @@ export default function getCompanyData(users) {
       website: 'www.charitycrunch.com',
       about: 'Change Lives with Charity Crunch. Begin Your Fundraising Story Today. Visit Charity Crunch For Ideas And Create A Page. A Simple Way To Fundraise. Start Raising Money Today. Make Good Things Happen. Hit Your Targets Fast. £5bn+ Raised For Causes. Raise Money Easily.',
       industry: 'non profit',
-      logo: 'https://cdn.pixabay.com/photo/2019/07/11/10/19/motivation-4330453_1280.jpg',
+      logo: 'https://i.imgur.com/rGlUAKP.jpg',
       jobs: [
         {
           title: 'Junior Data Engineer',
@@ -162,7 +162,7 @@ export default function getCompanyData(users) {
       website: 'www.languagepirate.com',
       about: 'Learn a language with thousands of video clips of real native speakers, fun and effective games to practice your skills. Start learning on web or on our apps!',
       industry: 'education',
-      logo: 'https://i.pinimg.com/originals/4f/a7/ea/4fa7ea7edbad54b768f472066cc287cb.jpg',
+      logo: 'https://i.imgur.com/ZFN0A3j.jpg',
       jobs: [
         {
           title: 'VP of Marketing',
@@ -194,7 +194,7 @@ export default function getCompanyData(users) {
       website: 'www.floogle.com',
       about: 'Established in 1994, Floogle began as a small website, allowing users to search for   anything beginning with the letter F. The company then went on to expand, and is now the  leading search engine website dedicated to searching for other search engine websites.',
       industry: 'Internet, Cloud Computing, Computer Software',
-      logo: 'logo',
+      logo: 'https://i.imgur.com/TJqmziT.png?1',
       jobs: [
         {
           title: 'Software Engineer - Junior/ Associate',
@@ -225,7 +225,7 @@ export default function getCompanyData(users) {
       website: 'www.oscorp-industries.com',
       about: 'Oscorp was founded by Norman Osborn, a very well-known boss throughout Oscorp and   even  New York . Visit our website for information regarding our previous attempt to cure   the cross-species breakout in the state, which Spider Man truly stopped.',
       industry: 'Experimental Science, Military Research',
-      logo: 'https://i.pinimg.com/600x315/fa/19/83/fa1983be614d35f930b919d03172d590.jpg',
+      logo: 'https://i.imgur.com/iIPyVgi.png?1',
       jobs: [
         {
           title: 'Junior Software Engineer',
@@ -256,7 +256,7 @@ export default function getCompanyData(users) {
       website: 'www.code-cog.net',
       about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
       industry: 'internet',
-      logo: 'logo',
+      logo: 'https://i.imgur.com/SoSAjB9.png?1',
       jobs: [
         {
           title: 'Junior Developer C#',
@@ -287,7 +287,7 @@ export default function getCompanyData(users) {
       website: 'www.codedata.net',
       about: 'Codedata\'s mission is to make life easier for small businesses. They are the pipes that connect small business data, whether that’s a lender pulling information from a company’s cloud accounting package, or a payment terminal immediately pushing sales information into company accounts.',
       industry: 'fintech',
-      logo: 'logo',
+      logo: 'https://i.imgur.com/KbcrZxb.jpg',
       jobs: [
         {
           title: 'Solutions Engineer',
@@ -318,7 +318,7 @@ export default function getCompanyData(users) {
       website: 'www.ohiku.net',
       about: 'Ohiku provides end-to-end connected sensor solutions which make buildings smarter - quickly, affordably and securely.',
       industry: 'internet',
-      logo: 'logo',
+      logo: 'https://i.imgur.com/r9kB9a9.jpg',
       jobs: [
         {
           title: 'Front End Engineer',
@@ -349,7 +349,7 @@ export default function getCompanyData(users) {
       website: 'www.pathwork.com',
       about: 'Pathwork have one goal: Saving the NHS millions. The company wants to solve the staffing crisis in the NHS with a platform for Locum shifts.',
       industry: 'healthcare',
-      logo: 'logo',
+      logo: 'https://i.imgur.com/bEO98NP.jpg',
       jobs: [
         {
           title: 'Frontend Software Engineer',
