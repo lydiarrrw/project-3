@@ -106,8 +106,32 @@ export default function getUserData() {
     },
     {
       name: 'Joe',
-      email: 'joe@gmail.com',
+      email: 'joe@codedata.com',
       password: 'joe123',
+      type: 'company-admin'
+    },
+    {
+      name: 'Clark',
+      email: 'clark@gmail.com',
+      password: 'clark123',
+      type: 'job-seeker'
+    },
+    {
+      name: 'Ada',
+      email: 'ada@ohiku.com',
+      password: 'ada123',
+      type: 'company-admin'
+    },
+    {
+      name: 'Eva',
+      email: 'eva@gmail.com',
+      password: 'eva123',
+      type: 'job-seeker'
+    },
+    {
+      name: 'Dave',
+      email: 'dave@pathwork.com',
+      password: 'dave123',
       type: 'company-admin'
     }
   ]

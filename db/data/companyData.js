@@ -283,66 +283,97 @@ export default function getCompanyData(users) {
       rating: 4.6
     },
     {
-      company: 'Code-Cog',
-      website: 'www.code-cog.net',
-      about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
-      industry: 'internet',
+      company: 'CodeData',
+      website: 'www.codedata.net',
+      about: 'Codedata\'s mission is to make life easier for small businesses. They are the pipes that connect small business data, whether that’s a lender pulling information from a company’s cloud accounting package, or a payment terminal immediately pushing sales information into company accounts.',
+      industry: 'fintech',
       logo: 'logo',
       jobs: [
         {
-          title: 'Junior Developer C#',
-          description: 'This is a fantastic opportunity to join a leading financial services client in the city of London. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
-          salary: '£36,000',
-          location: 'London',
-          user: users[9]
+          title: 'Solutions Engineer',
+          description: 'As a Solutions Engineer you will draw on your customer facing skills and technical knowledge to help customers successfully adopt CodeData’s products. You will manage all aspects of adoption, helping customers accelerate their journey to integrate with our platform and optimise their business processes.',
+          salary: '£65,000',
+          location: 'London (Remote Available)',
+          user: users[17]
         },
         {
-          title: 'Full Stack Java Developer',
-          description: 'Systematic hedge fund in London are looking for a Java Developer to join their team. They use technology to build out current workflows and processes to create   repeatable, scalable results. They pride themselves on their use of technology to   automate their processes. The systems you’ll be building will have a direct impact on   the business as they’ll be exposed to the portfolio managers, quants and operations   team who all place an immense amount of value and trust in these systems. Also, with no   business analysts you’ll be involved in every stage of the SDLC - from information  gathering to deploying, supporting and monitoring the system',
-          salary: '£42,000',
-          location: 'London',
-          user: users[9]
+          title: 'Frontend Engineer',
+          description: 'We are looking for a Front End Engineer to join us and help shape the future of our product. Working closely with the wider engineering, you will pioneer front end development and be relied upon as one of our greatest technical expert.',
+          salary: '£74,000',
+          location: 'London (Remote Available)',
+          user: users[17]
         },
         {
-          title: 'Junior iOS / Mobile Developer',
-          description: 'An exciting, creative visual FX / graphics company is seeking a talented junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
-          salary: '£28,000',
-          location: 'London',
-          user: users[9]
+          title: 'Front End Developer',
+          description: 'You will be one of the first 3 engineering hires on our team. You will work closely with the founder to decide how we can best use technology to achieve our company mission.',
+          salary: '£57,000',
+          location: 'London (Remote Available)',
+          user: users[17]
         }],
-      user: users[9],
-      rating: 4.6
+      user: users[17],
+      rating: 4.2
     },
     {
-      company: 'Code-Cog',
-      website: 'www.code-cog.net',
-      about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
+      company: 'Ohiku',
+      website: 'www.ohiku.net',
+      about: 'Ohiku provides end-to-end connected sensor solutions which make buildings smarter - quickly, affordably and securely.',
       industry: 'internet',
       logo: 'logo',
       jobs: [
         {
-          title: 'Junior Developer C#',
-          description: 'This is a fantastic opportunity to join a leading financial services client in the city of London. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
-          salary: '£36,000',
-          location: 'London',
-          user: users[9]
+          title: 'Front End Engineer',
+          description: 'We’re looking for people who write clean, efficient and readable code. We have a Front end built in React, so a skill set in that or similar would be great.',
+          salary: '£67,000',
+          location: 'Waterloo',
+          user: users[19]
         },
         {
-          title: 'Full Stack Java Developer',
-          description: 'Systematic hedge fund in London are looking for a Java Developer to join their team. They use technology to build out current workflows and processes to create   repeatable, scalable results. They pride themselves on their use of technology to   automate their processes. The systems you’ll be building will have a direct impact on   the business as they’ll be exposed to the portfolio managers, quants and operations   team who all place an immense amount of value and trust in these systems. Also, with no   business analysts you’ll be involved in every stage of the SDLC - from information  gathering to deploying, supporting and monitoring the system',
-          salary: '£42,000',
-          location: 'London',
-          user: users[9]
+          title: 'Data Scientist',
+          description: 'You’ll have a degree (or PhD) in a numerate discipline or significant experience working in a commercial setting. You\'ll have commercial experience building robust ML models in a production environment.',
+          salary: '£82,000',
+          location: 'Waterloo',
+          user: users[19]
         },
         {
-          title: 'Junior iOS / Mobile Developer',
-          description: 'An exciting, creative visual FX / graphics company is seeking a talented junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
-          salary: '£28,000',
-          location: 'London',
-          user: users[9]
+          title: 'Commercial Analytics',
+          description: 'This person should feel comfortable working with large amounts of data, be self-motivated and proactive in analyzing, investigating and organizing information found across multiple datasets and sources.',
+          salary: '£53,000',
+          location: 'Waterloo',
+          user: users[19]
         }],
-      user: users[9],
-      rating: 4.6
+      user: users[19],
+      rating: 4.7
+    },
+    {
+      company: 'Pathwork',
+      website: 'www.pathwork.com',
+      about: 'Pathwork have one goal: Saving the NHS millions. The company wants to solve the staffing crisis in the NHS with a platform for Locum shifts.',
+      industry: 'healthcare',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Frontend Software Engineer',
+          description: 'You\'ll play a key part in developing and guiding our product. You should have a broad practical knowledge in different areas of software development.',
+          salary: '£58,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        },
+        {
+          title: 'Data Analyst',
+          description: 'A minimum of 2 years experience working in Business Analytics, System Analysis or a related field. Highly analytical mindset and approach to business problems.',
+          salary: '£42,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        },
+        {
+          title: 'Data Operations Analyst',
+          description: '1 to 3 years of experience in a data or technical operations role. Experience with Microsoft SQL Server or other SQL package. Preferably including SSRS.',
+          salary: '£37,000',
+          location: 'Shoreditch (Remote Available)',
+          user: users[21]
+        }],
+      user: users[21],
+      rating: 3.8
     }
   ]
 }
