@@ -13,7 +13,7 @@ const NavBar = () => {
             <Link to="/companies" className="button is-danger">
               <strong>Companies</strong>
             </Link>
-            <Link to='/job' className="button is-primary">
+            <Link to='/jobs' className="button is-primary">
               <strong>Jobs</strong>
             </Link>
             <Link to="/register" className="button is-info">
