@@ -6,13 +6,20 @@ async function postJob(req, res, next) {
   const companyId = req.params.companyId
   jobData.user = req.currentUser
 
+
+
   try {
     const company = await Company.findById(companyId).populate('jobs.user').populate('user')
 
+    console.log(req.params, req.currentUser, company.user)
 
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
+    if (req.currentUser.id !== company.user.id) {
+      return res.status(401).send({ message: 'Unauthorized' })
+    }
+
     company.jobs.push(jobData)
     const savedCompany = await company.save()
     res.send(savedCompany)
@@ -63,8 +70,6 @@ async function removeJob(req, res, next) {
       return res.status(404).send({ message: 'Not found' })
     }
 
-
-    // ? .id is a mongoose method for grabbing a document out of an array of documents.
     const job = company.jobs.id(jobId)
 
     if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
