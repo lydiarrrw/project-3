@@ -7,26 +7,22 @@ import { shuffle } from 'lodash'
 export default function Home() {
 
   const [companies, updatecompanies] = useState([])
-  const [tiles, updateTiles] = useState([{ title: '', location: '', _id: '' }])
+  const [tiles, updateTiles] = useState([])
 
   useEffect(() => {
     async function getCompanies() {
       const { data } = await axios.get('/api/companies')
-      updatecompanies(data)
-      const companiesArr = []
-      for (let index = 0; index < data.length; index++) {
-        // console.log(companies[index].jobs)
-        companiesArr.push(...data[index].jobs)
-      }
-      const shuffled = _.shuffle(companiesArr)
-      const three = [shuffled[0], shuffled[1], shuffled[2]]
-      updateTiles(three)
+      const shuffled = _.shuffle(data)
+      const tiles = shuffled.slice(0, 3)
+      updatecompanies(tiles)
+
+      console.log(companies[0])
     }
     getCompanies()
   }, [])
 
 
-  console.log(companies, tiles)
+  console.log(companies, 'this is companies')
 
 
 
@@ -42,21 +38,33 @@ export default function Home() {
       </p>
     </div>
   </section>
-    <div className='columns'>
-      {tiles.map((tile, index) => {
-        return <div key={index} className='column is-one-third'><Link to="/" className="tile is-ancestor">
-          <div className="tile m-3 ">
-            <article className={index % 2 === 0 ? "tile is-child notification is-primary" : "tile is-child notification is-warning"}>
-              <p className="title">{tile.title}</p>
-              <p className="subtitle">{tile.location}</p>
-              <p className="subtitle">{tile.salary}</p>
-            </article>
-          </div>
-        </Link>
+    <div className='columns'>{
+      companies.map((company, index) => {
+        const job = company.jobs[Math.floor(Math.random() * company.jobs.length)]
+        return <div key={index} className='column'>
+          <Link to={`/job/${job._id}`} className='card m-3'>
+            <div className={index % 2 === 0 ? 'card-content has-background-warning' : 'card-content has-background-success'}>
+              <div className='media'>
+                <div className='media-left'>
+                  <figure className='image is-48x48'>
+                    <img src={company.logo} />
+                  </figure>
+                </div>
+                <div className='media-content '>
+                  <p className='title is-4'>{company.company}</p>
+                  <p className='subtitle is-6'>{job.title}</p>
+                  <p className='subtitle is-6'>{job.salary}</p>
+                  <p className='subtitle is-6'>{job.location}</p>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
-      })}</div>
+      })
+    }</div>
 
   </div>
+
 }
 
 {/* // description: "Your clear purpose is to focus on filling the top of the funnel with quality traffic that converts into registrations and you will work closely with the Commercial Team to ensure we hit our registration, revenue and retention goals."
@@ -66,4 +74,21 @@ export default function Home() {
 // updatedAt: "2021-02-18T16:37:30.601Z"
 // user: "602e97c742a04f079b52d42b"
 // _id: "602e97ca42a04f079b52d446" */}
+
+// about: "Learn a language with thousands of video clips of real native speakers, fun and effective games to practice your skills. Start learning on web or on our apps!"
+// comments: []
+// company: "Language Pirate"
+// industry: ["education"]
+// jobs: (3)[{ … }, { … }, { … }]
+// logo: "https://i.imgur.com/ZFN0A3j.jpg"
+// rating: 4.2
+// user: { name: "Jay Vasudha", type: "company-admin", _id: "602fdb8285457d4db755c7dc" }
+// website: "www.languagepirate.com"
+// __v: 0
+// _id: "602fdb8585457d4db755c7fa"
+
+
+
+
+
 
