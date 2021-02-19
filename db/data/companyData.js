@@ -3,7 +3,7 @@ export default function getCompanyData(users) {
   return [
     {
       company: 'Vulcan',
-      website: 'vulcan.com',
+      website: 'wwww.vulcan.com',
       about: 'A cutting edge fintech wealth management organisation with offices in Central London. Our primary objective is to provide wealth management advice to a portfolio of high net worth clients, using market leading financial technology.',
       industry: 'FinTech',
       logo: 'https://i.imgur.com/Bn1bU5Z.jpg',
@@ -34,7 +34,7 @@ export default function getCompanyData(users) {
     },
     {
       company: 'Ridgeway',
-      website: 'ridgeway.com',
+      website: 'www.ridgeway.com',
       about: 'Ridgeway builds crypto-backed lending technology and scalable institutional-grade crypto custody and blockchain monitoring products.',
       industry: 'Block-Chain',
       logo: 'https://i.imgur.com/FgzlHZL.jpg',
@@ -65,7 +65,7 @@ export default function getCompanyData(users) {
     },
     {
       company: 'Mango',
-      website: 'mango.com',
+      website: 'www.mango.com',
       about: 'Mango is a full-service digital agency with digital designers, programmers, SEO specialists, content creators, digital marketers all working together in-house. Our clients include Google, Marks & Spencers, NatWest. Come join our team!',
       industry: 'eCommerce',
       logo: 'https://i.imgur.com/3BHkoIS.jpg',
