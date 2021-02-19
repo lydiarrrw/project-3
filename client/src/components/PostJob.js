@@ -21,7 +21,7 @@ export default function PostJob() {
     //add time stamp
 
   })
-console.log(formData)
+  console.log(formData)
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
   }
@@ -37,9 +37,9 @@ console.log(formData)
 
     try {
       const { data } = await axios.post('/api/company/:companyId/job', //newFormData,
-       {
-        headers: { Authorization: `Bearer ${token}` }
-      })
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        })
       console.log(data._id)
       history.push(`/company/:companyId/job/${data._id}`)
     } catch (err) {
