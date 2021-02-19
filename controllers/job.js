@@ -13,6 +13,7 @@ async function postJob(req, res, next) {
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
     }
+ 
     company.jobs.push(jobData)
     const savedCompany = await company.save()
     res.send(savedCompany)
