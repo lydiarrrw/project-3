@@ -16,12 +16,12 @@ export default function PostJob() {
     description: '',
     salary: '',
     industry: '', //react select
-    location: '', //react select
+    location: [], //react select
     user: '' //pre pop with user name but can be changed
     //add time stamp
 
   })
-
+console.log(formData)
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
   }
@@ -30,17 +30,18 @@ export default function PostJob() {
     event.preventDefault()
     const token = localStorage.getItem('token')
 
-    const newFormData = {
-      ...formData,
-      types: formData.types.map(type => type.value)
-    }
+    // const newFormData = {
+    //   ...formData,
+    //   location: formData.location.map(type => type.value)
+    // }
 
     try {
-      const { data } = await axios.post('/api/company/:companyId/job', newFormData, {
+      const { data } = await axios.post('/api/company/:companyId/job', //newFormData,
+       {
         headers: { Authorization: `Bearer ${token}` }
       })
       console.log(data._id)
-      history.push(`'/company/:companyId/job/${data._id}`)
+      history.push(`/company/:companyId/job/${data._id}`)
     } catch (err) {
       console.log(err.response.data)
     }
@@ -55,7 +56,7 @@ export default function PostJob() {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           formData={formData}
-          handleTypeChange={(types) => updateFormData({ ...formData, types })}
+          handleTypeChange={(location) => updateFormData({ ...formData, location })}
         />
       </div>
       <div className="column is-one-quarter"></div>
