@@ -281,6 +281,68 @@ export default function getCompanyData(users) {
         }],
       user: users[9],
       rating: 4.6
+    },
+    {
+      company: 'Code-Cog',
+      website: 'www.code-cog.net',
+      about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
+      industry: 'internet',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Junior Developer C#',
+          description: 'This is a fantastic opportunity to join a leading financial services client in the city of London. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
+          salary: '£36,000',
+          location: 'London',
+          user: users[9]
+        },
+        {
+          title: 'Full Stack Java Developer',
+          description: 'Systematic hedge fund in London are looking for a Java Developer to join their team. They use technology to build out current workflows and processes to create   repeatable, scalable results. They pride themselves on their use of technology to   automate their processes. The systems you’ll be building will have a direct impact on   the business as they’ll be exposed to the portfolio managers, quants and operations   team who all place an immense amount of value and trust in these systems. Also, with no   business analysts you’ll be involved in every stage of the SDLC - from information  gathering to deploying, supporting and monitoring the system',
+          salary: '£42,000',
+          location: 'London',
+          user: users[9]
+        },
+        {
+          title: 'Junior iOS / Mobile Developer',
+          description: 'An exciting, creative visual FX / graphics company is seeking a talented junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
+          salary: '£28,000',
+          location: 'London',
+          user: users[9]
+        }],
+      user: users[9],
+      rating: 4.6
+    },
+    {
+      company: 'Code-Cog',
+      website: 'www.code-cog.net',
+      about: 'Codecog was formed by the Flendon brothers back in 2003, and has been providing companies with expert advice on their computer systems ever since. More recently, the   company have expanded into other markets, and is one of the highest holders of bitcoin.',
+      industry: 'internet',
+      logo: 'logo',
+      jobs: [
+        {
+          title: 'Junior Developer C#',
+          description: 'This is a fantastic opportunity to join a leading financial services client in the city of London. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
+          salary: '£36,000',
+          location: 'London',
+          user: users[9]
+        },
+        {
+          title: 'Full Stack Java Developer',
+          description: 'Systematic hedge fund in London are looking for a Java Developer to join their team. They use technology to build out current workflows and processes to create   repeatable, scalable results. They pride themselves on their use of technology to   automate their processes. The systems you’ll be building will have a direct impact on   the business as they’ll be exposed to the portfolio managers, quants and operations   team who all place an immense amount of value and trust in these systems. Also, with no   business analysts you’ll be involved in every stage of the SDLC - from information  gathering to deploying, supporting and monitoring the system',
+          salary: '£42,000',
+          location: 'London',
+          user: users[9]
+        },
+        {
+          title: 'Junior iOS / Mobile Developer',
+          description: 'An exciting, creative visual FX / graphics company is seeking a talented junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
+          salary: '£28,000',
+          location: 'London',
+          user: users[9]
+        }],
+      user: users[9],
+      rating: 4.6
     }
   ]
 }
