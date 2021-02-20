@@ -23,7 +23,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/companies" component={Companies} />
       <Route exact path="/company/:companyId" component={Company} />
-      <Route exact path="/job/:jobId" component={Job} />
+      <Route exact path="/company/:companyid/job/:jobId" component={Job} />
       <Route exact path="/company/:companyId/job" component={PostJob} />
     </Switch>
   </BrowserRouter>
