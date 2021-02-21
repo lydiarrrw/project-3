@@ -26,6 +26,7 @@ const App = () => (
       <Route exact path="/company/:companyId" component={Company} />
       <Route exact path="/company/:companyid/job/:jobId" component={Job} />
       <Route exact path="/company/:companyId/job" component={PostJob} />
+      <Route exact path="/jobs" component={Jobs} />
       <Route exact path="/map" component={Map} />
     </Switch>
   </BrowserRouter>
