@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import JobForm from './JobPostForm'
 // import ReactDOM from 'react-dom'
@@ -7,9 +7,11 @@ import JobForm from './JobPostForm'
 
 // const inputFields = ['name', ]
 
-export default function PostJob() {
+export default function PostJob({ match }) {
 
+  const companyId = match.params.companyId
 
+  const [company, updatedCompany] = useState({})
   const [formData, updateFormData] = useState({
     company: '', //pre populate with user company
     title: '',
@@ -17,11 +19,36 @@ export default function PostJob() {
     salary: '',
     industry: '', //react select
     location: [], //react select
-    user: '' //pre pop with user name but can be changed
+    user: [] //pre pop  
     //add time stamp
 
   })
-console.log(formData)
+
+
+//   useEffect(() => {
+//     async function getCompanyInfo() {
+//      const data = await axios.get(`/api/company/${companyId}`)
+      
+//           updatedCompany(data)
+          
+        
+//     }
+//     getCompanyInfo()
+//   }, [])
+
+  // useEffect(() => {
+  //   axios.get(`/api/company/${companyId}`)
+  //     .then(({ data }) => {
+  //       updatedCompany(data)
+  //     })
+  // }, [])
+
+// console.log(company)
+
+
+
+
+  //console.log(formData)
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
   }
@@ -30,14 +57,13 @@ console.log(formData)
     event.preventDefault()
     const token = localStorage.getItem('token')
 
-    // const newFormData = {
-    //   ...formData,
-    //   location: formData.location.map(type => type.value)
-    // }
+    const newFormData = {
+      ...formData
+      // location: formData.location.map(type => type.value)
+    }
 
     try {
-      const { data } = await axios.post('/api/company/:companyId/job', //newFormData,
-       {
+      const { data } = await axios.post('/api/company/:companyId/job', newFormData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       console.log(data._id)

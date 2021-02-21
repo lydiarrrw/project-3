@@ -10,7 +10,7 @@ async function postJob(req, res, next) {
 
   try {
     const company = await Company.findById(companyId).populate('jobs.user').populate('user')
-console.log(company)
+//console.log(company)
     //console.log(req.params, req.currentUser, company.user)
 
     if (!company) {
