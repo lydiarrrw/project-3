@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import JobForm from './JobPostForm'
 // import ReactDOM from 'react-dom'
@@ -7,21 +7,48 @@ import JobForm from './JobPostForm'
 
 // const inputFields = ['name', ]
 
-export default function PostJob() {
+export default function PostJob({ match }) {
 
+  const companyId = match.params.companyId
 
+  const [company, updatedCompany] = useState({})
   const [formData, updateFormData] = useState({
     company: '', //pre populate with user company
     title: '',
     description: '',
     salary: '',
     industry: '', //react select
-    location: '', //react select
-    user: '' //pre pop with user name but can be changed
+    location: [], //react select
+    user: [] //pre pop  
     //add time stamp
 
   })
 
+
+//   useEffect(() => {
+//     async function getCompanyInfo() {
+//      const data = await axios.get(`/api/company/${companyId}`)
+      
+//           updatedCompany(data)
+          
+        
+//     }
+//     getCompanyInfo()
+//   }, [])
+
+  // useEffect(() => {
+  //   axios.get(`/api/company/${companyId}`)
+  //     .then(({ data }) => {
+  //       updatedCompany(data)
+  //     })
+  // }, [])
+
+// console.log(company)
+
+
+
+
+  //console.log(formData)
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
   }
@@ -31,8 +58,8 @@ export default function PostJob() {
     const token = localStorage.getItem('token')
 
     const newFormData = {
-      ...formData,
-      types: formData.types.map(type => type.value)
+      ...formData
+      // location: formData.location.map(type => type.value)
     }
 
     try {
@@ -40,7 +67,7 @@ export default function PostJob() {
         headers: { Authorization: `Bearer ${token}` }
       })
       console.log(data._id)
-      history.push(`'/company/:companyId/job/${data._id}`)
+      history.push(`/company/:companyId/job/${data._id}`)
     } catch (err) {
       console.log(err.response.data)
     }
@@ -55,7 +82,7 @@ export default function PostJob() {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           formData={formData}
-          handleTypeChange={(types) => updateFormData({ ...formData, types })}
+          handleTypeChange={(location) => updateFormData({ ...formData, location })}
         />
       </div>
       <div className="column is-one-quarter"></div>

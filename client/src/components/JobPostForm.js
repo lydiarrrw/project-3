@@ -21,6 +21,18 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
       </div>
 
       <div className="field">
+        <label className="label">Industry</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            name="industry"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
+      <div className="field">
         <label className="label">Job Title</label>
         <div className="control">
           <input
@@ -76,12 +88,8 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
       <div className="field">
         <label className="label">User</label>
         <div className="control">
-          <input
-            className="input"
-            type="text"
-            name="user"
-            onChange={handleChange}
-          />
+         <p>Name:{name} Id:</p>
+        
         </div>
       </div>
 
