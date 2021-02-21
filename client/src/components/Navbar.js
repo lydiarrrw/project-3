@@ -27,7 +27,7 @@ const NavBar = () => {
         </div>
       </div>
     </div>
-  </nav> 
+  </nav>
 }
 
 export default withRouter(NavBar)
