@@ -39,7 +39,7 @@ export default function Register({ history }) {
               <h2 className="subtitle colored is-4">Find your future job today.</h2>
               <p>Search millions of jobs and get the inside scoop on companies with employee reviews, personalised salary tools, and more.</p>
               <br />
-              <p>Hiring? <a href="/company/:companyId/job">Post a job for free.</a></p>
+              <p>Hiring? <a href="/company/:companyId/job" className="links">Post a job for free.</a></p>
             </div>
             <div className="column right has-text-centered">
               <h1 className="title is-4">Sign up</h1>
@@ -63,7 +63,7 @@ export default function Register({ history }) {
                 <button className="button is-block is-primary is-fullwidth is-medium">Submit</button>
                 <br />
                 <p className="error">{ error }</p>
-                <small><em>By continuing, you agree to our <a href="#">Terms of Use</a> and acknowledge our <a href="#">Privacy Policy</a>.</em></small>
+                <small><em>By continuing, you agree to our <a href="#" className="links">Terms of Use</a> and acknowledge our <a href="#" className="links">Privacy Policy</a>.</em></small>
               </form>
             </div>
           </div>

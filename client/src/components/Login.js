@@ -53,12 +53,12 @@ export default function Login({ history }) {
             <nav className="level">
               <div className="level-item has-text-centered">
                 <div>
-                  <a href="#">Forgot Password?</a>
+                  <a href="#" className="links">Forgot Password?</a>
                 </div>
               </div>
               <div className="level-item has-text-centered">
                 <div>
-                  <a href="/register">Create an Account</a>
+                  <a href="/register" className="links">Create an Account</a>
                 </div>
               </div>
             </nav>
