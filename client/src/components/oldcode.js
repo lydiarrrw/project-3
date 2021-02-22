@@ -5,23 +5,25 @@ import JobForm from './JobPostForm'
 // import { Editor, EditorState } from 'draft-js'
 // import 'draft-js/dist/Draft.css';
 
+// const inputFields = ['name', ]
 
-export default function PostJob({ match, history }) {
+export default function PostJob({ match }) {
 
   const companyId = match.params.companyId
 
-
   const [company, updatedCompany] = useState({})
   const [formData, updateFormData] = useState({
-    company: '', //pre populate with user company
+    company: 'Charity Crunch', //pre populate with user company
     title: '',
     description: '',
     salary: '',
-    location: [], //react select
-    user: '' //pre pop  
+    industry: '', //react select
+    location: 'London', //react select
+    user: 'Pauline' //pre pop  
     //add time stamp
 
   })
+
 
   useEffect(() => {
     async function getCompanyInfo() {
@@ -35,34 +37,38 @@ export default function PostJob({ match, history }) {
     getCompanyInfo()
   }, [])
 
-
-
-  const token = localStorage.getItem('token')
-  const payloadAsString = atob(token.split('.')[1])
-  const payloadAsObject = JSON.parse(payloadAsString)
-
-
+  console.log(company)
+console.log(company.user)
+console.log(localStorage.getItem('token'))
+const token = localStorage.getItem('token')
+const payloadAsString = atob(token.split('.')[1])
+const payloadAsObject = JSON.parse(payloadAsString)
+console.log(payloadAsString, payloadAsObject)
+  console.log(formData)
+  
+  
+  
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   async function handleSubmit(event) {
     event.preventDefault()
-
+    const token = localStorage.getItem('token')
 
     const newFormData = {
-      ...formData,
-      location: formData.location.map(type => type.value)
+      ...formData
+      // location: formData.location.map(type => type.value)
     }
 
     try {
-      const { data } = await axios.post(`/api/company/${companyId}/job`, newFormData, {
+      const { data } = await axios.post(`/api/company/${companyId}/job`,  {
         headers: { Authorization: `Bearer ${token}` }
       })
-      console.log(data)
-      history.push(`/company/${companyId}`)
+      console.log(data._id)
+      history.push(`/company/:companyId/job/${data._id}`)
     } catch (err) {
-      console.log(err)
+      console.log(err.response.data)
     }
   }
 
@@ -70,8 +76,8 @@ export default function PostJob({ match, history }) {
     <div className="columns is-mobile">
       <div className="column is-one-quarter"></div>
       <div className="column is-two-quarters ">
-        <h2 className="title is-4">Post a job for</h2>
-        <h2 className=" title is-2">{company.company}</h2>
+        <h2 className="title is-2">Post a job for {company.company}</h2>
+        <h2 className="title is-4">User details:</h2>
         <JobForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}

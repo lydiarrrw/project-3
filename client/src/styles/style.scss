@@ -17,13 +17,17 @@
   margin: 100px;
 }
 
-.card-content {
-  height: 320px;
+.companyCard {
+  border: 2px solid black;
+  border-radius: 1%;
+  padding: 5px;
+  margin: 10px;
 }
 
-.button {
-  margin-left:10px;
+.card-content {
+  min-height: 300px;
 }
+
 .logos{
   height: 50px;
   width: 50px;
@@ -67,6 +71,7 @@
 #searchBar{
   width: 400px;
 }
+<<<<<<< HEAD
 
 #hidden{
   display: none;
@@ -74,3 +79,5 @@
 #visible{
   display: inline-block;
 }
+=======
+>>>>>>> development
