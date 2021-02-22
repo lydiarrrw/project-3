@@ -1,14 +1,3 @@
-.bck-img-register {
-  background: url('https://www.accutask.com/wp-content/uploads/2018/08/office-people-background-tablet-with-charts-foreground.jpg');
-  background-size: cover;
-  height: 400px;
-}
-
-.bck-img-login {
-  background: url('http://getindustry.com.au/wp-content/uploads/2016/08/blurry-office.jpg');
-  background-size: cover;
-  height: 400px;
-}
 .all-companies {
   margin: 80px;
 }
@@ -32,9 +21,11 @@
   height: 50px;
   width: 50px;
 }
+
 .homepage{
   height:200px
 }
+
 .grow:hover {
   -webkit-transition: all 100ms ease-in;
   -webkit-transform: scale(1.05);
@@ -58,7 +49,6 @@
     animation: swell 5s infinite;
 }
 
-
 @keyframes swell {
   0%,  100% {
     transform: scale(1.00);
@@ -70,4 +60,94 @@
 
 #searchBar{
   width: 400px;
+}
+
+.body {
+  background: rgb(247, 247, 247);
+  height: 100vh;
+  color: rgba(0, 0, 0, 0.66);
+}
+
+.field:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.register {
+  margin-top: 160px;
+  background: white;
+  border-radius: 10px;
+}
+
+.left,
+.right {
+  padding: 72px;
+}
+
+.left {
+  border-right: 5px solid rgb(247, 247, 247);
+}
+
+.left .title {
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.left .colored {
+  color: rgb(46, 214, 175);
+  font-weight: 500;
+  margin-top: 16px !important;
+  letter-spacing: -1px;
+}
+
+.left p {
+  color: rgba(0, 0, 0, 0.33);
+  font-size: 18px;
+}
+
+.right .title {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.right .description {
+  margin-top: 16px;
+  margin-bottom: 16px !important;
+  color: rgba(0, 0, 0, 0.33);
+  font-size: 18px;
+}
+
+.right small {
+  color: rgba(0, 0, 0, 0.33);
+}
+
+input {
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: rgb(46, 214, 175) !important;
+  box-shadow: 0 0 0 1px rgb(46, 214, 175) !important;
+}
+
+.fab,
+.fas {
+  color: rgba(0, 0, 0, 0.33);
+  margin-right: 16px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+#hidden{
+  display: none;
+}
+
+#visible{
+  display: inline-block;
 }
