@@ -21,6 +21,9 @@ const NavBar = () => {
             <Link to='/jobs' className="button is-primary is-outlined">
               <strong>Jobs</strong>
             </Link>
+            <Link to='/map' className="button is-primary is-outlined">
+              <strong>Map</strong>
+            </Link>
           </div>
         </div>
       </div>

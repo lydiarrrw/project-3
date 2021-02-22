@@ -35,3 +35,42 @@
   height: 50px;
   width: 50px;
 }
+.homepage{
+  height:200px
+}
+.grow:hover {
+  -webkit-transition: all 100ms ease-in;
+  -webkit-transform: scale(1.05);
+  -ms-transition: all 100ms ease-in;
+  -ms-transform: scale(1.05);   
+  -moz-transition: all 100ms ease-in;
+  -moz-transform: scale(1.05);
+  transition: all 100ms ease-in;
+  transform: scale(1.05);
+}
+
+.grow1{
+  -webkit-transition: all 100ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 100ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 100ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 100ms ease-in;
+    transform: scale(1);  
+    animation: swell 5s infinite;
+}
+
+
+@keyframes swell {
+  0%,  100% {
+    transform: scale(1.00);
+  }
+  50% {
+    transform: scale(1.20);
+  }
+}
+
+#searchBar{
+  width: 400px;
+}

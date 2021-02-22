@@ -10,6 +10,7 @@ import Company from './components/Company'
 import Jobs from './components/Jobs'
 import Job from './components/Job'
 import PostJob from './components/PostJob'
+import Map from './components/Map'
 
 import 'bulma'
 import './styles/style.scss'
@@ -26,6 +27,8 @@ const App = () => (
       <Route exact path="/company/:companyId" component={Company} />
       <Route exact path="/company/:companyid/job/:jobId" component={Job} />
       <Route exact path="/company/:companyId/job" component={PostJob} />
+      <Route exact path="/jobs" component={Jobs} />
+      <Route exact path="/map" component={Map} />
     </Switch>
   </BrowserRouter>
 )
