@@ -54,7 +54,8 @@ export default function Map() {
     {...viewPort}
     // ? Event listener for when the viewport changes..
     onViewportChange={(viewPort) => updateViewPort(viewPort)}
-    mapboxApiAccessToken={'pk.eyJ1Ijoibmlja2hheWVzIiwiYSI6ImNrYmh2dW56NDA5ZnIyenB2MHJ4MGFnaWYifQ.IHXzZRvdxBtuH9Ro6nLKmQ'}
+    mapboxApiAccessToken={'pk.eyJ1IjoiY2xlbS1jb2RlIiwiYSI6ImNrbGdmaTM2eDFqbncydm1qMjd0dGFyeDYifQ.efDaSwtaqJifRAzvIP7oMA'}
+    mapStyle='mapbox://styles/clem-code/cklgfko3y7o5z17nsey5dye0l'
   >
     {jobs.map((job, i) =>
       <Marker

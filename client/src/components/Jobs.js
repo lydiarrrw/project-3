@@ -7,6 +7,7 @@ export default function Jobs() {
   const [search, updateSearch] = useState([])
   const [jobs, updateJobs] = useState([])
 
+
   //!Fetching from the API
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function Jobs() {
           //!Adding company information to job fields
           const role = companies[index].jobs[job]
           const companyData = { ...companies[index] }
+          role.companyID = companyData._id
           delete companyData._id; delete companyData.jobs; delete companyData.user; delete companyData.comments
           const complete = { ...role, ...companyData }
           jobs.push(complete)
@@ -29,7 +31,7 @@ export default function Jobs() {
     }
     getCompanies()
   }, [])
-
+  console.log('this is jobs', jobs)
   //!Filtering to enable search function
 
   function filterJobs() {
@@ -40,7 +42,10 @@ export default function Jobs() {
       }
     })
   }
-
+  // <Link to={result === 'error' ? { pathname: '/project-2/' } : {
+  //   pathname: '/project-2/result/',
+  //   state: { resultState: result.id }
+  // }} ></Link>
   return <div>
     <div className='columns m-3 is-centered' >
       <div className='column is-half'>
@@ -53,7 +58,7 @@ export default function Jobs() {
           const sector = job.industry.toString()
           const upperSector = sector.slice(0, 1).toUpperCase() + sector.slice(1)
           return <div key={index} className='column is-one-third'>
-            <Link to={`/job/${job._id}`} className='card m-3'>
+            <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }} className='card m-3'>
               <div className={index % 2 === 0 ? 'card-content has-background-info grow' : 'card-content has-background-primary grow'}>
                 <div className='media'>
                   <div className='media-left'>
@@ -77,28 +82,5 @@ export default function Jobs() {
         })
       }</div>
     </div>
-  </div>
+  </div >
 }
-
-
-
-
-{/* // description: "Your clear purpose is to focus on filling the top of the funnel with quality traffic that converts into registrations and you will work closely with the Commercial Team to ensure we hit our registration, revenue and retention goals."
-// location: "Edinburgh"
-// salary: "£60,000"
-// title: "VP of Marketing"
-// updatedAt: "2021-02-18T16:37:30.601Z"
-// user: "602e97c742a04f079b52d42b"
-// _id: "602e97ca42a04f079b52d446" */}
-
-// about: "Learn a language with thousands of video clips of real native speakers, fun and effective games to practice your skills. Start learning on web or on our apps!"
-// comments: []
-// company: "Language Pirate"
-// industry: ["education"]
-// jobs: (3)[{ … }, { … }, { … }]
-// logo: "https://i.imgur.com/ZFN0A3j.jpg"
-// rating: 4.2
-// user: { name: "Jay Vasudha", type: "company-admin", _id: "602fdb8285457d4db755c7dc" }
-// website: "www.languagepirate.com"
-// __v: 0
-// _id: "602fdb8585457d4db755c7fa"

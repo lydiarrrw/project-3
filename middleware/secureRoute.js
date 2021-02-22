@@ -10,8 +10,8 @@ export default async function secureRoute(req, res, next) {
     const authToken = req.headers.authorization
  
     if (!authToken || !authToken.startsWith('Bearer')) {
-  
-      return res.status(401).send({ message: 'Unauthorized' })
+  console.log(authToken)
+      return res.status(401).send({ message: 'Unauthorized step 4' })
     }
 
     const token = authToken.replace('Bearer ', '')
@@ -24,7 +24,7 @@ export default async function secureRoute(req, res, next) {
     jwt.verify(token, secret, async (err, data) => {
   
       if (err) {
-        return res.status(401).send({ message: 'Unauthorized' })
+        return res.status(401).send({ message: 'Unauthorized sstep 5' })
       }
 
 
@@ -32,7 +32,7 @@ export default async function secureRoute(req, res, next) {
 
     
       if (!user) {
-        return res.status(401).send({ message: 'Unauthorized' })
+        return res.status(401).send({ message: 'Unauthorized step 6' })
       }
 
    
@@ -41,6 +41,6 @@ export default async function secureRoute(req, res, next) {
       next()
     })
   } catch (err) {
-    res.status(401).send({ message: 'Unauthorized' })
+    res.status(401).send({ message: 'Unauthorized step 7' })
   }
 }
