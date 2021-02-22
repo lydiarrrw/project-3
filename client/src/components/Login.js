@@ -28,40 +28,43 @@ export default function Login({ history }) {
     }
   }
 
-  return <div className="section bck-img-login">
-    <div className="columns is-centered">
-      <div className="column is-half">
-        <div className="container">
-          <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  value={formData.email}
-                  onChange={handleChange}
-                  name={'email'}
-                />
+  return <div className="body">
+    <section className="container">
+      <div className="columns is-multiline">
+        <div className="column is-6 is-offset-3 register">
+          <div className="column right has-text-centered">
+            <h1 className="title is-4">Sign in</h1>
+            <p className="description">Stay updated on your professional world</p>
+            <form onSubmit={handleSubmit}>
+              <div className="field">
+                <div className="control">
+                  <input className="input is-medium" type="email" placeholder="Email" value={formData.email} onChange={handleChange} name={'email'}/>
+                </div>
               </div>
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  name={'password'}
-                />
+              <div className="field">
+                <div className="control">
+                  <input className="input is-medium" type="password" placeholder="Password" value={formData.password} onChange={handleChange} name={'password'}/>
+                </div>
               </div>
-            </div>
-            <button className="button">Submit</button>
-            <p className="content">{ error }</p>
-          </form>
+              <button className="button is-block is-primary is-fullwidth is-medium">Submit</button>
+              <br />
+              <p className="error">{ error }</p>
+            </form>
+            <nav className="level">
+              <div className="level-item has-text-centered">
+                <div>
+                  <a href="#" className="links">Forgot Password?</a>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <a href="/register" className="links">Create an Account</a>
+                </div>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 }
