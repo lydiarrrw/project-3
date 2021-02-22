@@ -19,11 +19,6 @@ export default function Home() {
     getCompanies()
   }, [])
 
-
-  console.log(companies, 'this is companies')
-
-
-
   return <div><section className="hero is-medium is-link has-text-centered">
     <div className="hero-body">
 
@@ -41,7 +36,8 @@ export default function Home() {
         companies.map((company, index) => {
           const job = company.jobs[Math.floor(Math.random() * company.jobs.length)]
           return <div key={index} className='column'>
-            <Link to={`/job/${job._id}`} className='card m-3'>
+            {/* to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }} */}
+            <Link to={{ pathname: `/job/${job._id}`, state: { companyID: company._id } }} className='card m-3'>
               <div className={index % 2 === 0 ? 'card-content has-background-warning homepage grow' : 'card-content has-background-success homepage grow'}>
                 <div className='media'>
                   <div className='media-left'>
