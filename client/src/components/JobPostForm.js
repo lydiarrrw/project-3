@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
 import cityData from '../data/cityData'
+import { Editor } from 'react-draft-wysiwyg'
+import { EditorState, convertToRaw } from 'draft-js'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import draftToHtml from 'draftjs-to-html'
 
 
-export default function JobForm({ formData, handleSubmit, handleChange, handleTypeChange }) {
+export default function JobForm({ formData, handleSubmit, handleChange, handleTypeChange, updateFormData }) {
+
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+
+  const rawContentState = convertToRaw(editorState.getCurrentContent())
+
+
+  //console.log(rawContentState)
+
+  const markup = draftToHtml(
+    rawContentState
+    // hashtagConfig, 
+    // directional, 
+    // customEntityTransform
+  )
+
+  //console.log(markup)
+
+  useEffect(() => {
+    updateFormData({ ...formData, description: markup })
+  }, [markup])
+
+  const onEditorStateChange = (editorState) => {
+    setEditorState(editorState)
+    const contentState = editorState.getCurrentContent()
+    //console.log('content state', convertToRaw(contentState))
+    //console.log(editorState)
+  }
 
   return <div className="container">
 
@@ -37,17 +68,23 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
         </div>
       </div>
 
-
       <div className="field">
         <label className="label">Description</label>
         <div className="control">
-          <textarea className="textarea"
-            placeholder="Type job description here"
-            // className="input"
-            type="text"
-            name="description"
-            onChange={handleChange}>
-          </textarea>
+          <Editor
+            editorState={editorState}
+            toolbarClassName="toolbarClassName"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
+            onEditorStateChange={onEditorStateChange}
+            toolbar={{
+              inline: { inDropdown: true },
+              list: { inDropdown: true },
+              textAlign: { inDropdown: true },
+              link: { inDropdown: true },
+              history: { inDropdown: true }
+            }}
+          />
 
         </div>
       </div>
