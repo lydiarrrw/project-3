@@ -20,11 +20,32 @@ export default function singleCompany({ match, history }) {
 
   return <div className="companyContainer">
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
-    <div className="companyCard">
-      <img src={company.logo} />
-      <h1>About: {company.about}</h1>
-      <h1>Rating: {company.rating}</h1>
+    <div className="columns">
+      <div className="column is-half">
+        <div className="card">
+          <div className="card-content">
+            <div className="media">
+              <div className="media-left">
+                <figure className="image is-48x48">
+                  <img src={company.logo} />
+                </figure>
+              </div>
+              <div className="media-content">
+                <p className="title is-4">{company.company}</p>
+                <p className="subtitle is-6">{company.website}</p>
+              </div>
+
+            </div>
+            <strong>About: </strong>{company.about}
+            {<br></br>}
+            <strong>Rating: </strong>{company.rating}
+          </div>
+        </div>
+      </div>
+      <div className="column is-half">
+        <h1 className="title">Jobs posted:</h1>
+
+      </div>
     </div>
   </div>
-
 }
