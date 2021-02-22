@@ -17,14 +17,16 @@ async function postJob(req, res, next) {
       return res.status(404).send({ message: 'Not found' })
     }
     if (req.currentUser.id !== company.user.id) {
-      return res.status(401).send({ message: 'Unauthorized' })
+      return res.status(401).send({ message: 'Unauthorized step 1' })
     }
 
     company.jobs.push(jobData)
     const savedCompany = await company.save()
     res.send(savedCompany)
   } catch (err) {
+    console.log(err)
     next(err)
+
   }
 }
 
@@ -45,7 +47,7 @@ async function updateJob(req, res, next) {
     console.log('current user', currentUser._id)
 
     if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
-      return res.status(401).send({ message: 'Unauthorized' })
+      return res.status(401).send({ message: 'Unauthorized step 2' })
     }
     job.set(jobData)
 
@@ -73,7 +75,7 @@ async function removeJob(req, res, next) {
     const job = company.jobs.id(jobId)
 
     if (!currentUser.isAdmin && !job.user.equals(currentUser._id)) {
-      return res.status(401).send({ message: 'Unauthorized' })
+      return res.status(401).send({ message: 'Unauthorized step 3' })
     }
 
     job.remove()
