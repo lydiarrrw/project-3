@@ -12,7 +12,7 @@ export default function Job({ match }) {
     async function getAJob() {
       try {
         const { data } = await axios.get(`/api/company/60311b1457093b1652d3557c/job/60311b1457093b1652d3557d`)
-        //const { data } = await axios.get(`/api/company/${companyId}/job/${jobId}`)
+        // const { data } = await axios.get(`/api/company/${companyId}/job/${jobId}`)
         updateJobPost(data)
       } catch (err) {
         console.log(err)

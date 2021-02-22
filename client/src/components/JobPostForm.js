@@ -1,36 +1,13 @@
 import React from 'react'
 import Select from 'react-select'
-import countryData from '../data/countryData'
+import cityData from '../data/cityData'
+
 
 export default function JobForm({ formData, handleSubmit, handleChange, handleTypeChange }) {
 
   return <div className="container">
 
     <form onSubmit={handleSubmit}>
-
-      <div className="field">
-        <label className="label">Company Name</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            name="company"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Industry</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            name="industry"
-            onChange={handleChange}
-          />
-        </div>
-      </div>
 
       <div className="field">
         <label className="label">Job Title</label>
@@ -43,6 +20,23 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
           />
         </div>
       </div>
+
+      <div className="field">
+        <label className="label">Location</label>
+        <div className="control">
+          <Select
+            isMulti
+            defaultValue={[]}
+            options={cityData}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            name="location"
+            onChange={handleTypeChange}
+            value={formData.types}
+          />
+        </div>
+      </div>
+
 
       <div className="field">
         <label className="label">Description</label>
@@ -69,31 +63,6 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
           />
         </div>
       </div>
-
-      <div className="field">
-        <label className="label">Location</label>
-        <div className="control">
-          <Select
-            defaultValue={[]}
-            options={countryData}
-            className="basic-multi-select"
-            classNamePrefix="select"
-            name="location"
-            onChange={handleTypeChange}
-            value={formData.types}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">User</label>
-        <div className="control">
-         <p>Name:{name} Id:</p>
-        
-        </div>
-      </div>
-
-
 
       <div className="field is-grouped">
         <div className="control">
