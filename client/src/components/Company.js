@@ -5,6 +5,8 @@ import axios from 'axios'
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
   const [company, updateCompany] = useState({})
+  const [text, setText] = useState('')
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
     async function fetchCompany() {
@@ -21,8 +23,15 @@ export default function singleCompany({ match, history }) {
   if (!company.jobs) return null
   if (!company.comments) return null
 
-  console.log('COMPANY.JOBS', company.jobs)
-  console.log('COMPANY COMMENTS', company.comments)
+  function handleComment() {
+    axios.post(`/api/company/${id}/comment`, { text }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(resp => {
+        setText('')
+        updateCompany(resp.data)
+      })
+  }
 
   return <div className="companyContainer">
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
@@ -51,10 +60,10 @@ export default function singleCompany({ match, history }) {
           })}
           <h1 className="title mt-6 is-6">Leave a comment below:</h1>
           <div className="control">
-            <input className="input" type="text" placeholder="Type your comment here" />
-            <button className="button is-danger grow mt-4">Submit</button>
+            <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text}/>
+            <button onClick={handleComment}className="button is-danger grow mt-4">Submit</button>
           </div>
-          
+
         </div>
 
 

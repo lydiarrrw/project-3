@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+
+
+
 
 const NavBar = () => {
   return <nav className="navbar" style={{ backgroundColor: '#172d44', height: 55 }} role="navigation" aria-label="main navigation">
