@@ -38,7 +38,7 @@ export default function Jobs() {
     return jobs.filter(job => {
       if (search.length === 0) { return job }
       else {
-        return job.title.toLowerCase().includes(search.toLowerCase()) || job.location.toLowerCase().includes(search.toLowerCase()) || job.industry.toString().toLowerCase().includes(search.toLowerCase())
+        return job.title.toLowerCase().includes(search.toLowerCase()) || job.location[0].toLowerCase().includes(search.toLowerCase()) || job.industry.toString().toLowerCase().includes(search.toLowerCase())
       }
     })
   }
@@ -46,7 +46,7 @@ export default function Jobs() {
   return <div>
     <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
-        <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
+        <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
       </div>
     </div>
     <div className='container'>

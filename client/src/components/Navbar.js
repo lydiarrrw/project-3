@@ -34,7 +34,7 @@ const NavBar = ({ history }) => {
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          <p className='m-1 has-text-white'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
+          <p className='mr-5 has-text-white'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
           <div className="buttons">
             {!localStorage.getItem('token') && <Link to="/register" className="button is-info is-outlined">
               <strong>Register</strong>
