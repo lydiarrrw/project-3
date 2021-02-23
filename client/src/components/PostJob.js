@@ -48,7 +48,7 @@ export default function PostJob({ match, history }) {
     const newFormData = {
       ...formData,
       location: formData.location.map(type => type.value),
-     
+
     }
 
     try {
@@ -62,23 +62,28 @@ export default function PostJob({ match, history }) {
     }
   }
 
-  return <div className="container">
-    <div className="columns is-mobile">
-      <div className="column is-one-quarter"></div>
-      <div className="column is-two-quarters ">
-        <h2 className="title is-4">Post a job for</h2>
-        <h2 className=" title is-2">{company.company}</h2>
-        <JobForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          formData={formData}
-          updateFormData={updateFormData}
-          handleTypeChange={(location) => updateFormData({ ...formData, location })}
-        />
+  return <div className="body level">
+    <div className="container level-item">
+      <div className="column is-half ">
+        <section className="section">
+          <div>
+            <h2 className="subtitle is-4">Post a job for</h2>
+          </div>
+          <div>
+            <h1 className="title is-2">{company.company}</h1>
+          </div>
+        </section>
+        <section className="section">
+          <JobForm
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            formData={formData}
+            updateFormData={updateFormData}
+            handleTypeChange={(location) => updateFormData({ ...formData, location })}
+          />
+        </section>
       </div>
-      <div className="column is-one-quarter"></div>
     </div>
   </div>
-
 
 }
