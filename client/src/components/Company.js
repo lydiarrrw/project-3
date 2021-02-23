@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
+import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -35,6 +36,15 @@ export default function singleCompany({ match, history }) {
       })
   }
 
+  function handleDeleteComment(commentId) {
+    axios.delete(`api/company/${id}/comment/${commentId}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(resp => {
+      updateCompany(resp.data)
+    })
+  }
+
   return <div className="companyContainer">
     
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
@@ -59,7 +69,14 @@ export default function singleCompany({ match, history }) {
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
                 ? comment.createdAt.slice(0, 10)
                 : comment.createdAt}</p>
+                {isCreator(comment.user._id) && <div className="media-right">
+            <button
+              className="delete"
+              onClick={() => handleDeleteComment(comment._id)}>
+            </button>
+          </div>}
             </div>
+            
           })}
           <h1 className="title mt-6 is-6">Leave a comment below:</h1>
           <div className="control">
