@@ -9,7 +9,10 @@ export default function singleCompany({ match, history }) {
   const id = match.params.companyId
   const [company, updateCompany] = useState({})
   const [text, setText] = useState('')
+
   const token = localStorage.getItem('token')
+
+
 
   useEffect(() => {
     async function fetchCompany() {
@@ -18,7 +21,7 @@ export default function singleCompany({ match, history }) {
         updateCompany(data)
       } catch (err) {
         console.log(err)
-      } 
+      }
 
     }
     fetchCompany()
@@ -26,7 +29,6 @@ export default function singleCompany({ match, history }) {
 
   if (!company.jobs) return null
   if (!company.comments) return null
-  console.log('COMPANY', company)
 
   function handleComment() {
     axios.post(`/api/company/${id}/comment`, { text }, {
@@ -39,17 +41,16 @@ export default function singleCompany({ match, history }) {
   }
 
   function handleDeleteComment(commentId) {
-    axios.delete(`api/company/${id}/comment/${commentId}`, {
+    axios.delete(`/api/company/${id}/comment/${commentId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    .then(resp => {
-      updateCompany(resp.data)
-    })
+      .then(resp => {
+        updateCompany(resp.data)
+      })
   }
 
-
   return <div className="companyContainer">
-    
+
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
     <div className="columns">
       <div className="column is-one-third is-multiline">
@@ -72,14 +73,14 @@ export default function singleCompany({ match, history }) {
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
                 ? comment.createdAt.slice(0, 10)
                 : comment.createdAt}</p>
-                {isCreator(comment.user._id) && <div className="media-right">
-            <button
-              className="delete"
-              onClick={() => handleDeleteComment(comment._id)}>
-            </button>
-          </div>}
+              {isCreator(comment.user._id) || localStorage.getItem('mod') === 'true' && <div className="media-right">
+                <button
+                  className="delete"
+                  onClick={() => handleDeleteComment(comment._id)}>
+                </button>
+              </div>}
             </div>
-            
+
           })}
           <h1 className="title mt-6 is-6">Leave a comment below:</h1>
           <div className="control">
@@ -94,7 +95,7 @@ export default function singleCompany({ match, history }) {
       <div className="column is-two-thirds">
         <h1 className="title has-text-danger has-text-centered">Jobs posted</h1>
         {company.jobs.map(job => {
-          
+
           //! To parse posted HTML to show nicely in browser
           const html = parse(job.description)
           console.log(html)
@@ -103,16 +104,16 @@ export default function singleCompany({ match, history }) {
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>
               <h1><strong>Description:</strong> {job.description.length >= 150
-              ? job.description.slice(0, 150) + '...'
-              : job.description}</h1>
+                ? job.description.slice(0, 150) + '...'
+                : job.description}</h1>
               <h1><strong>Salary:</strong> {job.salary}</h1>
               <h1><strong>Location:</strong> {job.location}</h1>
-              
+
               <Link to={{ pathname: `/job/${job._id}`, state: { companyID: id } }}>
                 <button className="button is-success grow mt-4">More Info</button>
               </Link>
 
-            </div> 
+            </div>
           </div>
 
         })}
