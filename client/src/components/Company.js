@@ -109,37 +109,19 @@ export default function singleCompany({ match, history }) {
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>
-<<<<<<< HEAD
-            <h1><strong>Description:</strong> {job.description.length >= 150
-              ? job.description.slice(0, 150) + '...'
-              : job.description}</h1>
-            <h1><strong>Salary:</strong> {job.salary}</h1>
-            <h1><strong>Location:</strong> {job.location}</h1>
-
-=======
               <h1><strong>Description:</strong> {html.length >= 150
-              ? html.slice(0, 150) + '...'
-              : html}</h1>
-            <h1><strong>Salary:</strong> {job.salary}</h1>
-            <h1><strong>Location:</strong></h1>{job.location.map((local, index) => {
-              return <div key={index}>{local}</div>
-            })}
->>>>>>> development
-            <Link to={{ pathname: `/job/${job._id}`, state: { companyID: id } }}>
-              <button className="button is-success grow mt-4">More Info</button>
-            </Link>
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> development
-    </div>
-  </div>
-
-})}
-
-
+                ? html.slice(0, 150) + '...'
+                : html}</h1>
+              <h1><strong>Salary:</strong> {job.salary}</h1>
+              <h1><strong>Location:</strong></h1>{job.location.map((local, index) => {
+                return <div key={index}>{local}</div>
+              })}
+              <Link to={{ pathname: `/job/${job._id}`, state: { companyID: id } }}>
+                <button className="button is-success grow mt-4">More Info</button>
+              </Link>
+            </div>
+          </div>
+        })}
       </div >
     </div >
   </div >
