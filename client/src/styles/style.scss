@@ -1,3 +1,5 @@
+$danger: #FD5721;
+
 .all-companies {
   margin: 80px;
 }
@@ -5,7 +7,6 @@
 .companyContainer {
   margin: 100px;
 }
-
 
 .companies-cards {
   min-height: 320px;
@@ -146,6 +147,16 @@ input:focus {
   display: inline-block;
 }
 
+.carousel {
+  padding: 20px 0;
+  background:rgb(247, 247, 247);
+  border: 2px solid rgb(247, 247, 247);
+}
+
+.home-bck {
+  background-color: rgb(46, 214, 175);
+  padding-bottom: 30px;
+}
 .inputoutline {
   border: 1px solid lightgray;
   background-color: white;
@@ -155,3 +166,15 @@ input:focus {
   list-style-type: circle; 
 }
 
+.comments-section {
+  margin: 10px;
+  padding: 7px;
+  border: 3px dashed rgba(0,0,0,0.03);
+border-radius: 13px;
+}
+
+.navButton {
+  color: #FD5721
+}
+
+@import "../../node_modules/bulma/bulma.sass";

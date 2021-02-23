@@ -39,6 +39,15 @@ export default function Login({ history }) {
             return user
           }
         })
+        const isMod = userList.filter((user) => {
+          if (user.type === 'mod') {
+            return user
+          }
+        })
+        if (isMod[0] === filtered[0]) {
+          localStorage.setItem('mod', 'true')
+        } else localStorage.setItem('mod', 'false')
+
         localStorage.setItem('name', filtered[0].name)
       }
       history.push('/')

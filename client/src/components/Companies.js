@@ -14,10 +14,14 @@ export default function Companies() {
     fetchData()
   }, [])
 
-
-
   return <section className="all-companies">
-    <h1 className="title is-2 has-text-danger">Companies</h1>
+        <div className='columns m-3 is-centered is-mobile' >
+      <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
+        <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
+      </div>
+    </div>
+    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
+  letterSpacing: -1 }}>Companies</h1>
     <div className="columns is-multiline">
       {companies.map(company => {
         return <div className="column is-one-quarter" key={company._id}>

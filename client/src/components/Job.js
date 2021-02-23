@@ -116,7 +116,7 @@ export default function Job({ match, location, history }) {
               <p> Salary: {jobPost.salary}</p>
               <br />
               <button className="button is-success" onClick={() => updateModal(modal ? false : true)}>Apply</button>
-              {isCreator(admin) && <button onClick={handleDelete} className="button is-success">Delete</button>}
+              {(localStorage.getItem('mod') === 'true' || isCreator(admin)) && <button onClick={handleDelete} className="button is-success">Delete</button>}
             </div>
           </div>
         </div>
