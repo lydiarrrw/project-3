@@ -48,6 +48,13 @@ export default function singleCompany({ match, history }) {
       })
   }
 
+  function handleDeleteCompany(companyId) {
+    axios.delete(`/api/company/${company._id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    history.push('/companies')
+  }
+  console.log(company, 'this is company', company._id)
   return <div className="companyContainer">
 
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
@@ -76,7 +83,7 @@ export default function singleCompany({ match, history }) {
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
                 ? comment.createdAt.slice(0, 10)
                 : comment.createdAt}</p>
-              {isCreator(comment.user._id) || localStorage.getItem('mod') === 'true' && <div className="media-right">
+              {(isCreator(comment.user._id) || localStorage.getItem('mod') === 'true') && <div className="media-right">
                 <button
                   className="delete"
                   onClick={() => handleDeleteComment(comment._id)}>
@@ -123,5 +130,8 @@ export default function singleCompany({ match, history }) {
         })}
       </div >
     </div >
+    <div className='container is-centered'>
+      {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
+    </div>
   </div >
 }
