@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import { isCreator } from '../lib/auth'
+import parse from 'html-react-parser'
+// import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -44,6 +46,7 @@ export default function singleCompany({ match, history }) {
       updateCompany(resp.data)
     })
   }
+
 
   return <div className="companyContainer">
     
@@ -91,6 +94,11 @@ export default function singleCompany({ match, history }) {
       <div className="column is-two-thirds">
         <h1 className="title has-text-danger has-text-centered">Jobs posted</h1>
         {company.jobs.map(job => {
+          
+          //! To parse posted HTML to show nicely in browser
+          const html = parse(job.description)
+          console.log(html)
+
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>
