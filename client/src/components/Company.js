@@ -39,7 +39,7 @@ export default function singleCompany({ match, history }) {
   }
 
   function handleDeleteComment(commentId) {
-    axios.delete(`api/company/${id}/comment/${commentId}`, {
+    axios.delete(`/api/company/${id}/comment/${commentId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(resp => {
@@ -66,7 +66,7 @@ export default function singleCompany({ match, history }) {
         <div className="comments-section">
           <h1 className="title mt-4 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
           {company.comments.map(comment => {
-            return <div className="card mt-4" key={comment._id}>
+            return <div className="card m-4 p-2" key={comment._id}>
               <h1><strong>User: </strong>{comment.user.name}</h1>
               <p><strong>Comment: </strong>{comment.text}</p>
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
@@ -74,10 +74,11 @@ export default function singleCompany({ match, history }) {
                 : comment.createdAt}</p>
                 {isCreator(comment.user._id) && <div className="media-right">
             <button
-              className="delete"
+              className="delete is-small"
               onClick={() => handleDeleteComment(comment._id)}>
             </button>
           </div>}
+          
             </div>
             
           })}
@@ -122,3 +123,4 @@ export default function singleCompany({ match, history }) {
     </div>
   </div>
 }
+

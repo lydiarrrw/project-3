@@ -3,6 +3,9 @@ import { Link, withRouter } from 'react-router-dom'
 
 const NavBar = ({ history }) => {
 
+  const [menu, updateMenu] = useState(false)
+  const { burger, updateBurger } = useState(false)
+
 
   function handleLogout() {
     localStorage.removeItem('token') // ! This logs you out.
@@ -15,8 +18,13 @@ const NavBar = ({ history }) => {
       <Link to="/">
         <img style={{ height: 55, width: 55 }} src="https://i.imgur.com/PidpcsN.png" />
       </Link>
+      <a onClick={() => updateMenu(!menu)} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div className="navbar-menu is-active">
+    <div className={`navbar-menu ${menu ? "is-active" : ''} is-spaced px-3`}>
       <div className="navbar-start">
         <div className="navbar-item">
           <div className="buttons">
