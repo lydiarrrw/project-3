@@ -65,15 +65,13 @@ export default function PostJob({ match, history }) {
   return <div className="body level">
     <div className="container level-item">
       <div className="column is-half ">
-        <section className="section">
-          <div>
-            <h2 className="subtitle is-4">Post a job for</h2>
-          </div>
-          <div>
-            <h1 className="title is-2">{company.company}</h1>
-          </div>
+        <section className="level">
+         
+            <h1 className="title is-2">Post a job for {company.company}</h1>
+       
         </section>
-        <section className="section">
+        <div className="level">
+        {/* <section className="section"> */}
           <JobForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
@@ -81,9 +79,9 @@ export default function PostJob({ match, history }) {
             updateFormData={updateFormData}
             handleTypeChange={(location) => updateFormData({ ...formData, location })}
           />
-        </section>
+        {/* </section> */}
       </div>
     </div>
   </div>
-
+</div>
 }
