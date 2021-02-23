@@ -3,6 +3,7 @@ import axios from 'axios'
 import { isCreator } from '../lib/auth'
 import parse from 'html-react-parser'
 import 'draft-js/dist/Draft.css'
+import { Link } from 'react-router-dom'
 
 
 export default function Job({ match, location, history }) {
@@ -58,7 +59,7 @@ export default function Job({ match, location, history }) {
       fileName.textContent = event.target.value
     }
   }
-  console.log('this is admin', admin)
+  //console.log('this is admin', admin)
   if (!admin) {
     return null
   }
@@ -76,14 +77,20 @@ export default function Job({ match, location, history }) {
             <div className="tile is-child box">
               <div className="media">
                 <div className="media-left">
-                  <figure className="image is-96x96 m-2">
-                    <img src={`${companyPost.logo}`} alt="Placeholder image" />
-                  </figure>
+                  <Link
+                    to={`/company/${companyID}`}>
+                    <figure className="image is-96x96 m-2">
+                      <img src={`${companyPost.logo}`} alt="Placeholder image" />
+                    </figure>
+                  </Link>
                 </div>
               </div>
               <div className="media-content">
                 <div className="content">
-                  <h3 className="title is-4">{companyPost.company}</h3>
+                  <Link
+                    to={`/company/${companyID}`}>
+                    <h3 className="title is-4">{companyPost.company}</h3>
+                  </Link>
                   <a className="subtitle is-5">{companyPost.website}</a>
                   <p className="location"><strong>Location(s):</strong></p>{jobPost.location.map((local, index) => {
                     return <div key={index}>{local}</div>
