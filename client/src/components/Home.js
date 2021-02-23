@@ -32,7 +32,7 @@ export default function Home() {
     </div>
   </section>
     <div className='container'>
-      <div className='columns'>{
+      <div className='columns is-mobile'>{
         companies.map((company, index) => {
           const job = company.jobs[Math.floor(Math.random() * company.jobs.length)]
           return <div key={index} className='column'>
