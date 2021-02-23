@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { isCreator } from '../lib/auth'
+import parse from 'html-react-parser'
+import 'draft-js/dist/Draft.css'
+
 
 export default function Job({ match, location, history }) {
 
@@ -14,6 +17,8 @@ export default function Job({ match, location, history }) {
   const companyID = location.state.companyID
   const jobID = match.params.jobId
   const token = localStorage.getItem('token')
+
+
 
   //! Get the company
   useEffect(() => {
@@ -57,6 +62,11 @@ export default function Job({ match, location, history }) {
   if (!admin) {
     return null
   }
+
+  //! To parse posted HTML to show nicely in browser
+  const html = parse(jobPost.description)
+  //console.log(html)
+
   return <div className="container">
     <div className="section">
       <h1 className="title is-1">{jobPost.title}</h1>
@@ -75,8 +85,10 @@ export default function Job({ match, location, history }) {
                 <div className="content">
                   <h3 className="title is-4">{companyPost.company}</h3>
                   <a className="subtitle is-5">{companyPost.website}</a>
+                  <p className="location"><strong>Location(s):</strong></p>{jobPost.location.map((local, index) => {
+                    return <div key={index}>{local}</div>
+                  })}
                   <p>
-                    Location: <strong>{jobPost.location}</strong>
                     <br />
                   Posted on: {time}
                     <br />
@@ -91,12 +103,13 @@ export default function Job({ match, location, history }) {
           <div className="tile is-parent">
             <div className="tile is-child box">
               <p className="title is-4">Job Description</p>
-              <p>{jobPost.description}</p>
+              <div className="showBullets">{html}</div>
+
               <br />
               <p> Salary: {jobPost.salary}</p>
               <br />
               <button className="button is-success" onClick={() => updateModal(modal ? false : true)}>Apply</button>
-              {isCreator(admin) && <button onClick={handleDelete} className="button is-success">Delete</button>}
+              {isCreator(admin) || localStorage.getItem('mod') === 'true' && <button onClick={handleDelete} className="button is-success">Delete</button>}
             </div>
           </div>
         </div>

@@ -1,20 +1,13 @@
 .all-companies {
-  margin: 100px;
+  margin: 80px;
 }
 
 .companyContainer {
   margin: 100px;
 }
 
-.companyCard {
-  border: 2px solid black;
-  border-radius: 1%;
-  padding: 5px;
-  margin: 10px;
-}
-
-.card-content {
-  min-height: 300px;
+.companies-cards {
+  min-height: 320px;
 }
 
 .logos{
@@ -162,3 +155,12 @@ input:focus {
   background-color: rgb(46, 214, 175);
   padding-bottom: 30px;
 }
+.inputoutline {
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+.showBullets li  {
+  list-style-type: circle; 
+}
+
