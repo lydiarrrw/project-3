@@ -8,7 +8,6 @@ $danger: #FD5721;
   margin: 100px;
 }
 
-
 .companies-cards {
   min-height: 320px;
 }
@@ -148,6 +147,16 @@ input:focus {
   display: inline-block;
 }
 
+.carousel {
+  padding: 20px 0;
+  background:rgb(247, 247, 247);
+  border: 2px solid rgb(247, 247, 247);
+}
+
+.home-bck {
+  background-color: rgb(46, 214, 175);
+  padding-bottom: 30px;
+}
 .inputoutline {
   border: 1px solid lightgray;
   background-color: white;
