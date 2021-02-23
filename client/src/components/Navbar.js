@@ -12,7 +12,7 @@ const NavBar = ({ history }) => {
     history.push('/')
   }
 
-  return <nav className="navbar is-dark " style={{ height: 55 }} role="navigation" aria-label="main navigation">
+  return <nav className="navbar is-light" style={{ height: 55 }} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to="/">
         <img style={{ height: 55, width: 55 }} src="https://i.imgur.com/PidpcsN.png" />
@@ -41,7 +41,7 @@ const NavBar = ({ history }) => {
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          <p className='mr-5 has-text-white'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
+          <p className='mr-5 has-text-dark'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
           <div className="buttons">
             {!localStorage.getItem('token') && <Link to="/register" className="button is-primary is-outlined">
               <strong>Register</strong>
