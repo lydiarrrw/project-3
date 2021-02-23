@@ -56,7 +56,7 @@ export default function Jobs() {
           const upperSector = sector.slice(0, 1).toUpperCase() + sector.slice(1)
           return <div key={index} className='column is-one-third'>
             <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }} className='card m-3'>
-              <div className={index % 2 === 0 ? 'card-content has-background-info grow' : 'card-content has-background-primary grow'}>
+              <div className='card-content grow'>
                 <div className='media'>
                   <div className='media-left'>
                     <figure className='image is-48x48'>

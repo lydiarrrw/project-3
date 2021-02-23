@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import { isCreator } from '../lib/auth'
 import parse from 'html-react-parser'
-// import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -78,7 +77,7 @@ export default function singleCompany({ match, history }) {
         <div className="comments-section">
           <h1 className="title mt-4 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
           {company.comments.map(comment => {
-            return <div className="card mt-4" key={comment._id}>
+            return <div className="card m-4 p-2" key={comment._id}>
               <h1><strong>User: </strong>{comment.user.name}</h1>
               <p><strong>Comment: </strong>{comment.text}</p>
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
@@ -93,7 +92,7 @@ export default function singleCompany({ match, history }) {
             </div>
 
           })}
-          <h1 className="title mt-6 is-6">Leave a comment below:</h1>
+          <h1 className="title mt-6 is-6">Worked for this company? Leave a comment below:</h1>
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
@@ -126,15 +125,9 @@ export default function singleCompany({ match, history }) {
               <Link to={{ pathname: `/job/${job._id}`, state: { companyID: id } }}>
                 <button className="button is-success grow mt-4">More Info</button>
               </Link>
-
-
-
             </div>
           </div>
-
         })}
-
-
       </div >
     </div >
     <div className='container is-centered'>
