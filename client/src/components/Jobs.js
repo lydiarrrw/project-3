@@ -68,7 +68,9 @@ export default function Jobs() {
                     <ul>
                       <li className='subtitle is-6'><b>Company:</b> {job.company}</li>
                       <li className='subtitle is-6'><b>Salary:</b> {job.salary}</li>
-                      <li className='subtitle is-6'><b>Location:</b> {job.location}</li>
+                      <li className='subtitle is-6'><b>Location:</b> {job.location.map((local, index) => {
+                        return <div key={index}>{local}</div>
+                      })}</li>
                       <li className='subtitle is-6'><b>Sector:</b> {upperSector}</li>
                     </ul>
                   </div>
