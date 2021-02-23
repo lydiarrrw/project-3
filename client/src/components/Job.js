@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { isCreator } from '../lib/auth'
+import parse from 'html-react-parser'
+
 
 export default function Job({ match, location, history }) {
 
@@ -14,6 +16,8 @@ export default function Job({ match, location, history }) {
   const companyID = location.state.companyID
   const jobID = match.params.jobId
   const token = localStorage.getItem('token')
+
+
 
   //! Get the company
   useEffect(() => {
@@ -57,6 +61,11 @@ export default function Job({ match, location, history }) {
   if (!admin) {
     return null
   }
+
+  //! To parse posted HTML to show nicely in browser
+  const html = parse(jobPost.description)
+  //console.log(html)
+
   return <div className="container">
     <div className="section">
       <h1 className="title is-1">{jobPost.title}</h1>
@@ -91,7 +100,8 @@ export default function Job({ match, location, history }) {
           <div className="tile is-parent">
             <div className="tile is-child box">
               <p className="title is-4">Job Description</p>
-              <p>{jobPost.description}</p>
+              {/* <p>{jobPost.description}</p> */}
+              <p>{html}</p>
               <br />
               <p> Salary: {jobPost.salary}</p>
               <br />
