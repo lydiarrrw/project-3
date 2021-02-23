@@ -42,13 +42,10 @@ export default function Jobs() {
       }
     })
   }
-  // <Link to={result === 'error' ? { pathname: '/project-2/' } : {
-  //   pathname: '/project-2/result/',
-  //   state: { resultState: result.id }
-  // }} ></Link>
+
   return <div>
-    <div className='columns m-3 is-centered' >
-      <div className='column is-half'>
+    <div className='columns m-3 is-centered is-mobile' >
+      <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
         <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
       </div>
     </div>
