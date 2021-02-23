@@ -154,4 +154,10 @@ input:focus {
 
 .inputoutline {
   border: 1px solid lightgray;
+  background-color: white;
 }
+
+.showBullets li  {
+  list-style-type: circle; 
+}
+

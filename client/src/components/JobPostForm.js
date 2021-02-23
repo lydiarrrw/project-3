@@ -7,6 +7,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import draftToHtml from 'draftjs-to-html'
 
 
+
 export default function JobForm({ formData, handleSubmit, handleChange, handleTypeChange, updateFormData }) {
 
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -70,22 +71,22 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
         <label className="label">Description</label>
         <div className="control">
           <div className="inputoutline">
-          <Editor
-            editorState={editorState}
-            toolbarClassName="toolbarClassName"
-            wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
-            onEditorStateChange={onEditorStateChange}
-            toolbar={{
-              options: ['inline', 'link', 'list'],
-              inline: { inDropdown: true },
-              list: { inDropdown: true },
-              textAlign: { inDropdown: true },
-              link: { inDropdown: true },
-              history: { inDropdown: true }
-            }}
-          />
-</div>
+            <Editor
+              editorState={editorState}
+              toolbarClassName="toolbarClassName"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              onEditorStateChange={onEditorStateChange}
+              toolbar={{
+                options: ['inline', 'link', 'list', 'fontFamily'],
+                inline: { inDropdown: true },
+                list: { inDropdown: true },
+                textAlign: { inDropdown: true },
+                link: { inDropdown: true },
+                history: { inDropdown: true }
+              }}
+            />
+          </div>
         </div>
       </div>
 

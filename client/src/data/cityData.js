@@ -1,9 +1,9 @@
 export default [
-  { value: 'none', label: 'Not listed/in job ad' },
-  { value: 'london', label: 'London' },
-  { value: 'manchester', label: 'Manchester' },
-  { value: 'new york', label: 'New York' },
-  { value: 'edinburgh', label: 'Edinburgh' },
-  { value: 'remote', label: 'Remote' },
-  { value: 'tallinn', label: 'Tallinn' }
+  { value: 'None', label: 'Not listed/in job ad' },
+  { value: 'London', label: 'London' },
+  { value: 'Manchester', label: 'Manchester' },
+  { value: 'New York', label: 'New York' },
+  { value: 'Edinburgh', label: 'Edinburgh' },
+  { value: 'Remote', label: 'Remote' },
+  { value: 'Tallinn', label: 'Tallinn' }
 ]
