@@ -23,7 +23,7 @@ export default function Companies() {
         return <div className="column is-one-quarter" key={company._id}>
           <Link to={`/company/${company._id}`}>
             <div className="card grow">
-              <div className="card-content">
+              <div className="card-content companies-cards">
                 <div className="media">
                   <div className="media-left">
                     <figure className="image is-48x48">

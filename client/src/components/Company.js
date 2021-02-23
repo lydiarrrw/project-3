@@ -77,7 +77,9 @@ export default function singleCompany({ match, history }) {
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>
-              <h1><strong>Description:</strong> {job.description}</h1>
+              <h1><strong>Description:</strong> {job.description.length >= 150
+              ? job.description.slice(0, 150) + '...'
+              : job.description}</h1>
               <h1><strong>Salary:</strong> {job.salary}</h1>
               <h1><strong>Location:</strong> {job.location}</h1>
               
