@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom'
 const NavBar = ({ history }) => {
 
   const [menu, updateMenu] = useState(false)
-  const { burger, updateBurger } = useState(false)
 
 
   function handleLogout() {
@@ -13,7 +12,7 @@ const NavBar = ({ history }) => {
     history.push('/')
   }
 
-  return <nav className="navbar" style={{ backgroundColor: '#595f6c', height: 55 }} role="navigation" aria-label="main navigation">
+  return <nav className="navbar is-dark " style={{ height: 55 }} role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <Link to="/">
         <img style={{ height: 55, width: 55 }} src="https://i.imgur.com/PidpcsN.png" />
@@ -31,10 +30,10 @@ const NavBar = ({ history }) => {
             <Link to="/companies" className="button is-danger is-outlined">
               <strong>Companies</strong>
             </Link>
-            <Link to='/jobs' className="button is-primary is-outlined">
+            <Link to='/jobs' className="button is-danger is-outlined">
               <strong>Jobs</strong>
             </Link>
-            <Link to='/map' className="button is-primary is-outlined">
+            <Link to='/map' className="button is-danger is-outlined">
               <strong>Map</strong>
             </Link>
           </div>
@@ -44,10 +43,10 @@ const NavBar = ({ history }) => {
         <div className="navbar-item">
           <p className='mr-5 has-text-white'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
           <div className="buttons">
-            {!localStorage.getItem('token') && <Link to="/register" className="button is-info is-outlined">
+            {!localStorage.getItem('token') && <Link to="/register" className="button is-primary is-outlined">
               <strong>Register</strong>
             </Link>}
-            {!localStorage.getItem('token') && <Link to="/login" className="button is-info is-outlined">
+            {!localStorage.getItem('token') && <Link to="/login" className="button is-primary is-outlined">
               <strong>Login</strong>
             </Link>}
             {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-light">

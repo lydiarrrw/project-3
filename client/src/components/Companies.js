@@ -20,7 +20,8 @@ export default function Companies() {
         <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
       </div>
     </div>
-    <h1 className="title is-2 has-text-danger">Companies</h1>
+    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
+  letterSpacing: -1 }}>Companies</h1>
     <div className="columns is-multiline">
       {companies.map(company => {
         return <div className="column is-one-quarter" key={company._id}>

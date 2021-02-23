@@ -19,10 +19,10 @@ export default function Home() {
     getCompanies()
   }, [])
 
-  return <div><section className="hero is-medium is-link has-text-centered">
+  return <div><section className="hero is-dark has-text-centered">
     <div className="hero-body">
 
-      <p className="title">
+      <p className="title is-1" style={{ fontWeight: 800, letterSpacing: -2 }}>
         Stepladder
       </p>
       <img src="https://img.icons8.com/color/96/000000/ladder.png" className='grow1' />
