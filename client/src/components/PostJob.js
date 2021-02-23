@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import JobForm from './JobPostForm'
-// import ReactDOM from 'react-dom'
-// import { Editor, EditorState } from 'draft-js'
-// import 'draft-js/dist/Draft.css';
-
 
 export default function PostJob({ match, history }) {
 
@@ -36,7 +32,6 @@ export default function PostJob({ match, history }) {
   }, [])
 
 
-
   const token = localStorage.getItem('token')
   const payloadAsString = atob(token.split('.')[1])
   const payloadAsObject = JSON.parse(payloadAsString)
@@ -52,7 +47,8 @@ export default function PostJob({ match, history }) {
 
     const newFormData = {
       ...formData,
-      location: formData.location.map(type => type.value)
+      location: formData.location.map(type => type.value),
+     
     }
 
     try {
@@ -76,6 +72,7 @@ export default function PostJob({ match, history }) {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           formData={formData}
+          updateFormData={updateFormData}
           handleTypeChange={(location) => updateFormData({ ...formData, location })}
         />
       </div>
