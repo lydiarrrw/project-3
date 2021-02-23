@@ -14,8 +14,6 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
   const rawContentState = convertToRaw(editorState.getCurrentContent())
 
 
-  //console.log(rawContentState)
-
   const markup = draftToHtml(
     rawContentState
     // hashtagConfig, 
@@ -31,7 +29,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState)
-    const contentState = editorState.getCurrentContent()
+    //const contentState = editorState.getCurrentContent()
     //console.log('content state', convertToRaw(contentState))
     //console.log(editorState)
   }
@@ -71,6 +69,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
       <div className="field">
         <label className="label">Description</label>
         <div className="control">
+          <div className="inputoutline">
           <Editor
             editorState={editorState}
             toolbarClassName="toolbarClassName"
@@ -78,6 +77,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
             editorClassName="editorClassName"
             onEditorStateChange={onEditorStateChange}
             toolbar={{
+              options: ['inline', 'link', 'list'],
               inline: { inDropdown: true },
               list: { inDropdown: true },
               textAlign: { inDropdown: true },
@@ -85,7 +85,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
               history: { inDropdown: true }
             }}
           />
-
+</div>
         </div>
       </div>
 

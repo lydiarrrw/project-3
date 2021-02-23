@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import parse from 'html-react-parser'
 // import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
@@ -23,6 +24,7 @@ export default function singleCompany({ match, history }) {
 
   console.log('COMPANY.JOBS', company.jobs)
   console.log('COMPANY COMMENTS', company.comments)
+
 
   return <div className="companyContainer">
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
@@ -57,10 +59,15 @@ export default function singleCompany({ match, history }) {
       <div className="column is-two-thirds">
         <h1 className="title has-text-centered">Jobs posted</h1>
         {company.jobs.map(job => {
+          
+          //! To parse posted HTML to show nicely in browser
+          const html = parse(job.description)
+          console.log(html)
+
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle">{job.title}</h1>
-              <h1><strong>Description:</strong> {job.description}</h1>
+              <h1><strong>Description:</strong> {html}</h1>
               <h1><strong>Salary:</strong> {job.salary}</h1>
               <h1><strong>Location:</strong> {job.location}</h1>
               <button className="button is-danger mt-4">Apply Here!</button>
