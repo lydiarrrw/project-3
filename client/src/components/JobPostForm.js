@@ -78,7 +78,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
               editorClassName="editorClassName"
               onEditorStateChange={onEditorStateChange}
               toolbar={{
-                options: ['inline', 'link', 'list', 'fontFamily'],
+                options: ['inline', 'link', 'list'],
                 inline: { inDropdown: true },
                 list: { inDropdown: true },
                 textAlign: { inDropdown: true },

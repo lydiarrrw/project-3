@@ -1,3 +1,5 @@
+$danger: #FD5721;
+
 .all-companies {
   margin: 80px;
 }
@@ -164,3 +166,15 @@ input:focus {
   list-style-type: circle; 
 }
 
+.comments-section {
+  margin: 10px;
+  padding: 7px;
+  border: 3px dashed rgba(0,0,0,0.03);
+border-radius: 13px;
+}
+
+.navButton {
+  color: #FD5721
+}
+
+@import "../../node_modules/bulma/bulma.sass";

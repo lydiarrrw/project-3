@@ -49,14 +49,17 @@ export default function Jobs() {
         <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
       </div>
     </div>
-    <div className='container'>
+    <div className='section'>
+    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
+  letterSpacing: -1 }}>Jobs</h1>
       <div className='columns is-multiline'>{
         filterJobs().map((job, index) => {
           const sector = job.industry.toString()
           const upperSector = sector.slice(0, 1).toUpperCase() + sector.slice(1)
-          return <div key={index} className='column is-one-third'>
-            <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }} className='card m-3'>
-              <div className={index % 2 === 0 ? 'card-content has-background-info grow' : 'card-content has-background-primary grow'}>
+          return <div key={index} className='column is-one-quarter'>
+            <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }}>
+              <div className='card'>
+              <div className='card-content grow'>
                 <div className='media'>
                   <div className='media-left'>
                     <figure className='image is-48x48'>
@@ -75,6 +78,7 @@ export default function Jobs() {
                     </ul>
                   </div>
                 </div>
+              </div>
               </div>
             </Link>
           </div>
