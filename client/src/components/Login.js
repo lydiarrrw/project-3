@@ -49,6 +49,7 @@ export default function Login({ history }) {
         } else localStorage.setItem('mod', 'false')
 
         localStorage.setItem('name', filtered[0].name)
+        localStorage.setItem('type', filtered[0].type)
       }
       history.push('/')
     } catch (err) {

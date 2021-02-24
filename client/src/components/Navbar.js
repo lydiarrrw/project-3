@@ -23,7 +23,7 @@ const NavBar = ({ history }) => {
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div className={`navbar-menu ${menu ? "is-active" : ''} is-spaced px-3`}>
+    <div className={`navbar-menu ${menu ? 'is-active' : ''} is-spaced px-3`}>
       <div className="navbar-start">
         <div className="navbar-item">
           <div className="buttons">
@@ -36,6 +36,9 @@ const NavBar = ({ history }) => {
             <Link to='/map' className="button is-danger is-outlined">
               <strong>Map</strong>
             </Link>
+            {localStorage.getItem('token') && localStorage.getItem('type') === 'mod' && <Link to="/company/create" className="button is-danger is-outlined">
+              <strong>Create company</strong>
+            </Link>}
           </div>
         </div>
       </div>
@@ -49,8 +52,8 @@ const NavBar = ({ history }) => {
             {!localStorage.getItem('token') && <Link to="/login" className="button is-primary is-outlined">
               <strong>Login</strong>
             </Link>}
-            {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-light">
-              Logout
+            {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-primary is-outlined">
+              <strong>Logout</strong>
             </button>}
           </div>
         </div>
