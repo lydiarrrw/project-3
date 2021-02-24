@@ -9,13 +9,13 @@ export default function PostJob({ match, history }) {
 
   const [company, updatedCompany] = useState({})
   const [formData, updateFormData] = useState({
-    company: '', 
+    company: '',
     title: '',
     description: '',
     salary: '',
-    location: [], 
-    user: '' 
-    
+    location: [],
+    user: ''
+
 
   })
 
@@ -66,12 +66,9 @@ export default function PostJob({ match, history }) {
     <div className="container level-item">
       <div className="column is-half ">
         <section className="level">
-         
-            <h1 className="title is-2 has-text-danger">Post a job for {company.company}</h1>
-       
+          <h1 className="title is-2 has-text-danger">Post a job for {company.company}</h1>
         </section>
         <div className="level">
-        {/* <section className="section"> */}
           <JobForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
@@ -79,9 +76,8 @@ export default function PostJob({ match, history }) {
             updateFormData={updateFormData}
             handleTypeChange={(location) => updateFormData({ ...formData, location })}
           />
-        {/* </section> */}
+        </div>
       </div>
     </div>
   </div>
-</div>
 }

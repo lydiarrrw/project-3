@@ -104,7 +104,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
 
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link">Submit</button>
+          <button className="button is-primary">Submit</button>
         </div>
       </div>
     </form>

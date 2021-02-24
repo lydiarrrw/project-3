@@ -94,8 +94,6 @@ export default function singleCompany({ match, history }) {
       <Rating
         initialRating={actualRating}
         readonly
-        emptySymbol="fa fa-star-o fa-2x"
-        fullSymbol="fa fa-star fa-2x"
       />
       
     </div>
@@ -142,8 +140,6 @@ export default function singleCompany({ match, history }) {
               fractions={2}
               onChange={updateRating}
               onClick={handleRating}
-              emptySymbol="fa fa-star-o fa-2x"
-              fullSymbol="fa fa-star fa-2x"
             />
           </div>
           <h1 className="title mt-6 is-6">Leave a comment below:</h1>
