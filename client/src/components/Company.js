@@ -13,9 +13,8 @@ export default function singleCompany({ match, history }) {
   const [error, updateError] = useState('')
 
   const token = localStorage.getItem('token')
-
+  const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
-
 
   useEffect(() => {
     async function fetchCompany() {
@@ -34,9 +33,20 @@ export default function singleCompany({ match, history }) {
   if (!company.comments) return null
   //console.log('COMPANY', company)
 
-  async function handleComment() {
+  // ! updating ratings - get rating numbers out, add together, divide by number of ratings
+  const newRating = company.ratings.map(item => Number(item.rating))
+  const numOfRatings = newRating.length
+  const reducer = (accumulator, currentValue) => accumulator + currentValue
+  const ratingTotal = newRating.reduce(reducer)
+  const actualRating = ratingTotal / numOfRatings
+  const deciRate = actualRating.toFixed(1)
+
+  //console.log(deciRate)
+
+
+  function handleComment() {
     try {
-     const { data } = await axios.post(`/api/company/${id}/comment`, { text }, {
+    axios.post(`/api/company/${id}/comment`, { text }, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(resp => {
@@ -48,6 +58,23 @@ export default function singleCompany({ match, history }) {
       console.log('unable to post comment')
       updateError('Unable to post comment')
     }
+  }
+
+
+  function handleRating(rating) {
+
+    axios.post(`/api/company/${id}/rating`, { rating }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(resp => {
+
+        //updateRating(rating)
+        updateCompany(resp.data)
+        updateRated(true)
+        //return console.log('thank you')
+        
+      })
+
   }
 
   function handleDeleteComment(commentId) {
@@ -69,14 +96,19 @@ export default function singleCompany({ match, history }) {
 
     <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
   letterSpacing: -1 }} >{company.company}</h1>
+
+  return <div className="companyContainer">
+
+    <h1 className="title is-2 has-text-danger">{company.company}</h1>
+    <p className="subtitle is-5 has-text-danger">Overall rating: {deciRate}</p>
     <div>
       <Rating
-        initialRating={company.rating}
+        initialRating={actualRating}
         readonly
-        // fractions={2}
-        // onClick={() => handleRating()}
+        emptySymbol="fa fa-star-o fa-2x"
+        fullSymbol="fa fa-star fa-2x"
       />
-      {company.rating}
+      
     </div>
     <div className="columns">
       <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
@@ -89,7 +121,7 @@ export default function singleCompany({ match, history }) {
             <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
-            <strong>Rating: </strong>{company.rating}
+            {/* <strong>Rating: </strong>{company.rating} */}
             <div>{isCreator(company.user._id) && <Link
               to={`/company/${id}/job`}
               className="button is-danger grow mt-4"

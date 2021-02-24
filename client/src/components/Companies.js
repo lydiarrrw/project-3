@@ -14,6 +14,16 @@ export default function Companies() {
     fetchData()
   }, [])
 
+  function rating(company){
+     const newRating = company.ratings.map(item => Number(item.rating))
+  const numOfRatings = newRating.length
+  const reducer = (accumulator, currentValue) => accumulator + currentValue
+  const ratingTotal = newRating.reduce(reducer)
+  const actualRating = ratingTotal / numOfRatings
+  return actualRating.toFixed(1) 
+  }
+
+
   return <section className="all-companies">
         <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
@@ -44,7 +54,7 @@ export default function Companies() {
                   ? company.about.slice(0, 130) + '...'
                   : company.about}
                 {<br></br>}
-                <strong>Rating: </strong>{company.rating}
+                <strong>Rating: </strong>{rating(company)}
               </div>
             </div>
           </Link>
