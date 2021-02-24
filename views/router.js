@@ -4,6 +4,7 @@ import company from '../controllers/company.js'
 import comment from '../controllers/comment.js'
 import user from '../controllers/user.js'
 import job from '../controllers/job.js'
+import rating from '../controllers/rating.js'
 
 const router = express.Router()
 
@@ -39,6 +40,9 @@ router.route('/company/:companyId/job/:jobId')
   .get(job.getSingleJob)
   .put(secureRoute, job.updateJob)
   .delete(secureRoute, job.removeJob)
+
+router.route('/company/:companyId/rating')
+  .post(secureRoute, rating.makeRating)
 
 // router.route('/jobs')
 //   .get(company.getAllJobs)

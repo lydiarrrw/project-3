@@ -12,9 +12,8 @@ export default function singleCompany({ match, history }) {
   const [text, setText] = useState('')
 
   const token = localStorage.getItem('token')
-
+  const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
-
 
   useEffect(() => {
     async function fetchCompany() {
@@ -33,6 +32,17 @@ export default function singleCompany({ match, history }) {
   if (!company.comments) return null
   //console.log('COMPANY', company)
 
+  // ! updating ratings - get rating numbers out, add together, divide by number of ratings
+  const newRating = company.ratings.map(item => Number(item.rating))
+  const numOfRatings = newRating.length
+  const reducer = (accumulator, currentValue) => accumulator + currentValue
+  const ratingTotal = newRating.reduce(reducer)
+  const actualRating = ratingTotal / numOfRatings
+  const deciRate = actualRating.toFixed(1)
+
+  //console.log(deciRate)
+
+
   function handleComment() {
     axios.post(`/api/company/${id}/comment`, { text }, {
       headers: { Authorization: `Bearer ${token}` }
@@ -41,6 +51,23 @@ export default function singleCompany({ match, history }) {
         setText('')
         updateCompany(resp.data)
       })
+  }
+
+
+  function handleRating(rating) {
+
+    axios.post(`/api/company/${id}/rating`, { rating }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(resp => {
+
+        //updateRating(rating)
+        updateCompany(resp.data)
+        updateRated(true)
+        //return console.log('thank you')
+        
+      })
+
   }
 
   function handleDeleteComment(commentId) {
@@ -58,18 +85,19 @@ export default function singleCompany({ match, history }) {
     })
     history.push('/companies')
   }
-  console.log(company, 'this is company', company._id)
+
   return <div className="companyContainer">
 
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
+    <p className="subtitle is-5 has-text-danger">Overall rating: {deciRate}</p>
     <div>
       <Rating
-        initialRating={company.rating}
+        initialRating={actualRating}
         readonly
-        // fractions={2}
-        // onClick={() => handleRating()}
+        emptySymbol="fa fa-star-o fa-2x"
+        fullSymbol="fa fa-star fa-2x"
       />
-      {company.rating}
+      
     </div>
     <div className="columns">
       <div className="column is-one-third is-multiline">
@@ -80,7 +108,7 @@ export default function singleCompany({ match, history }) {
             </div>
             <strong>About: </strong>{company.about}
             {<br></br>}
-            <strong>Rating: </strong>{company.rating}
+            {/* <strong>Rating: </strong>{company.rating} */}
             <div>{isCreator(company.user._id) && <Link
               to={`/company/${id}/job`}
               className="button is-danger grow mt-4"
@@ -105,7 +133,21 @@ export default function singleCompany({ match, history }) {
             </div>
 
           })}
-          <h1 className="title mt-6 is-6">Worked for this company? Leave a comment below:</h1>
+          <div>
+            <h1 className="title mt-6 is-6">Worked for this company? Rate them:</h1>
+          
+            <Rating
+              className={rated ? "rated" : "notrated"}
+              initialRating={0}
+              fractions={2}
+              onChange={updateRating}
+              onClick={handleRating}
+              emptySymbol="fa fa-star-o fa-2x"
+              fullSymbol="fa fa-star fa-2x"
+            />
+          </div>
+          <h1 className="title mt-6 is-6">Leave a comment below:</h1>
+          
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
