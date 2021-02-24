@@ -24,13 +24,12 @@ export default async function secureRoute(req, res, next) {
     jwt.verify(token, secret, async (err, data) => {
   
       if (err) {
-        return res.status(401).send({ message: 'Unauthorized sstep 5' })
+        return res.status(401).send({ message: 'Unauthorized step 5' })
       }
 
 
       const user = await User.findById(data.userId)
 
-    
       if (!user) {
         return res.status(401).send({ message: 'Unauthorized step 6' })
       }

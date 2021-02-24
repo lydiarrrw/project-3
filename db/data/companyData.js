@@ -30,7 +30,12 @@ export default function getCompanyData(users) {
           user: users[4]
         }],
       user: users[4],
-      rating: 4.5
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Ridgeway',
@@ -61,7 +66,12 @@ export default function getCompanyData(users) {
           user: users[5]
         }],
       user: users[5],
-      rating: 4
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Mango',
@@ -92,7 +102,12 @@ export default function getCompanyData(users) {
           user: users[6]
         }],
       user: users[6],
-      rating: 5
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'TechCal',
@@ -124,7 +139,12 @@ export default function getCompanyData(users) {
         }
       ],
       user: users[11],
-      rating: 3.8
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Charity Crunch',
@@ -155,7 +175,12 @@ export default function getCompanyData(users) {
           user: users[10]
         }],
       user: users[10],
-      rating: 4.8
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Language Pirate',
@@ -187,7 +212,12 @@ export default function getCompanyData(users) {
         }
       ],
       user: users[12],
-      rating: 4.2
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Floogle',
@@ -218,7 +248,12 @@ export default function getCompanyData(users) {
           user: users[7]
         }],
       user: users[7],
-      rating: 3.7
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Oscorp',
@@ -249,7 +284,12 @@ export default function getCompanyData(users) {
           user: users[8]
         }],
       user: users[8],
-      rating: 4.1
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Code-Cog',
@@ -280,7 +320,12 @@ export default function getCompanyData(users) {
           user: users[9]
         }],
       user: users[9],
-      rating: 4.6
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'CodeData',
@@ -311,7 +356,12 @@ export default function getCompanyData(users) {
           user: users[17]
         }],
       user: users[17],
-      rating: 4.2
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Ohiku',
@@ -342,7 +392,12 @@ export default function getCompanyData(users) {
           user: users[19]
         }],
       user: users[19],
-      rating: 4.7
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     },
     {
       company: 'Pathwork',
@@ -373,7 +428,12 @@ export default function getCompanyData(users) {
           user: users[21]
         }],
       user: users[21],
-      rating: 3.8
+      ratings: [
+        {
+          rating: 2.5
+
+        }
+      ]
     }
   ]
 }

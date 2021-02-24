@@ -26,7 +26,7 @@ export default function Login({ history }) {
     event.preventDefault()
     try {
       const { data } = await axios.post('/api/login', formData)
-      console.log(data)
+      //console.log(data)
 
       if (localStorage) {
         localStorage.setItem('token', data.token)

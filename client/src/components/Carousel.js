@@ -6,7 +6,7 @@ export default function AutoPlay() {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
     speed: 5000,

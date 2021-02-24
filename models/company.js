@@ -1,6 +1,14 @@
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
+const ratingSchema = new mongoose.Schema({
+
+  rating: { type: String },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+}, {
+  timestamps: false
+})
+
 
 const commentSchema = new mongoose.Schema({
 
@@ -29,7 +37,8 @@ const companySchema = new mongoose.Schema({
   logo: { type: String, required: true },
   jobs: [jobSchema],
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  rating: { type: Number },
+  // rating: { type: String, required: true },
+  ratings: [ratingSchema],
   comments: [commentSchema]
 })
 
