@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import { isCreator } from '../lib/auth'
 import parse from 'html-react-parser'
+import Rating from 'react-rating'
+// import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -11,6 +13,7 @@ export default function singleCompany({ match, history }) {
 
   const token = localStorage.getItem('token')
 
+  const [rating, updateRating] = useState('')
 
 
   useEffect(() => {
@@ -28,6 +31,7 @@ export default function singleCompany({ match, history }) {
 
   if (!company.jobs) return null
   if (!company.comments) return null
+  //console.log('COMPANY', company)
 
   function handleComment() {
     axios.post(`/api/company/${id}/comment`, { text }, {
@@ -58,6 +62,15 @@ export default function singleCompany({ match, history }) {
   return <div className="companyContainer">
 
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
+    <div>
+      <Rating
+        initialRating={company.rating}
+        readonly
+        // fractions={2}
+        // onClick={() => handleRating()}
+      />
+      {company.rating}
+    </div>
     <div className="columns">
       <div className="column is-one-third is-multiline">
         <div className="card">
@@ -99,8 +112,6 @@ export default function singleCompany({ match, history }) {
           </div>
 
         </div>
-
-
       </div>
 
 
@@ -110,7 +121,7 @@ export default function singleCompany({ match, history }) {
 
           //! To parse posted HTML to show nicely in browser
           const html = parse(job.description)
-          console.log(html)
+          // console.log(html)
 
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">

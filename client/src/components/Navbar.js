@@ -57,6 +57,7 @@ const NavBar = ({ history }) => {
       </div>
     </div>
   </nav>
+  
 }
 
 export default withRouter(NavBar)
