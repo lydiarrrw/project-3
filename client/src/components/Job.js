@@ -68,61 +68,39 @@ export default function Job({ match, location, history }) {
   const html = parse(jobPost.description)
   //console.log(html)
 
-  return <div className="container">
-    <div className="section">
-      <h1 className="title is-1">{jobPost.title}</h1>
-      <div className="tile is-ancestor">
-        <div className="tile">
-          <div className="tile is-parent">
-            <div className="tile is-child box">
-              <div className="media">
-                <div className="media-left">
-                  <Link
-                    to={`/company/${companyID}`}>
-                    <figure className="image is-96x96 m-2">
-                      <img src={`${companyPost.logo}`} alt="Placeholder image" />
-                    </figure>
-                  </Link>
-                </div>
-              </div>
-              <div className="media-content">
-                <div className="content">
-                  <Link
-                    to={`/company/${companyID}`}>
-                    <h3 className="title is-4">{companyPost.company}</h3>
-                  </Link>
-                  <a className="subtitle is-5">{companyPost.website}</a>
-                  <p className="location"><strong>Location(s):</strong></p>{jobPost.location.map((local, index) => {
-                    return <div key={index}>{local}</div>
-                  })}
-                  <p>
-                    <br />
-                  Posted on: {time}
-                    <br />
-                  </p>
-                </div>
-              </div>
-            </div>
+  return <div className="jobContainer">
+    <div className="columns">
+      <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
+      <Link to={`/company/${companyPost._id}`}>
+        <div className="card">
+          <div className="card-image">
+            <figure class="image is-4by3">
+                <img src={companyPost.logo} />
+            </figure>
           </div>
-        </div>
-
-        <div className="tile">
-          <div className="tile is-parent">
-            <div className="tile is-child box">
-              <p className="title is-4">Job Description</p>
-              <div className="showBullets">{html}</div>
-
-              <br />
-              <p> Salary: {jobPost.salary}</p>
-              <br />
-              <button className="button is-success" onClick={() => updateModal(modal ? false : true)}>Apply</button>
-              {(localStorage.getItem('mod') === 'true' || isCreator(admin)) && <button onClick={handleDelete} className="button is-success">Delete</button>}
+            <div className="card-content">
+              <strong>About: </strong>{companyPost.about}
+              {<br></br>}
+              <strong>Rating: </strong>{companyPost.rating}
             </div>
-          </div>
         </div>
+        </Link>
       </div>
-    </div>
-    <div className={modal ? "modal is-active" : "modal"}>
+      <div className="column is-three-quarters-widescreen is-two-thirds-desktop">
+        <div className="card mt-6">
+          <div className="card-content">
+            <h1 className="title is-2"><strong>{jobPost.title}</strong></h1>
+            <h1><strong>Description: </strong>{html}</h1>
+            <h1><strong>Salary:</strong> {jobPost.salary}</h1>
+            
+            <h1><strong>Location: </strong></h1>{jobPost.location.map((local, index) => {
+                return <div key={index}>{local}</div>
+              })}
+              
+            <button className="button is-success" style={{ marginTop: 20 }} onClick={() => updateModal(modal ? false : true)}>Apply Here!</button>
+            {(localStorage.getItem('mod') === 'true' || isCreator(admin)) && <button onClick={handleDelete} className="button is-danger" style={{margin: 20 }}>Delete Job Post</button>}
+            </div>
+            <div className={modal ? "modal is-active" : "modal"}>
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
@@ -133,7 +111,7 @@ export default function Job({ match, location, history }) {
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
-              <input className="input" type="text" placeholder="Type Here" value={user} />
+              <input className="input" type="text" placeholder="Type Here" />
             </div>
           </div>
           <div>
@@ -181,7 +159,8 @@ export default function Job({ match, location, history }) {
         </footer>
       </div>
     </div>
-
-
-  </div >
+        </div>
+      </div>
+    </div>
+  </div>
 }

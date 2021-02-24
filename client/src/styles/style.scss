@@ -12,6 +12,10 @@ $danger: #FD5721;
   margin: 80px;
 }
 
+.jobContainer {
+margin: 80px;
+}
+
 .companies-cards {
   min-height: 320px;
 }
@@ -175,14 +179,15 @@ input:focus {
 }
 
 .comments-section {
-  margin: 10px;
+  margin-top: 10px;
   padding: 7px;
-  border: 3px dashed rgba(0,0,0,0.03);
+  border: 3px dashed rgba(0,0,0,0.1);
 border-radius: 13px;
 }
 
 .navButton {
   color: #FD5721
 }
+
 
 @import "../../node_modules/bulma/bulma.sass";
