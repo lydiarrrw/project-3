@@ -10,6 +10,7 @@ export default function singleCompany({ match, history }) {
   const id = match.params.companyId
   const [company, updateCompany] = useState({})
   const [text, setText] = useState('')
+  const [error, updateError] = useState('')
 
   const token = localStorage.getItem('token')
   const [rated, updateRated] = useState(false)
@@ -44,6 +45,7 @@ export default function singleCompany({ match, history }) {
 
 
   function handleComment() {
+    try {
     axios.post(`/api/company/${id}/comment`, { text }, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -51,6 +53,11 @@ export default function singleCompany({ match, history }) {
         setText('')
         updateCompany(resp.data)
       })
+    } catch (err) {
+      console.log(data)
+      console.log('unable to post comment')
+      updateError('Unable to post comment')
+    }
   }
 
 
@@ -85,6 +92,10 @@ export default function singleCompany({ match, history }) {
     })
     history.push('/companies')
   }
+  return <div className="companyContainer">
+
+    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
+  letterSpacing: -1 }} >{company.company}</h1>
 
   return <div className="companyContainer">
 
@@ -98,12 +109,14 @@ export default function singleCompany({ match, history }) {
       
     </div>
     <div className="columns">
-      <div className="column is-one-third is-multiline">
+      <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
         <div className="card">
-          <div className="card-content">
             <div className="card-image">
+            <figure class="image is-4by3">
               <img src={company.logo} />
+              </figure>
             </div>
+            <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
             {/* <strong>Rating: </strong>{company.rating} */}
@@ -114,9 +127,9 @@ export default function singleCompany({ match, history }) {
           </div>
         </div>
         <div className="comments-section">
-          <h1 className="title mt-4 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
+          <h1 className="title mt-4 mb-3 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
           {company.comments.map(comment => {
-            return <div className="card m-4 p-2" key={comment._id}>
+            return <div className="card m-1 p-2" key={comment._id}>
               <h1><strong>User: </strong>{comment.user.name}</h1>
               <p><strong>Comment: </strong>{comment.text}</p>
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
@@ -129,7 +142,6 @@ export default function singleCompany({ match, history }) {
                 </button>
               </div>}
             </div>
-
           })}
           <div>
             <h1 className="title mt-6 is-6">Worked for this company? Rate them:</h1>
@@ -147,13 +159,13 @@ export default function singleCompany({ match, history }) {
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
+            <p className="error" style={{ marginTop: 8 }}>{ error }</p>
           </div>
-
         </div>
       </div>
 
 
-      <div className="column is-two-thirds">
+      <div className="column is-three-quarters-widescreen is-two-thirds-desktop">
         <h1 className="title has-text-danger has-text-centered">Jobs posted</h1>
         {company.jobs.map(job => {
 

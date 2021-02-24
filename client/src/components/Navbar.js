@@ -27,13 +27,13 @@ const NavBar = ({ history }) => {
       <div className="navbar-start">
         <div className="navbar-item">
           <div className="buttons">
-            <Link to="/companies" className="button is-danger is-outlined">
+            <Link to="/companies" className="button is-danger is-outlined grow">
               <strong>Companies</strong>
             </Link>
-            <Link to='/jobs' className="button is-danger is-outlined">
+            <Link to='/jobs' className="button is-danger is-outlined grow">
               <strong>Jobs</strong>
             </Link>
-            <Link to='/map' className="button is-danger is-outlined">
+            <Link to='/map' className="button is-danger is-outlined grow">
               <strong>Map</strong>
             </Link>
           </div>
@@ -43,10 +43,10 @@ const NavBar = ({ history }) => {
         <div className="navbar-item">
           <p className='mr-5 has-text-dark'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : ''}</p>
           <div className="buttons">
-            {!localStorage.getItem('token') && <Link to="/register" className="button is-primary is-outlined">
+            {!localStorage.getItem('token') && <Link to="/register" className="button is-primary is-outlined grow">
               <strong>Register</strong>
             </Link>}
-            {!localStorage.getItem('token') && <Link to="/login" className="button is-primary is-outlined">
+            {!localStorage.getItem('token') && <Link to="/login" className="button is-primary is-outlined grow">
               <strong>Login</strong>
             </Link>}
             {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-primary is-outlined">

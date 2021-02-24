@@ -27,14 +27,14 @@ export default function Companies() {
   return <section className="all-companies">
         <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
-        <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
+        <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search companies..."></input>
       </div>
     </div>
     <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
   letterSpacing: -1 }}>Companies</h1>
     <div className="columns is-multiline">
       {companies.map(company => {
-        return <div className="column is-one-quarter" key={company._id}>
+        return <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet" key={company._id}>
           <Link to={`/company/${company._id}`}>
             <div className="card grow">
               <div className="card-content companies-cards">
