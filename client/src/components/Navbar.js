@@ -41,7 +41,7 @@ const NavBar = ({ history }) => {
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          <p className='mr-5 has-text-dark'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : 'Welcome!'}</p>
+          <p className='mr-5 has-text-dark'>{localStorage.getItem('name') ? `Welcome ${localStorage.getItem('name')}!` : ''}</p>
           <div className="buttons">
             {!localStorage.getItem('token') && <Link to="/register" className="button is-primary is-outlined">
               <strong>Register</strong>
@@ -49,8 +49,8 @@ const NavBar = ({ history }) => {
             {!localStorage.getItem('token') && <Link to="/login" className="button is-primary is-outlined">
               <strong>Login</strong>
             </Link>}
-            {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-light">
-              Logout
+            {localStorage.getItem('token') && <button onClick={handleLogout} className="button is-primary is-outlined">
+              <strong>Logout</strong>
             </button>}
           </div>
         </div>

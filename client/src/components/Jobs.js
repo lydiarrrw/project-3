@@ -44,12 +44,12 @@ export default function Jobs() {
   }
 
   return <div>
+    <div className='all-jobs'>
     <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
         <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
       </div>
     </div>
-    <div className='section'>
     <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
   letterSpacing: -1 }}>Jobs</h1>
       <div className='columns is-multiline'>{
@@ -59,7 +59,7 @@ export default function Jobs() {
           return <div key={index} className='column is-one-quarter'>
             <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }}>
               <div className='card'>
-              <div className='card-content grow'>
+              <div className='card-content job-cards grow'>
                 <div className='media'>
                   <div className='media-left'>
                     <figure className='image is-48x48'>
