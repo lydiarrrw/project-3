@@ -44,22 +44,22 @@ export default function Jobs() {
   }
 
   return <div>
+    <div className='all-jobs'>
     <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
-        <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search..."></input>
+        <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search jobs..."></input>
       </div>
     </div>
-    <div className='section'>
     <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
   letterSpacing: -1 }}>Jobs</h1>
       <div className='columns is-multiline'>{
         filterJobs().map((job, index) => {
           const sector = job.industry.toString()
           const upperSector = sector.slice(0, 1).toUpperCase() + sector.slice(1)
-          return <div key={index} className='column is-one-quarter'>
+          return <div key={index} className='column is-one-quarter-widescreen is-one-third-desktop is-half-tablet'>
             <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }}>
               <div className='card'>
-              <div className='card-content grow'>
+              <div className='card-content job-cards grow'>
                 <div className='media'>
                   <div className='media-left'>
                     <figure className='image is-48x48'>

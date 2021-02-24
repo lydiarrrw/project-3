@@ -10,11 +10,11 @@ export default function singleCompany({ match, history }) {
   const id = match.params.companyId
   const [company, updateCompany] = useState({})
   const [text, setText] = useState('')
+  const [error, updateError] = useState('')
 
   const token = localStorage.getItem('token')
-
+  const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
-
 
   useEffect(() => {
     async function fetchCompany() {
@@ -33,7 +33,19 @@ export default function singleCompany({ match, history }) {
   if (!company.comments) return null
   //console.log('COMPANY', company)
 
+  // ! updating ratings - get rating numbers out, add together, divide by number of ratings
+  const newRating = company.ratings.map(item => Number(item.rating))
+  const numOfRatings = newRating.length
+  const reducer = (accumulator, currentValue) => accumulator + currentValue
+  const ratingTotal = newRating.reduce(reducer)
+  const actualRating = ratingTotal / numOfRatings
+  const deciRate = actualRating.toFixed(1)
+
+  //console.log(deciRate)
+
+
   function handleComment() {
+    try {
     axios.post(`/api/company/${id}/comment`, { text }, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -41,6 +53,28 @@ export default function singleCompany({ match, history }) {
         setText('')
         updateCompany(resp.data)
       })
+    } catch (err) {
+      console.log(data)
+      console.log('unable to post comment')
+      updateError('Unable to post comment')
+    }
+  }
+
+
+  function handleRating(rating) {
+
+    axios.post(`/api/company/${id}/rating`, { rating }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(resp => {
+
+        //updateRating(rating)
+        updateCompany(resp.data)
+        updateRated(true)
+        //return console.log('thank you')
+        
+      })
+
   }
 
   function handleDeleteComment(commentId) {
@@ -52,35 +86,29 @@ export default function singleCompany({ match, history }) {
       })
   }
 
-  function handleDeleteCompany(companyId) {
-    axios.delete(`/api/company/${company._id}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    history.push('/companies')
-  }
-  console.log(company, 'this is company', company._id)
   return <div className="companyContainer">
 
     <h1 className="title is-2 has-text-danger">{company.company}</h1>
+    <p className="subtitle is-5 has-text-danger">Overall rating: {deciRate}</p>
     <div>
       <Rating
-        initialRating={company.rating}
+        initialRating={actualRating}
         readonly
-        // fractions={2}
-        // onClick={() => handleRating()}
       />
-      {company.rating}
+      
     </div>
     <div className="columns">
-      <div className="column is-one-third is-multiline">
+      <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
         <div className="card">
-          <div className="card-content">
             <div className="card-image">
+            <figure class="image is-4by3">
               <img src={company.logo} />
+              </figure>
             </div>
+            <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
-            <strong>Rating: </strong>{company.rating}
+            {/* <strong>Rating: </strong>{company.rating} */}
             <div>{isCreator(company.user._id) && <Link
               to={`/company/${id}/job`}
               className="button is-danger grow mt-4"
@@ -88,9 +116,9 @@ export default function singleCompany({ match, history }) {
           </div>
         </div>
         <div className="comments-section">
-          <h1 className="title mt-4 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
+          <h1 className="title mt-4 mb-3 is-5 has-text-danger has-text-centered">Comments on this company:</h1>
           {company.comments.map(comment => {
-            return <div className="card m-4 p-2" key={comment._id}>
+            return <div className="card m-1 p-2" key={comment._id}>
               <h1><strong>User: </strong>{comment.user.name}</h1>
               <p><strong>Comment: </strong>{comment.text}</p>
               <p><strong>Date: </strong>{comment.createdAt.length >= 10
@@ -103,19 +131,30 @@ export default function singleCompany({ match, history }) {
                 </button>
               </div>}
             </div>
-
           })}
-          <h1 className="title mt-6 is-6">Worked for this company? Leave a comment below:</h1>
+          <div>
+            <h1 className="title mt-6 is-6">Worked for this company? Rate them:</h1>
+          
+            <Rating
+              className={rated ? "rated" : "notrated"}
+              initialRating={0}
+              fractions={2}
+              onChange={updateRating}
+              onClick={handleRating}
+            />
+          </div>
+          <h1 className="title mt-6 is-6">Leave a comment below:</h1>
+          
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
+            <p className="error" style={{ marginTop: 8 }}>{ error }</p>
           </div>
-
         </div>
       </div>
 
 
-      <div className="column is-two-thirds">
+      <div className="column is-three-quarters-widescreen is-two-thirds-desktop">
         <h1 className="title has-text-danger has-text-centered">Jobs posted</h1>
         {company.jobs.map(job => {
 
@@ -144,5 +183,6 @@ export default function singleCompany({ match, history }) {
     <div className='container is-centered'>
       {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
     </div>
-  </div >
+  </div>
+  
 }

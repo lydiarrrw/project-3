@@ -4,12 +4,24 @@ $danger: #FD5721;
   margin: 80px;
 }
 
+.all-jobs {
+  margin: 80px;
+}
+
 .companyContainer {
-  margin: 100px;
+  margin: 80px;
+}
+
+.jobContainer {
+margin: 80px;
 }
 
 .companies-cards {
   min-height: 320px;
+}
+
+.job-cards {
+  min-height: 350px;
 }
 
 .logos{
@@ -161,9 +173,9 @@ input:focus {
 }
 
 .comments-section {
-  margin: 10px;
+  margin-top: 10px;
   padding: 7px;
-  border: 3px dashed rgba(0,0,0,0.03);
+  border: 3px dashed rgba(0,0,0,0.1);
   border-radius: 13px;
 }
 
@@ -184,5 +196,11 @@ input:focus {
   border-color: rgb(46, 214, 175) !important;
   box-shadow: 0 0 0 1px rgb(46, 214, 175) !important;
 }
+.rated {
+  visibility: hidden;
+ 
+}
+
+
 
 @import "../../node_modules/bulma/bulma.sass";

@@ -12,6 +12,8 @@ import Job from './components/Job'
 import PostJob from './components/PostJob'
 import Map from './components/Map'
 import CreateCompany from './components/CreateCompany'
+import About from './components/About'
+import Footer from './components/Footer'
 
 import 'bulma'
 import './styles/style.scss'
@@ -32,7 +34,9 @@ const App = () => (
       <Route exact path="/company/:companyId/job" component={PostJob} />
       <Route exact path="/jobs" component={Jobs} />
       <Route exact path="/map" component={Map} />
+      <Route exact path="/about" component={About} />
     </Switch>
+    <Footer />
   </BrowserRouter>
 )
 
