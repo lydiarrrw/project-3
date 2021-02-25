@@ -9,7 +9,6 @@ export default function Jobs() {
 
 
   //!Fetching from the API
-
   useEffect(() => {
     async function getCompanies() {
       const { data } = await axios.get('/api/companies')
@@ -31,9 +30,7 @@ export default function Jobs() {
     }
     getCompanies()
   }, [])
-  // console.log('this is jobs', jobs)
   //!Filtering to enable search function
-
   function filterJobs() {
     return jobs.filter(job => {
       if (search.length === 0) { return job }
@@ -77,7 +74,7 @@ export default function Jobs() {
                           return <div key={index}>{local}</div>
                         })}</li>
                         <li className='subtitle is-6'><b>Sector:</b> {upperSector}</li>
-                      </ul>          
+                      </ul>
                     </div>
                   </div>
                 </div>

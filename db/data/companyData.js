@@ -19,14 +19,14 @@ export default function getCompanyData(users) {
           title: 'Data Scientist',
           description: 'Vulcan is looking for a Python and SQL focused Data Scientist to join our fast-growing Data team in London. You will be part of making our organisation fully data-driven and make a true impact, working in a fast paced production environment. As a Data Scientist you will work on a variety of interesting data challenges with access to the latest technology. You will be able to leverage large data sets and create useful and meaningful insights to help make better business decisions for this FinTech. You will use your knowledge with SQL and Python, and experience building Machine Learning models to work on exciting projects.',
           salary: '£70,000',
-          location: 'London',
+          location: 'Zurich',
           user: users[4]
         },
         {
           title: 'Product Manager',
           description: 'Vulcan is looking for confident, knowledgeable product manager to join our London office. You will work in a fast-paced international team on multiple greenfield projects and manage several digital products and help improve the usability of our app from the landing pages/onboarding through to payment clearing.',
           salary: '£50,000',
-          location: 'London',
+          location: 'Moscow',
           user: users[4]
         }],
       user: users[4]
@@ -49,7 +49,7 @@ export default function getCompanyData(users) {
           title: 'Integration Engineer',
           description: 'As an Integration Engineer at Ridgeway, you’ll be joining a small yet talented team to help manage our Managed Node Service’s growing client base. You’ll be working closely with the organisation’s business and technical side by helping spin up new Chainlink nodes and keep them up to date while interacting with our Managed node clients. Existing knowledge of Chainlink node infrastructure is desirable but not required, but you will need to be technically savvy and have some DevOps and programming experience.',
           salary: '£60,000',
-          location: 'London',
+          location: 'San Francisco',
           user: users[5]
         },
         {
@@ -86,7 +86,7 @@ export default function getCompanyData(users) {
           title: 'Tech Lead',
           description: 'We are a global digital agency  seeking a skilled Technical Lead to guide a talented team to design and develop exciting and engaging solutions across multiple platforms. You will liaise closely with a range of technical clients to gain a good understanding of their requirements.This is a highly varied, hands-on Technical Lead role, where you will work across a broad range of projects in a variety of industries. You will keep up-to-date with the latest technologies and industry trends to deliver high-availability and scalable solutions.',
           salary: '£55,000',
-          location: 'Manchester',
+          location: 'Shanghai',
           user: users[6]
         }],
       user: users[6]
@@ -102,7 +102,7 @@ export default function getCompanyData(users) {
           title: 'Front End Engineer',
           description: 'We expect our developers to contribute more than just code. You’ll be involved in defining how things work, what they do, and why we do that instead of something else.',
           salary: 'Competitive dependent on experience',
-          location: 'London',
+          location: 'Hanoi',
           user: users[11]
         },
         {
@@ -133,7 +133,7 @@ export default function getCompanyData(users) {
           title: 'Junior Data Engineer',
           description: 'As a Data Engineer, you will be working within a team of senior business intelligence focused engineers. You will be working with fundraising and web analytics data that is collected through the Charity Crunch product as well as external vendor data.',
           salary: '£25,000',
-          location: 'Manchester',
+          location: 'Belfast',
           user: users[10]
         },
         {
@@ -199,9 +199,9 @@ export default function getCompanyData(users) {
         },
         {
           title: 'Ruby Developer',
-          description: 'We have a unique opportunity for a Full Stack Ruby-on-Rails Developer to  be a part of an outstanding Fintech business in London, who are scaling their tech team  due to not only scaling their product, but creating new services for their clients. You  will be working with some incredibly talented Software Developers, who truly value the   importance of collaboration and high level coding',
+          description: 'We have a unique opportunity for a Full Stack Ruby-on-Rails Developer to  be a part of an outstanding Fintech business in Tokyo, who are scaling their tech team  due to not only scaling their product, but creating new services for their clients. You  will be working with some incredibly talented Software Developers, who truly value the   importance of collaboration and high level coding',
           salary: '£42,000',
-          location: 'London',
+          location: 'Tokyo',
           user: users[7]
         },
         {
@@ -231,7 +231,7 @@ export default function getCompanyData(users) {
           title: 'Junior Developer',
           description: 'We have an exciting new opportunity that has become available for a Junior Developer to work for a market leading Law Firm on a permanent basis.',
           salary: '£25,000',
-          location: 'London',
+          location: 'Porto',
           user: users[8]
         },
         {
@@ -252,23 +252,23 @@ export default function getCompanyData(users) {
       jobs: [
         {
           title: 'Junior Developer C#',
-          description: 'This is a fantastic opportunity to join a leading financial services client in the city of London. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
+          description: 'This is a fantastic opportunity to join a leading financial services client in the city of Nairobi. You’ll join a small tech hub and develop   business-critical applications across both front and back-end development. You’ll get   involved in everything from developing new features, system enhancements and support.   This is a highly varied role and you’ll have the opportunity to learn and work with new   technologies',
           salary: '£36,000',
-          location: 'London',
+          location: 'Nairobi',
           user: users[9]
         },
         {
           title: 'Full Stack Java Developer',
           description: 'Systematic hedge fund in London are looking for a Java Developer to join their team. They use technology to build out current workflows and processes to create   repeatable, scalable results. They pride themselves on their use of technology to   automate their processes. The systems you’ll be building will have a direct impact on   the business as they’ll be exposed to the portfolio managers, quants and operations   team who all place an immense amount of value and trust in these systems. Also, with no   business analysts you’ll be involved in every stage of the SDLC - from information  gathering to deploying, supporting and monitoring the system',
           salary: '£42,000',
-          location: 'London',
+          location: 'Cape Town',
           user: users[9]
         },
         {
           title: 'Junior iOS / Mobile Developer',
           description: 'An exciting, creative visual FX / graphics company is seeking a talented junior iOS / Mobile developer to work on their next generation creative and mobile  applications. A creative mind-set is essential, and someone with at least 1 iOS app  that they have published.',
           salary: '£28,000',
-          location: 'London',
+          location: 'Sydney',
           user: users[9]
         }],
       user: users[9]
@@ -314,21 +314,21 @@ export default function getCompanyData(users) {
           title: 'Front End Engineer',
           description: 'We’re looking for people who write clean, efficient and readable code. We have a Front end built in React, so a skill set in that or similar would be great.',
           salary: '£67,000',
-          location: 'Waterloo',
+          location: 'London, Waterloo',
           user: users[19]
         },
         {
           title: 'Data Scientist',
           description: 'You’ll have a degree (or PhD) in a numerate discipline or significant experience working in a commercial setting. You\'ll have commercial experience building robust ML models in a production environment.',
           salary: '£82,000',
-          location: 'Waterloo',
+          location: 'London, Peckham',
           user: users[19]
         },
         {
           title: 'Commercial Analytics',
           description: 'This person should feel comfortable working with large amounts of data, be self-motivated and proactive in analyzing, investigating and organizing information found across multiple datasets and sources.',
           salary: '£53,000',
-          location: 'Waterloo',
+          location: 'London, Hampstead',
           user: users[19]
         }],
       user: users[19]
@@ -344,21 +344,21 @@ export default function getCompanyData(users) {
           title: 'Frontend Software Engineer',
           description: 'You\'ll play a key part in developing and guiding our product. You should have a broad practical knowledge in different areas of software development.',
           salary: '£58,000',
-          location: 'Shoreditch (Remote Available)',
+          location: 'London, Shoreditch (Remote Available)',
           user: users[21]
         },
         {
           title: 'Data Analyst',
           description: 'A minimum of 2 years experience working in Business Analytics, System Analysis or a related field. Highly analytical mindset and approach to business problems.',
           salary: '£42,000',
-          location: 'Shoreditch (Remote Available)',
+          location: 'London, Hoxton (Remote Available)',
           user: users[21]
         },
         {
           title: 'Data Operations Analyst',
           description: '1 to 3 years of experience in a data or technical operations role. Experience with Microsoft SQL Server or other SQL package. Preferably including SSRS.',
           salary: '£37,000',
-          location: 'Shoreditch (Remote Available)',
+          location: 'London, Pimlico (Remote Available)',
           user: users[21]
         }],
       user: users[21]

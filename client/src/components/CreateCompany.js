@@ -18,7 +18,7 @@ export default function CreateCompany({ history }) {
     }
     getLoggedUser()
   }, [])
-  
+
   if (!loggedUser) {
     return null
   }
@@ -95,7 +95,7 @@ export default function CreateCompany({ history }) {
                     onChange={handleChange}
                     />
                 </div>
-              </div>    
+              </div>
               <div className="field">
                 <label className="label">Industry</label>
                 <div className="control">
@@ -106,7 +106,7 @@ export default function CreateCompany({ history }) {
                     onChange={handleChange}
                   />
                 </div>
-              </div>      
+              </div>
               <div className="field">
                 <label className="label">Logo</label>
                 <div className="control">

@@ -17,12 +17,7 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
 
   const markup = draftToHtml(
     rawContentState
-    // hashtagConfig, 
-    // directional, 
-    // customEntityTransform
   )
-
-  //console.log(markup)
 
   useEffect(() => {
     updateFormData({ ...formData, description: markup })
@@ -30,9 +25,6 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState)
-    //const contentState = editorState.getCurrentContent()
-    //console.log('content state', convertToRaw(contentState))
-    //console.log(editorState)
   }
 
   return <div className="container">
@@ -89,7 +81,6 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
           </div>
         </div>
       </div>
-
       <div className="field">
         <label className="label">Salary</label>
         <div className="control">
@@ -109,6 +100,5 @@ export default function JobForm({ formData, handleSubmit, handleChange, handleTy
       </div>
     </form>
   </div>
-
 
 }

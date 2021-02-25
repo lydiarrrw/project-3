@@ -6,7 +6,6 @@ export default function PostJob({ match, history }) {
 
   const companyId = match.params.companyId
 
-
   const [company, updatedCompany] = useState({})
   const [formData, updateFormData] = useState({
     company: '',
@@ -29,11 +28,9 @@ export default function PostJob({ match, history }) {
     getCompanyInfo()
   }, [])
 
-
   const token = localStorage.getItem('token')
   const payloadAsString = atob(token.split('.')[1])
   const payloadAsObject = JSON.parse(payloadAsString)
-
 
   function handleChange(event) {
     updateFormData({ ...formData, [event.target.name]: event.target.value })
@@ -46,9 +43,7 @@ export default function PostJob({ match, history }) {
     const newFormData = {
       ...formData,
       location: formData.location.map(type => type.value)
-
     }
-
     try {
       const { data } = await axios.post(`/api/company/${companyId}/job`, newFormData, {
         headers: { Authorization: `Bearer ${token}` }
@@ -59,7 +54,6 @@ export default function PostJob({ match, history }) {
       console.log(err)
     }
   }
-
   return <div className="body level">
     <div className="container level-item">
       <div className="column is-half ">
