@@ -29,13 +29,7 @@ export default function getCompanyData(users) {
           location: 'London',
           user: users[4]
         }],
-      user: users[4],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[4]
     },
     {
       company: 'Ridgeway',
@@ -65,13 +59,7 @@ export default function getCompanyData(users) {
           location: 'Remote',
           user: users[5]
         }],
-      user: users[5],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[5]
     },
     {
       company: 'Mango',
@@ -101,13 +89,7 @@ export default function getCompanyData(users) {
           location: 'Manchester',
           user: users[6]
         }],
-      user: users[6],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[6]
     },
     {
       company: 'TechCal',
@@ -138,13 +120,7 @@ export default function getCompanyData(users) {
           user: users[11]
         }
       ],
-      user: users[11],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[11]
     },
     {
       company: 'Charity Crunch',
@@ -174,13 +150,7 @@ export default function getCompanyData(users) {
           location: 'Munich',
           user: users[10]
         }],
-      user: users[10],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[10]
     },
     {
       company: 'Language Pirate',
@@ -211,13 +181,7 @@ export default function getCompanyData(users) {
           user: users[12]
         }
       ],
-      user: users[12],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[12]
     },
     {
       company: 'Floogle',
@@ -247,13 +211,7 @@ export default function getCompanyData(users) {
           location: 'Berlin',
           user: users[7]
         }],
-      user: users[7],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[7]
     },
     {
       company: 'Oscorp',
@@ -283,13 +241,7 @@ export default function getCompanyData(users) {
           location: 'Athens',
           user: users[8]
         }],
-      user: users[8],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[8]
     },
     {
       company: 'Code-Cog',
@@ -319,13 +271,7 @@ export default function getCompanyData(users) {
           location: 'London',
           user: users[9]
         }],
-      user: users[9],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[9]
     },
     {
       company: 'CodeData',
@@ -355,13 +301,7 @@ export default function getCompanyData(users) {
           location: 'London (Remote Available)',
           user: users[17]
         }],
-      user: users[17],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[17]
     },
     {
       company: 'Ohiku',
@@ -391,13 +331,7 @@ export default function getCompanyData(users) {
           location: 'Waterloo',
           user: users[19]
         }],
-      user: users[19],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[19]
     },
     {
       company: 'Pathwork',
@@ -427,13 +361,7 @@ export default function getCompanyData(users) {
           location: 'Shoreditch (Remote Available)',
           user: users[21]
         }],
-      user: users[21],
-      ratings: [
-        {
-          rating: 2.5
-
-        }
-      ]
+      user: users[21]
     }
   ]
 }
