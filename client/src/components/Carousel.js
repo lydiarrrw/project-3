@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Slider from 'react-slick'
-
+import Companies from './Companies'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function AutoPlay() {
   const settings = {
@@ -13,45 +15,25 @@ export default function AutoPlay() {
     autoplaySpeed: 2000,
     cssEase: 'linear'
   }
-  
+
+  const [companies, updateCompanies] = useState([])
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await axios.get('/api/companies')
+      updateCompanies(data)
+    }
+    fetchData()
+  }, [])
+
   return <div className="carousel">
     <Slider {...settings}>
-      <div>
-        <img src="https://i.imgur.com/Bn1bU5Z.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/S6ni2j0.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/3BHkoIS.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/iIPyVgi.png" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/FgzlHZL.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/SoSAjB9.png" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/bEO98NP.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/TJqmziT.png" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/r9kB9a9.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/KbcrZxb.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/rGlUAKP.jpg" />
-      </div>
-      <div>
-        <img src="https://i.imgur.com/ZFN0A3j.jpg" />
-      </div>
+      {companies.map(company => {
+        return <Link to={`/company/${company._id}`} key={company._id}>
+          <div>
+            <img src={company.logo}></img>
+          </div>
+        </Link>
+      })}
     </Slider>
   </div>
 }

@@ -61,22 +61,71 @@ describe('Testing REGISTER', () => {
       })
   })
 
-  it('Should be able to get a list of all the companies', done => {
+  it('Should be able to register user, login a new user, find a company and then the user should be able to post a comment and then delete that comment BUT the user should not be able to delete a company', done => {
 
-    api.get('/api/companies')
+    api.post('/api/register')
+      .send({
+        name: 'tim',
+        email: 'tim@tim.com',
+        password: 'tim',
+        type: 'job-seeker'
+      })
       .end((err, res) => {
-        // expect(res.status).to.eq(201)
-        expect(res.body).to.be.a('array')
-        expect(res.body[0].company).to.eq('Apple')
-        expect(res.body[0].website).to.eq('apple.com')
-        expect(res.body[0].jobs).to.be.a('array')
-        expect(res.body[0].jobs[0].title).to.eq('Java Developer')
-        expect(res.body[0].jobs[0]._id).to.be.a('string')
+        expect(res.status).to.eq(201)
+        expect(res.body.name).to.eq('tim')
 
+        api.post('/api/login')
+          .send({
+            email: 'tim@tim.com',
+            password: 'tim'
+          })
+          .end((err, res) => {
+            expect(res.status).to.eq(202)
+            expect(res.body.token).to.be.a('string')
+            console.log(res.body)
+            console.log(res.body.token)
+            const token = res.body.token
 
-        done()
+            api.get('/api/companies')
+              .end((err, res) => {
+                expect(res.body).to.be.a('array')
+                expect(res.body[0].company).to.eq('Apple')
+                const companyId = res.body[0]._id
 
+                api.get(`/api/company/${companyId}`)
+                  .end((err, res) => {
+                    expect(res.body.company).to.eq('Apple')
+
+                    api.post(`/api/company/${companyId}/comment`)
+                      .set('Authorization', `Bearer ${token}`)
+                      .send({
+                        text: 'I love this company'
+                      })
+                      .end((err, res) => {
+                        const commentId = res.body.comments[0]._id
+                        expect(res.status).to.eq(201)
+                        expect(res.body.comments[0].text).to.eq('I love this company')
+
+                        api.delete(`/api/company/${companyId}/comment/${commentId}`)
+                          .set('Authorization', `Bearer ${token}`)
+                          .end((err, res) => {
+                            console.log(res.body)
+                            expect(res.status).to.eq(200)
+
+                            api.delete(`/api/company/${companyId}`)
+                              .set('Authorization', `Bearer ${token}`)
+                              .end((err, res) => {
+                                expect(res.text).to.include('Unauthorized')
+                                expect(res.status).to.eq(401)
+                                done()
+                              })
+                          })
+                      })
+                  })
+              })
+          })
       })
   })
 
 })
+

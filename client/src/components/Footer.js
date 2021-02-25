@@ -25,6 +25,11 @@ const Footer = () => {
             </span>
           </div>
         </div>
+        <div>
+        <Link to='/about'>
+          <small className="about-link">About</small>
+        </Link>
+          </div>
         <div className="level-right">
           <small className="level-item">
             &copy; Stepladder. All Rights Reserved.
