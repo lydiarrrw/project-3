@@ -11,6 +11,7 @@ import Jobs from './components/Jobs'
 import Job from './components/Job'
 import PostJob from './components/PostJob'
 import Map from './components/Map'
+import CreateCompany from './components/CreateCompany'
 import About from './components/About'
 import Footer from './components/Footer'
 
@@ -26,6 +27,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/companies" component={Companies} />
       <Route exact path="/jobs" component={Jobs} />
+      <Route exact path="/company/create" component={CreateCompany} />
       <Route exact path="/company/:companyId" component={Company} />
       {/* <Route exact path="/company/:companyid/job/:jobId" component={Job} /> */}
       <Route exact path="/job/:jobId" component={Job} />

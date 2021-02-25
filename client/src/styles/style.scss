@@ -85,11 +85,6 @@ margin: 80px;
   border-radius: 10px;
 }
 
-.left,
-.right {
-  padding: 72px;
-}
-
 .left {
   border-right: 5px solid rgb(247, 247, 247);
 }
@@ -161,14 +156,13 @@ input:focus {
 
 .carousel {
   padding: 20px 0;
-  background:rgb(247, 247, 247);
-  border: 2px solid rgb(247, 247, 247);
+  background: rgb(245, 245, 245);
 }
 
 .home-bck {
-  background-color: rgb(46, 214, 175);
   padding-bottom: 30px;
 }
+
 .inputoutline {
   border: 1px solid lightgray;
   background-color: white;
@@ -182,13 +176,26 @@ input:focus {
   margin-top: 10px;
   padding: 7px;
   border: 3px dashed rgba(0,0,0,0.1);
-border-radius: 13px;
+  border-radius: 13px;
 }
 
 .navButton {
   color: #FD5721
 }
 
+.select__control {
+  font-size: 16px;
+  background-color: white;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  color: #363636;
+  margin-bottom: 15px;
+}
+
+.css-1pahdxg-control {
+  border-color: rgb(46, 214, 175) !important;
+  box-shadow: 0 0 0 1px rgb(46, 214, 175) !important;
+}
 .rated {
   visibility: hidden;
  

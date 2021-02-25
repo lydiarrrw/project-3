@@ -102,8 +102,6 @@ console.log('Local Storage', localStorage)
       <Rating
         initialRating={actualRating}
         readonly
-        emptySymbol="fa fa-star-o fa-2x"
-        fullSymbol="fa fa-star fa-2x"
       />
       
     </div>
@@ -142,7 +140,19 @@ console.log('Local Storage', localStorage)
               </div>}
             </div>
           })}
-          <h1 className="title mt-3 is-6">Worked for this company? Leave a comment below:</h1>
+          <div>
+            <h1 className="title mt-6 is-6">Worked for this company? Rate them:</h1>
+          
+            <Rating
+              className={rated ? "rated" : "notrated"}
+              initialRating={0}
+              fractions={2}
+              onChange={updateRating}
+              onClick={handleRating}
+            />
+          </div>
+          <h1 className="title mt-6 is-6">Leave a comment below:</h1>
+          
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
@@ -182,4 +192,5 @@ console.log('Local Storage', localStorage)
       {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
     </div>
   </div>
+  
 }

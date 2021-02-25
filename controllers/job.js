@@ -10,8 +10,7 @@ async function postJob(req, res, next) {
 
   try {
     const company = await Company.findById(companyId).populate('jobs.user').populate('user')
-//console.log(company)
-    //console.log(req.params, req.currentUser, company.user)
+
 
     if (!company) {
       return res.status(404).send({ message: 'Not found' })
@@ -22,7 +21,8 @@ async function postJob(req, res, next) {
 
     company.jobs.push(jobData)
     const savedCompany = await company.save()
-    res.send(savedCompany)
+
+    res.status(200).send(savedCompany)
   } catch (err) {
     console.log(err)
     next(err)

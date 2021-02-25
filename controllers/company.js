@@ -9,17 +9,23 @@ async function getCompanyData(_req, res, next) {
   }
 }
 
-// async function createCompany(req, res, next) {
-//   const body = req.body
+async function createCompany(req, res, next) {
+  const body = req.body
+  body.user = req.currentUser
 
-//   body.user = req.currentUser
-//   try {
-//     const newCompany = await Company.create(body)
-//     res.status(201).send(newCompany)
-//   } catch (err) {
-//     next(err)
-//   }
-// }
+  try {
+
+    if (body.user.type !== 'company-admin') {
+      return res.status(401).send({ message: 'Unauthorized' })
+    }
+
+    const newCompany = await Company.create(body)
+
+    res.status(201).send(newCompany)
+  } catch (err) {
+    next(err)
+  }
+}
 
 async function getSingleCompany(req, res, next) {
   const id = req.params.id
@@ -84,7 +90,7 @@ async function updateCompany(req, res, next) {
 
 export default {
   getCompanyData,
-  //createCompany,
+  createCompany,
   getSingleCompany,
   removeCompany,
   updateCompany
