@@ -77,8 +77,6 @@ async function removeComment(req, res, next) {
       return res.status(404).send({ message: 'Not found' })
     }
 
-
-    // ? .id is a mongoose method for grabbing a document out of an array of documents.
     const comment = company.comments.id(commentId)
 
     if (!currentUser.isAdmin && !comment.user.equals(currentUser._id)) {

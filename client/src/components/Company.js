@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { isCreator } from '../lib/auth'
 import parse from 'html-react-parser'
 import Rating from 'react-rating'
-// import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -31,7 +30,6 @@ export default function singleCompany({ match, history }) {
 
   if (!company.jobs) return null
   if (!company.comments) return null
-  //console.log('COMPANY', company)
 
   // ! updating ratings 
   function rater(company) {
@@ -50,8 +48,6 @@ export default function singleCompany({ match, history }) {
     const actualRating = ratingTotal / numOfRatings
     return actualRating.toFixed(1)
   }
-  //console.log(deciRate)
-  console.log('Local Storage', localStorage)
 
   async function handleComment(event) {
 
@@ -68,25 +64,19 @@ export default function singleCompany({ match, history }) {
       if (type === 'company-admin') {
         updateError('Companies cannot post comments!')
       } else {
-      updateError('Please login to post a comment')
+        updateError('Please login to post a comment')
       }
     }
   }
 
-
   function handleRating(rating) {
-
     axios.post(`/api/company/${id}/rating`, { rating }, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(resp => {
-
         updateCompany(resp.data)
         updateRated(true)
-        //return console.log('thank you')
-
       })
-
   }
 
   function handleDeleteComment(commentId) {
@@ -114,7 +104,6 @@ export default function singleCompany({ match, history }) {
         initialRating={rater(company)}
         readonly
       />
-
     </div>
     <div className="columns">
       <div className="column is-one-third-widescreen is-half-tablet is-multiline">
@@ -172,15 +161,11 @@ export default function singleCompany({ match, history }) {
         </div>
       </div>
 
-
       <div className="column is-two-thirds-widescreen">
         <h1 className="title has-text-danger has-text-centered">Jobs posted by {company.company} </h1>
         {company.jobs.map(job => {
-
           //! To parse posted HTML to show nicely in browser
           const html = parse(job.description)
-          // console.log(html)
-
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>

@@ -37,7 +37,6 @@ const companySchema = new mongoose.Schema({
   logo: { type: String, required: true },
   jobs: [jobSchema],
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  // rating: { type: String, required: true },
   ratings: [ratingSchema],
   comments: [commentSchema]
 })

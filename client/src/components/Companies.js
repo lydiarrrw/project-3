@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 
-
 export default function Companies() {
   const [companies, updateCompanies] = useState([])
   const [search, updateSearch] = useState([])
@@ -15,13 +14,11 @@ export default function Companies() {
     fetchData()
   }, [])
 
-
   // ! updating ratings 
   function rater(company) {
     const newRating = company.ratings.map(item => Number(item.rating))
     const numOfRatings = newRating.length
-    //console.log(newRating)
-    if (newRating.length === 0){
+    if (newRating.length === 0) {
       return console.log('hello')
     } else {
       return ratingCalc(newRating, numOfRatings)
@@ -37,14 +34,11 @@ export default function Companies() {
     })
   }
   console.log(companies)
-  function ratingCalc(newRating, numOfRatings){
+  function ratingCalc(newRating, numOfRatings) {
     const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
     const actualRating = ratingTotal / numOfRatings
     return actualRating.toFixed(1)
   }
- 
-
-
 
   return <section className="all-companies">
     <div className='columns m-3 is-centered is-mobile' >

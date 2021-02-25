@@ -12,7 +12,7 @@ import secureRoute from '../middleware/secureRoute.js'
 
 router.route('/companies')
   .get(company.getCompanyData)
-  
+
 router.route('/company/create')
   .post(secureRoute, company.createCompany)
 
@@ -48,8 +48,5 @@ router.route('/company/:companyId/job/:jobId')
 
 router.route('/company/:companyId/rating')
   .post(secureRoute, rating.makeRating)
-
-// router.route('/jobs')
-//   .get(company.getAllJobs)
 
 export default router

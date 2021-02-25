@@ -51,36 +51,31 @@ export default function Job({ match, location, history }) {
   }
   //! Upload Document Function
   function onChangeFile(event) {
-    // const fileInput = document.querySelector('#file-js-example input[type=file]');
     const fileInput = document.querySelector(`#${event.target.name} input[type=file]`)
     if (fileInput.files.length > 0) {
       const fileName = document.querySelector(`#${event.target.name} .file-name`);
-      // fileName.textContent = fileInput.files[0].name;
       fileName.textContent = event.target.value
     }
   }
-  //console.log('this is admin', admin)
   if (!admin) {
     return null
   }
 
   //! To parse posted HTML to show nicely in browser
   const html = parse(jobPost.description)
-  //console.log(html)
 
-   // ! updating ratings 
-   function rater(companyPost) {
+  // ! updating ratings 
+  function rater(companyPost) {
     const newRating = companyPost.ratings.map(item => Number(item.rating))
     const numOfRatings = newRating.length
-    //console.log(newRating)
-    if (newRating.length === 0){
+    if (newRating.length === 0) {
       return console.log('hello')
     } else {
       return ratingCalc(newRating, numOfRatings)
     }
   }
 
-  function ratingCalc(newRating, numOfRatings){
+  function ratingCalc(newRating, numOfRatings) {
     const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
     const actualRating = ratingTotal / numOfRatings
     return actualRating.toFixed(1)
@@ -115,7 +110,7 @@ export default function Job({ match, location, history }) {
               return <div key={index}>{local}</div>
             })}
 
-            <button className="button is-success" style={{ marginTop: 20 }} onClick={() => updateModal(modal ? false : true)}>Apply Here!</button>
+            {localStorage.getItem('type') === 'job-seeker' && <button className="button is-success" style={{ marginTop: 20 }} onClick={() => updateModal(modal ? false : true)}>Apply Here!</button>}
             {(localStorage.getItem('mod') === 'true' || isCreator(admin)) && <button onClick={handleDelete} className="button is-danger" style={{ margin: 20 }}>Delete Job Post</button>}
           </div>
           <div className={modal ? "modal is-active" : "modal"}>
