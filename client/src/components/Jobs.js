@@ -31,7 +31,7 @@ export default function Jobs() {
     }
     getCompanies()
   }, [])
-  console.log('this is jobs', jobs)
+ // console.log('this is jobs', jobs)
   //!Filtering to enable search function
 
   function filterJobs() {

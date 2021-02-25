@@ -68,20 +68,38 @@ export default function Job({ match, location, history }) {
   const html = parse(jobPost.description)
   //console.log(html)
 
+   // ! updating ratings 
+   function rater(companyPost) {
+    const newRating = companyPost.ratings.map(item => Number(item.rating))
+    const numOfRatings = newRating.length
+    //console.log(newRating)
+    if (newRating.length === 0){
+      return console.log('hello')
+    } else {
+      return ratingCalc(newRating, numOfRatings)
+    }
+  }
+
+  function ratingCalc(newRating, numOfRatings){
+    const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
+    const actualRating = ratingTotal / numOfRatings
+    return actualRating.toFixed(1)
+  }
+
   return <div className="jobContainer">
     <div className="columns">
       <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
         <Link to={`/company/${companyPost._id}`}>
           <div className="card">
             <div className="card-image">
-              <figure class="image is-4by3">
+              <figure className="image is-4by3">
                 <img src={companyPost.logo} />
               </figure>
             </div>
             <div className="card-content">
               <strong>About: </strong>{companyPost.about}
               {<br></br>}
-              <strong>Rating: </strong>{companyPost.rating}
+              <strong>Rating: </strong>{rater(companyPost)}
             </div>
           </div>
         </Link>

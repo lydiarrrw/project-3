@@ -14,9 +14,9 @@ async function makeComment(req, res, next) {
 
     if (!company) {
       console.log('COMPANY', company)
-      
+
       return res.status(404).send({ message: 'Not found' })
-    
+
     }
     if (currentUser.type === 'company-admin') {
       return res.status(401).send({ message: 'Unauthorized' })
@@ -26,7 +26,7 @@ async function makeComment(req, res, next) {
 
     const savedCompany = await company.save()
 
-    res.send(savedCompany)
+    res.status(201).send(savedCompany)
 
   } catch (err) {
     next(err)
@@ -89,7 +89,7 @@ async function removeComment(req, res, next) {
 
     const savedCompany = await company.save()
 
-    res.send(savedCompany)
+    res.status(200).send(savedCompany)
 
   } catch (err) {
     next(err)

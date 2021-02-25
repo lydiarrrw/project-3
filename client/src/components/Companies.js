@@ -15,13 +15,17 @@ export default function Companies() {
     fetchData()
   }, [])
 
-  function rating(company){
-     const newRating = company.ratings.map(item => Number(item.rating))
-  const numOfRatings = newRating.length
-  const reducer = (accumulator, currentValue) => accumulator + currentValue
-  const ratingTotal = newRating.reduce(reducer)
-  const actualRating = ratingTotal / numOfRatings
-  return actualRating.toFixed(1) 
+
+  // ! updating ratings 
+  function rater(company) {
+    const newRating = company.ratings.map(item => Number(item.rating))
+    const numOfRatings = newRating.length
+    //console.log(newRating)
+    if (newRating.length === 0){
+      return console.log('hello')
+    } else {
+      return ratingCalc(newRating, numOfRatings)
+    }
   }
 
   function filterCompanies() {
@@ -33,14 +37,25 @@ export default function Companies() {
     })
   }
   console.log(companies)
+  function ratingCalc(newRating, numOfRatings){
+    const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
+    const actualRating = ratingTotal / numOfRatings
+    return actualRating.toFixed(1)
+  }
+ 
+
+
+
   return <section className="all-companies">
-        <div className='columns m-3 is-centered is-mobile' >
+    <div className='columns m-3 is-centered is-mobile' >
       <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
         <input className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search companies..."></input>
       </div>
     </div>
-    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
-  letterSpacing: -1 }}>Companies</h1>
+    <h1 className="title is-2 has-text-danger" style={{
+      fontWeight: 800,
+      letterSpacing: -1
+    }}>Companies</h1>
     <div className="columns is-multiline">
       {filterCompanies().map((company, index) => {
         return <div key={index} className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet" key={company._id}>
@@ -63,7 +78,7 @@ export default function Companies() {
                   ? company.about.slice(0, 130) + '...'
                   : company.about}
                 {<br></br>}
-                <strong>Rating: </strong>{rating(company)}
+                <strong>Rating: </strong>{rater(company)}
               </div>
             </div>
           </Link>
