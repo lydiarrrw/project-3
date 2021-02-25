@@ -33,7 +33,7 @@ export default function Register({ history }) {
     <section className="container">
       <div className="columns is-multiline">
         <div className="column is-8 is-offset-2 register">
-          <div className="columns">
+          <div className="columns p-5">
             <div className="column left">
               <h1 className="title is-1">Stepladder</h1>
               <h2 className="subtitle colored is-4">Find your future job today.</h2>

@@ -16,6 +16,8 @@ export default function singleCompany({ match, history }) {
   const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
 
+  console.log('LOCAL STORAGE', localStorage)
+
   useEffect(() => {
     async function fetchCompany() {
       try {
@@ -24,7 +26,6 @@ export default function singleCompany({ match, history }) {
       } catch (err) {
         console.log(err)
       }
-
     }
     fetchCompany()
   }, [])
@@ -42,11 +43,12 @@ export default function singleCompany({ match, history }) {
   const deciRate = actualRating.toFixed(1)
 
   //console.log(deciRate)
+console.log('Local Storage', localStorage)
 
-
-  function handleComment() {
+ async function handleComment(event) {
+    
     try {
-    axios.post(`/api/company/${id}/comment`, { text }, {
+     await axios.post(`/api/company/${id}/comment`, { text }, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(resp => {
@@ -54,9 +56,8 @@ export default function singleCompany({ match, history }) {
         updateCompany(resp.data)
       })
     } catch (err) {
-      console.log(data)
-      console.log('unable to post comment')
       updateError('Unable to post comment')
+ 
     }
   }
 
@@ -92,10 +93,6 @@ export default function singleCompany({ match, history }) {
     })
     history.push('/companies')
   }
-  return <div className="companyContainer">
-
-    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
-  letterSpacing: -1 }} >{company.company}</h1>
 
   return <div className="companyContainer">
 
@@ -111,10 +108,10 @@ export default function singleCompany({ match, history }) {
       
     </div>
     <div className="columns">
-      <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
+      <div className="column is-one-third-widescreen is-half-tablet is-multiline">
         <div className="card">
             <div className="card-image">
-            <figure class="image is-4by3">
+            <figure className="image is-4by3">
               <img src={company.logo} />
               </figure>
             </div>
@@ -155,8 +152,8 @@ export default function singleCompany({ match, history }) {
       </div>
 
 
-      <div className="column is-three-quarters-widescreen is-two-thirds-desktop">
-        <h1 className="title has-text-danger has-text-centered">Jobs posted</h1>
+      <div className="column is-two-thirds-widescreen">
+        <h1 className="title has-text-danger has-text-centered">Jobs posted by {company.company} </h1>
         {company.jobs.map(job => {
 
           //! To parse posted HTML to show nicely in browser
@@ -179,10 +176,10 @@ export default function singleCompany({ match, history }) {
             </div>
           </div>
         })}
-      </div >
-    </div >
+      </div>
+    </div>
     <div className='container is-centered'>
       {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
     </div>
-  </div >
+  </div>
 }
