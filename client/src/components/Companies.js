@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom'
 
 export default function Companies() {
   const [companies, updateCompanies] = useState([])
+  const [search, updateSearch] = useState([])
 
   useEffect(() => {
     async function fetchData() {
@@ -27,6 +28,15 @@ export default function Companies() {
     }
   }
 
+  function filterCompanies() {
+    return companies.filter(company => {
+      if (search.length === 0) { return company }
+      else {
+        return company.company.toLowerCase().includes(search.toLowerCase())
+      }
+    })
+  }
+  console.log(companies)
   function ratingCalc(newRating, numOfRatings){
     const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
     const actualRating = ratingTotal / numOfRatings
@@ -47,8 +57,8 @@ export default function Companies() {
       letterSpacing: -1
     }}>Companies</h1>
     <div className="columns is-multiline">
-      {companies.map(company => {
-        return <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet" key={company._id}>
+      {filterCompanies().map((company, index) => {
+        return <div key={index} className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet" key={company._id}>
           <Link to={`/company/${company._id}`}>
             <div className="card grow">
               <div className="card-content companies-cards">

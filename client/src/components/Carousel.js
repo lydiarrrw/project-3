@@ -4,7 +4,6 @@ import Companies from './Companies'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-
 export default function AutoPlay() {
   const settings = {
     dots: false,
