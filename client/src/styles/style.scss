@@ -205,5 +205,7 @@ input:focus {
   color: black;
 }
 
-
+.hideRate {
+visibility: hidden;
+}
 @import "../../node_modules/bulma/bulma.sass";

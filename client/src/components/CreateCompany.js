@@ -88,12 +88,12 @@ export default function CreateCompany({ history }) {
               <div className="field">
                 <label className="label">About</label>
                 <div className="control">
-                  <input
+                  <textarea
                     className="textarea"
                     type="text"
                     name="about"
                     onChange={handleChange}
-                  />
+                    />
                 </div>
               </div>    
               <div className="field">
