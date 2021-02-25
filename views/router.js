@@ -28,6 +28,9 @@ router.route('/register')
 router.route('/login')
   .post(user.login)
 
+router.route('/login/:userId')
+  .get(user.getSingleUser)
+
 router.route('/company/:companyId/comment')
   .post(secureRoute, comment.makeComment)
 

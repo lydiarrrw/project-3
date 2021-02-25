@@ -3,20 +3,25 @@ import axios from 'axios'
 import { getLoggedInUserId } from '../lib/auth'
 
 export default function CreateCompany({ history }) {
+  const [loggedUser, updateLoggedUser] = useState({})
   const userId = getLoggedInUserId()
-  console.log(userId)
 
-/*   useEffect(() => {
-    async function getUserInfo() {
+  useEffect(() => {
+    async function getLoggedUser() {
       try {
-        const { data } = await axios.get(`/api/company/${companyId}`)
-        updatedCompany(data)
+        const { data } = await axios.get(`/api/login/${userId}`)
+        updateLoggedUser(data)
+        console.log('data', data)
       } catch (err) {
         console.log(err)
       }
     }
-    getCompanyInfo()
-  }, []) */
+    getLoggedUser()
+  }, [])
+  
+  if (!loggedUser) {
+    return null
+  }
 
   const [formData, updateFormData] = useState({
     company: '',
@@ -25,19 +30,10 @@ export default function CreateCompany({ history }) {
     industry: '',
     logo: '',
     jobs: [],
-    user: {
-      name: '',
-      email: '',
-      password: '',
-      type: ''
-    }, 
     rating: ''
   })
 
   const token = localStorage.getItem('token')
-  console.log(localStorage)
-
-
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -122,18 +118,6 @@ export default function CreateCompany({ history }) {
                   />
                 </div>
               </div>
-              <div className="field">
-                <label className="label">User</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    name="user"
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              {console.log(formData)}
               <div className="field is-grouped">
                 <div className="control">
                   <button className="button is-link">Submit</button>

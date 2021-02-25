@@ -15,8 +15,6 @@ export default function PostJob({ match, history }) {
     salary: '',
     location: [],
     user: ''
-
-
   })
 
   useEffect(() => {

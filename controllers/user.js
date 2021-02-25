@@ -26,6 +26,18 @@ async function getUser(req, res, next) {
   }
 }
 
+async function getSingleUser(req, res, next) {
+  const userId = req.params.userId
+  console.log('params', req.params)
+  console.log('body', req.body)
+  try {
+    const user = await User.findById(userId)
+    res.send(user)
+  } catch (err) {
+    next(err)
+  }
+}
+
 async function login(req, res, next) {
   const password = req.body.password
   try {
@@ -59,5 +71,6 @@ async function login(req, res, next) {
 export default {
   register,
   login,
-  getUser
+  getUser,
+  getSingleUser
 }

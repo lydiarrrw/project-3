@@ -36,7 +36,7 @@ const NavBar = ({ history }) => {
             <Link to='/map' className="button is-danger is-outlined grow">
               <strong>Map</strong>
             </Link>
-            {localStorage.getItem('token') && localStorage.getItem('type') === 'mod' && <Link to="/company/create" className="button is-danger is-outlined">
+            {localStorage.getItem('token') && localStorage.getItem('type') === 'company-admin' && <Link to="/company/create" className="button is-danger is-outlined">
               <strong>Create company</strong>
             </Link>}
           </div>

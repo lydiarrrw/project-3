@@ -33,7 +33,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -69,7 +68,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -105,7 +103,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -142,7 +139,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -178,7 +174,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -215,7 +210,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -251,7 +245,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -287,7 +280,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -323,7 +315,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -359,7 +350,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -395,7 +385,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     },
@@ -431,7 +420,6 @@ export default function getCompanyData(users) {
       ratings: [
         {
           rating: 2.5
-
         }
       ]
     }

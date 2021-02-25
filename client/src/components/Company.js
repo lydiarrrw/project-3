@@ -100,12 +100,12 @@ export default function singleCompany({ match, history }) {
     <div className="columns">
       <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
         <div className="card">
-            <div className="card-image">
-            <figure class="image is-4by3">
+          <div className="card-image">
+            <figure className="image is-4by3">
               <img src={company.logo} />
-              </figure>
-            </div>
-            <div className="card-content">
+            </figure>
+          </div>
+          <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
             {/* <strong>Rating: </strong>{company.rating} */}
@@ -183,6 +183,5 @@ export default function singleCompany({ match, history }) {
     <div className='container is-centered'>
       {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
     </div>
-  </div>
-  
+  </div> 
 }
