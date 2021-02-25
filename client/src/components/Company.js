@@ -13,10 +13,9 @@ export default function singleCompany({ match, history }) {
   const [error, updateError] = useState('')
 
   const token = localStorage.getItem('token')
+  const type = localStorage.getItem('type')
   const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
-
-  console.log('LOCAL STORAGE', localStorage)
 
   useEffect(() => {
     async function fetchCompany() {
@@ -56,8 +55,12 @@ console.log('Local Storage', localStorage)
         updateCompany(resp.data)
       })
     } catch (err) {
-      updateError('Unable to post comment')
- 
+      console.log('TYPE', type)
+      if (type === 'company-admin') {
+        updateError('Companies cannot post comments!')
+      } else {
+      updateError('Please login to post a comment')
+      }
     }
   }
 

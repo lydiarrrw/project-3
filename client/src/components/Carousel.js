@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-
+import { Link, withRouter } from 'react-router-dom'
 
 export default function AutoPlay() {
   const settings = {
@@ -16,7 +16,7 @@ export default function AutoPlay() {
   
   return <div className="carousel">
     <Slider {...settings}>
-      <div>
+      <div> 
         <img src="https://i.imgur.com/Bn1bU5Z.jpg" />
       </div>
       <div>
