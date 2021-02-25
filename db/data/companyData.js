@@ -48,7 +48,7 @@ export default function getCompanyData(users) {
           title: 'Product Manager',
           description: 'Ridgeway is looking for a Product Designer to help grow the design output for our portfolio of early stage start-ups working in cutting edge technology. You will be able to operate at a senior strategic level with start-up founders, whilst “getting your hands dirty” with project work. You will be collaborating with the full Outlier team, defining priorities and coordinating design schedules across multi-disciplined teams.',
           salary: '£50,000',
-          location: 'London',
+          location: 'Leeds',
           user: users[5]
         },
         {
@@ -91,7 +91,7 @@ export default function getCompanyData(users) {
           title: 'Junior React Developer',
           description: 'We’re looking for a thoughtful highly-motivated, frontend developer to join our team. Knowledge of React is essential, familiarity with Bulma, SASS, and RESTful APIs is also desirable.',
           salary: '£32,000',
-          location: 'Manchester',
+          location: 'Paris',
           user: users[6]
         },
         {
@@ -127,7 +127,7 @@ export default function getCompanyData(users) {
           title: 'Senior Backend Engineer',
           description: 'Here at TechCal, we celebrate the many ways we work. With a team of over one hundred, we connect from Atlanta coworking spaces, Minnesota forests, Hawaii beaches and our beautiful headquarters in Manhattan, where this position will be based. ',
           salary: 'Competitive dependent on experience',
-          location: 'London',
+          location: 'Bristol',
           user: users[11]
         },
         {
@@ -164,14 +164,14 @@ export default function getCompanyData(users) {
           title: 'Senior Data Engineer',
           description: 'You will work within a team of business intelligence focused engineers to extend the data platform. You will use your knowledge and experience to evangelise best practices Your primary objectives will be the development and maintenance of the SQL Server BI platform and to lead the next evolution to the cloud.',
           salary: '£50,000',
-          location: 'Manchester',
+          location: 'Glasgow',
           user: users[10]
         },
         {
           title: 'Software Engineer – Full-Stack – .NET, React, Redux',
           description: 'You’ll be part of an agile team focused on one area of the platform, working in short iterations to continuously deliver product features. You’ll interact with Engineering Managers, Product Managers, Engineers, Data Engineers, DBAs and Designers in your day-to-day and have opportunities to get involved in cross-team projects and new product roadmap initiatives.',
           salary: '£50,000',
-          location: 'Manchester',
+          location: 'Munich',
           user: users[10]
         }],
       user: users[10],
@@ -193,21 +193,21 @@ export default function getCompanyData(users) {
           title: 'VP of Marketing',
           description: 'Your clear purpose is to focus on filling the top of the funnel with quality traffic that converts into registrations and you will work closely with the Commercial Team to ensure we hit our registration, revenue and retention goals.',
           salary: '£60,000',
-          location: 'Edinburgh',
+          location: 'Dublin',
           user: users[12]
         },
         {
           title: 'Frontend Engineer (React)',
           description: 'Being a part of a small, focused team, you will be working closely with other engineers, a designer and a product manager towards both improving the existing experiences and building new ones.',
           salary: '£30,000',
-          location: 'Edinburgh',
+          location: 'Belgrade',
           user: users[12]
         },
         {
           title: 'Head of Design',
           description: 'In your role as a Design Manager, you will be managing a small team and working across both Language Pirates’s web and mobile product.',
           salary: 'Commensurate with experience',
-          location: 'Edinburgh',
+          location: 'Milan',
           user: users[12]
         }
       ],
@@ -230,7 +230,7 @@ export default function getCompanyData(users) {
           title: 'Software Engineer - Junior/ Associate',
           description: 'Your new company You’ll be joining a global investment management firm  with over a trillion assets under management - this scale brings about significant data  and technology challenges which you can help solve. Your new role You’ll use your  understanding of the SDLC to build exciting data driven technology products for various  users such as portfolio managers within front office.',
           salary: '£25,000',
-          location: 'London',
+          location: 'Mexico City',
           user: users[7]
         },
         {
@@ -244,7 +244,7 @@ export default function getCompanyData(users) {
           title: 'Full Stack Developer',
           description: 'We are looking for a Full Stack Developer for our creative consultancy   client. You will work on innovative projects that span offices across Europe, providing   expert skills in front end development to cross-functional teams. You will be   responsible for the design and production of innovative website and web application   user interfaces. This involves working closely with creative designers and developers   to turn static designs into interactive and engaging experiences',
           salary: '£30,000',
-          location: 'London',
+          location: 'Berlin',
           user: users[7]
         }],
       user: users[7],
@@ -266,7 +266,7 @@ export default function getCompanyData(users) {
           title: 'Junior Software Engineer',
           description: 'This role will commence as a Fixed term contract for 1 year. Gives both parties flexibility. The client is well known for investing in their employees, the  goal is to hire candidates permanently after a successful 1 year fixed term contract.',
           salary: '£22,000',
-          location: 'Gotham',
+          location: 'Madrid',
           user: users[8]
         },
         {
@@ -280,7 +280,7 @@ export default function getCompanyData(users) {
           title: 'Junior Programmer',
           description: 'We’re working with a brilliant emerging talent in the world of indie game development. This studio functions partly as a work-for-hire and porting house, and is   also hard at work on their own IP. If you’re looking for variety, you can’t go wrong  with a multi-platform studio which gets to work with the likes of Sony and Nintendo!',
           salary: '£26,000',
-          location: 'London',
+          location: 'Athens',
           user: users[8]
         }],
       user: users[8],

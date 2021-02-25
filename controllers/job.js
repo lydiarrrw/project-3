@@ -82,7 +82,7 @@ async function removeJob(req, res, next) {
 
     const savedCompany = await company.save()
 
-    res.send(savedCompany)
+    res.status(200).send(savedCompany)
 
   } catch (err) {
     next(err)

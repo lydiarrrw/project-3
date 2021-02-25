@@ -46,13 +46,13 @@ export default function singleCompany({ match, history }) {
 
   function handleComment() {
     try {
-    axios.post(`/api/company/${id}/comment`, { text }, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(resp => {
-        setText('')
-        updateCompany(resp.data)
+      axios.post(`/api/company/${id}/comment`, { text }, {
+        headers: { Authorization: `Bearer ${token}` }
       })
+        .then(resp => {
+          setText('')
+          updateCompany(resp.data)
+        })
     } catch (err) {
       console.log(data)
       console.log('unable to post comment')
@@ -68,11 +68,9 @@ export default function singleCompany({ match, history }) {
     })
       .then(resp => {
 
-        //updateRating(rating)
         updateCompany(resp.data)
         updateRated(true)
-        //return console.log('thank you')
-        
+
       })
 
   }
@@ -92,10 +90,7 @@ export default function singleCompany({ match, history }) {
     })
     history.push('/companies')
   }
-  return <div className="companyContainer">
 
-    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
-  letterSpacing: -1 }} >{company.company}</h1>
 
   return <div className="companyContainer">
 
@@ -108,17 +103,17 @@ export default function singleCompany({ match, history }) {
         emptySymbol="fa fa-star-o fa-2x"
         fullSymbol="fa fa-star fa-2x"
       />
-      
+
     </div>
     <div className="columns">
       <div className="column is-one-quarter-widescreen is-one-third-desktop is-half-tablet is-multiline">
         <div className="card">
-            <div className="card-image">
-            <figure class="image is-4by3">
+          <div className="card-image">
+            <figure className="image is-4by3">
               <img src={company.logo} />
-              </figure>
-            </div>
-            <div className="card-content">
+            </figure>
+          </div>
+          <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
             {/* <strong>Rating: </strong>{company.rating} */}
@@ -149,7 +144,7 @@ export default function singleCompany({ match, history }) {
           <div className="control">
             <input className="input" type="text" placeholder="Type your comment here" onChange={event => setText(event.target.value)} value={text} />
             <button onClick={handleComment} className="button is-danger grow mt-4">Submit</button>
-            <p className="error" style={{ marginTop: 8 }}>{ error }</p>
+            <p className="error" style={{ marginTop: 8 }}>{error}</p>
           </div>
         </div>
       </div>
@@ -184,5 +179,5 @@ export default function singleCompany({ match, history }) {
     <div className='container is-centered'>
       {localStorage.getItem('mod') === 'true' && <button className="button is-danger is-centered" onClick={() => handleDeleteCompany(company._id)}>Delete Company</button>}
     </div>
-  </div >
+  </div>
 }
