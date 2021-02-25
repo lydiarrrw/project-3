@@ -125,7 +125,7 @@ export default function singleCompany({ match, history }) {
           <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
-            <h1 className="title mt-6 is-6"> Rate this company:</h1>
+            <h1 className="title mt-6 is-6"> Rate this company (login required):</h1>
             <div className="subtitle is-5 has-text-danger">
               <Rating
                 className={rated ? "rated" : "notrated"}

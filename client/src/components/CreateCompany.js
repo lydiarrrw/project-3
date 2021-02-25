@@ -62,7 +62,7 @@ export default function CreateCompany({ history }) {
     <div className="container level-item">
       <div className="column is-half ">
         <section className="level">
-          <h1 className="title is-2">Create a company</h1>
+          <h1 className="title is-2 has-text-danger">Create a company</h1>
         </section>
         <div className="level">
           <div className="container">
@@ -136,7 +136,7 @@ export default function CreateCompany({ history }) {
               {console.log(formData)}
               <div className="field is-grouped">
                 <div className="control">
-                  <button className="button is-link">Submit</button>
+                  <button className="button is-primary">Submit</button>
                 </div>
               </div>
             </form>

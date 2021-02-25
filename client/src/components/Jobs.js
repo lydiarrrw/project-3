@@ -31,7 +31,7 @@ export default function Jobs() {
     }
     getCompanies()
   }, [])
- // console.log('this is jobs', jobs)
+  // console.log('this is jobs', jobs)
   //!Filtering to enable search function
 
   function filterJobs() {
@@ -45,13 +45,15 @@ export default function Jobs() {
 
   return <div>
     <div className='all-jobs'>
-    <div className='columns m-3 is-centered is-mobile' >
-      <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
-        <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search jobs..."></input>
+      <div className='columns m-3 is-centered is-mobile' >
+        <div className='column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop'>
+          <input id="input" className="input is-rounded is-medium is-focused is-centered" onChange={(event) => updateSearch(event.target.value)} type="text" placeholder="Search jobs..."></input>
+        </div>
       </div>
-    </div>
-    <h1 className="title is-2 has-text-danger" style={{ fontWeight: 800,
-  letterSpacing: -1 }}>Jobs</h1>
+      <h1 className="title is-2 has-text-danger" style={{
+        fontWeight: 800,
+        letterSpacing: -1
+      }}>Jobs</h1>
       <div className='columns is-multiline'>{
         filterJobs().map((job, index) => {
           const sector = job.industry.toString()
@@ -59,26 +61,26 @@ export default function Jobs() {
           return <div key={index} className='column is-one-quarter-widescreen is-one-third-desktop is-half-tablet'>
             <Link to={{ pathname: `/job/${job._id}`, state: { companyID: job.companyID } }}>
               <div className='card'>
-              <div className='card-content job-cards grow'>
-                <div className='media'>
-                  <div className='media-left'>
-                    <figure className='image is-48x48'>
-                      <img src={job.logo} />
-                    </figure>
-                  </div>
-                  <div className='media-content '>
-                    <p className='title is-4'>{job.title}</p>
-                    <ul>
-                      <li className='subtitle is-6'><b>Company:</b> {job.company}</li>
-                      <li className='subtitle is-6'><b>Salary:</b> {job.salary}</li>
-                      <li className='subtitle is-6'><b>Location:</b> {job.location.map((local, index) => {
-                        return <div key={index}>{local}</div>
-                      })}</li>
-                      <li className='subtitle is-6'><b>Sector:</b> {upperSector}</li>
-                    </ul>
+                <div className='card-content job-cards grow'>
+                  <div className='media'>
+                    <div className='media-left'>
+                      <figure className='image is-48x48'>
+                        <img src={job.logo} />
+                      </figure>
+                    </div>
+                    <div className='media-content '>
+                      <p className='title is-4'>{job.title}</p>
+                      <ul>
+                        <li className='subtitle is-6'><b>Company:</b> {job.company}</li>
+                        <li className='subtitle is-6'><b>Salary:</b> {job.salary}</li>
+                        <li className='subtitle is-6'><b>Location:</b> {job.location.map((local, index) => {
+                          return <div key={index}>{local}</div>
+                        })}</li>
+                        <li className='subtitle is-6'><b>Sector:</b> {upperSector}</li>
+                      </ul>          
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </Link>
           </div>
