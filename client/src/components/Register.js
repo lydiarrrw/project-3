@@ -27,7 +27,11 @@ export default function Register({ history }) {
       history.push('/login')
     } catch (err) {
       console.log(err.response.data._message)
-      updateError('User with this email account is already registered!')
+      if (formData.name === '' || formData.email === '' || formData.password === '' || formData.type === '') {
+        updateError('All fields are required!')
+      } else {
+        updateError('User with this email account is already registered!')
+      }
     }
   }
 
@@ -76,7 +80,7 @@ export default function Register({ history }) {
                   name={'type'}
                   value={formData.type.value}
                 />
-                <button className="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                  <button className="button is-block is-primary is-fullwidth is-medium">Submit</button>
                 <br />
                 <p className="error">{ error }</p>
                 <small><em>By continuing, you agree to our <a href="#" className="links">Terms of Use</a> and acknowledge our <a href="#" className="links">Privacy Policy</a>.</em></small>
