@@ -116,7 +116,7 @@ export default function getCompanyData(users) {
           title: 'Senior Full Stack Software Engineer',
           description: 'We expect our developers to contribute more than just code. You’ll be involved in defining how things work, what they do, and why we do that instead of something else. ',
           salary: 'Competitive dependent on experience',
-          location: 'London',
+          location: 'Hong Kong',
           user: users[11]
         }
       ],
@@ -284,14 +284,14 @@ export default function getCompanyData(users) {
           title: 'Solutions Engineer',
           description: 'As a Solutions Engineer you will draw on your customer facing skills and technical knowledge to help customers successfully adopt CodeData’s products. You will manage all aspects of adoption, helping customers accelerate their journey to integrate with our platform and optimise their business processes.',
           salary: '£65,000',
-          location: 'London (Remote Available)',
+          location: 'Seattle',
           user: users[17]
         },
         {
           title: 'Frontend Engineer',
           description: 'We are looking for a Front End Engineer to join us and help shape the future of our product. Working closely with the wider engineering, you will pioneer front end development and be relied upon as one of our greatest technical expert.',
           salary: '£74,000',
-          location: 'London (Remote Available)',
+          location: 'Kampala',
           user: users[17]
         },
         {
@@ -328,7 +328,7 @@ export default function getCompanyData(users) {
           title: 'Commercial Analytics',
           description: 'This person should feel comfortable working with large amounts of data, be self-motivated and proactive in analyzing, investigating and organizing information found across multiple datasets and sources.',
           salary: '£53,000',
-          location: 'London, Hampstead',
+          location: 'Havana',
           user: users[19]
         }],
       user: users[19]

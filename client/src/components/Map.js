@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-// ? import components from my library
+
 import MapGL, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
@@ -23,7 +23,7 @@ export default function Map() {
           role.companyID = companyData._id
           delete companyData._id; delete companyData.jobs; delete companyData.user; delete companyData.comments
           const location = role.location
-          const coordinates = await axios.get(`https://api.opencagedata.com/geocode/v1/json?key=9bd385b38ae74b149703221dc2fa505f&q=${location}&pretty=1`)
+          const coordinates = await axios.get(`https://api.opencagedata.com/geocode/v1/json?key=${process.env.apikey1}&q=${location}&pretty=1`)
           const longlat = coordinates.data.results[0].geometry
           const complete = { ...role, ...companyData, longlat }
           jobs.push(complete)
@@ -34,7 +34,6 @@ export default function Map() {
     getCompanies()
   }, [])
 
-  console.log(jobs)
 
   const [viewPort, updateViewPort] = useState({
     height: '100vh',
@@ -48,7 +47,7 @@ export default function Map() {
   return <MapGL
     {...viewPort}
     onViewportChange={(viewPort) => updateViewPort(viewPort)}
-    mapboxApiAccessToken={'pk.eyJ1IjoiY2xlbS1jb2RlIiwiYSI6ImNrbGdmaTM2eDFqbncydm1qMjd0dGFyeDYifQ.efDaSwtaqJifRAzvIP7oMA'}
+    mapboxApiAccessToken={`${process.env.apikey}`}
     mapStyle='mapbox://styles/clem-code/cklgfko3y7o5z17nsey5dye0l'
   >
     {jobs.map((job, i) =>
