@@ -10,6 +10,7 @@ export const dbURI = environment === 'production'
 
   : `mongodb://localhost/stepladderdb-${environment}`
 
-export const port = 8000
+export const port = process.env.PORT || 8000
 
-export const secret = process.env.SECRET
+export const secret = process.env.SECRET || 'ediu534534fghhjbfusdnfu ruhfjrguhu4635634rag hrgaiuhr gvnhukjdhb56245dfasidfhaskjdf hfuiahf'
+
