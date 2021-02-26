@@ -126,6 +126,61 @@ describe('Testing REGISTER', () => {
           })
       })
   })
+  it('Should be able to register a new company admin, create a company, and post a job', done => {
+
+    api.post('/api/register')
+      .send({
+        name: 'tim',
+        email: 'tim@tim.com',
+        password: 'tim',
+        type: 'company-admin'
+      })
+      .end((err, res) => {
+        expect(res.status).to.eq(201)
+        expect(res.body.name).to.eq('tim')
+
+        api.post('/api/login')
+          .send({
+            email: 'tim@tim.com',
+            password: 'tim'
+          })
+          .end((err, res) => {
+            expect(res.status).to.eq(202)
+            expect(res.body.token).to.be.a('string')
+            const token = res.body.token
+
+            api.post('/api/company/create')
+              .set('Authorization', `Bearer ${token}`)
+              .send({
+                company: 'Google',
+                website: 'google.com',
+                about: 'A tech company',
+                industry: 'tech',
+                logo: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png'
+              })
+              .end((err, res) => {
+                const companyId = res.body._id
+                expect(res.body.company).to.eq('Google')
+
+
+                api.post(`/api/company/${companyId}/job`)
+                  .set('Authorization', `Bearer ${token}`)
+                  .send({
+                    title: 'React Developer',
+                    description: 'Know React? Join our team!',
+                    salary: '£500,000',
+                    location: 'Mexico City'
+                  })
+                  .end((err, res) => {
+                    console.log('BANANA', res.status, res.body)
+                    expect(res.status).to.eq(200)
+                    expect(res.body.jobs[0].title).to.eq('React Developer')
+                    done()
+                  })
+              })
+          })
+      })
+  })
 
 })
 

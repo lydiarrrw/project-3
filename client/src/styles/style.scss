@@ -200,10 +200,11 @@ input:focus {
   visibility: hidden;
  
 }
-
 .about-link {
   color: black;
 }
 
-
+.hideRate {
+visibility: hidden;
+}
 @import "../../node_modules/bulma/bulma.sass";

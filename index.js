@@ -5,7 +5,6 @@ import connectToDb from './lib/connectToDb.js'
 import errorHandler from './middleware/errorHandler.js'
 import { port } from './config/environment.js'
 
-
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -29,6 +28,5 @@ async function startServer() {
 }
 
 startServer()
-
 
 export default app

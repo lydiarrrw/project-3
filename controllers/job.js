@@ -105,7 +105,6 @@ async function getSingleJob(req, res, next) {
   }
 }
 
-
 export default {
   postJob,
   updateJob,

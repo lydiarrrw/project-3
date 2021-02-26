@@ -14,9 +14,9 @@ async function makeRating(req, res, next) {
 
     if (!company) {
       console.log('COMPANY', company)
-      
+
       return res.status(404).send({ message: 'Not found' })
-    
+
     }
     if (currentUser.type === 'company-admin') {
       return res.status(401).send({ message: 'Unauthorized' })
@@ -33,8 +33,6 @@ async function makeRating(req, res, next) {
   }
 }
 
-
-
 export default {
-  makeRating 
+  makeRating
 }

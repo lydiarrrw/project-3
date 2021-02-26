@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { isCreator } from '../lib/auth'
 import parse from 'html-react-parser'
 import Rating from 'react-rating'
-// import { isCreator } from '../lib/auth'
 
 export default function singleCompany({ match, history }) {
   const id = match.params.companyId
@@ -16,6 +15,9 @@ export default function singleCompany({ match, history }) {
   const type = localStorage.getItem('type')
   const [rated, updateRated] = useState(false)
   const [rating, updateRating] = useState('')
+  const [ratingErr, updateRatingErr] = useState('')
+
+
 
   useEffect(() => {
     async function fetchCompany() {
@@ -27,11 +29,11 @@ export default function singleCompany({ match, history }) {
       }
     }
     fetchCompany()
+
   }, [])
 
   if (!company.jobs) return null
   if (!company.comments) return null
-  //console.log('COMPANY', company)
 
   // ! updating ratings 
   function rater(company) {
@@ -42,16 +44,36 @@ export default function singleCompany({ match, history }) {
       return //console.log('hello')
     } else {
       return ratingCalc(newRating, numOfRatings)
+
     }
   }
+
+  // ! Stop users doing multiple ratings
+  
+  let alreadyRated = false
+  function rates() {
+    if (token === null) {
+      console.log('not logged in')
+    } else {
+      const payloadAsString = atob(token.split('.')[1])
+      const payloadAsObject = JSON.parse(payloadAsString)
+      //console.log(payloadAsObject.userId)
+
+      const ratingArray = company.ratings.map(item => item.user)
+      //console.log(ratingArray)
+      alreadyRated = ratingArray.includes(payloadAsObject.userId)
+      //console.log(alreadyRated)
+    }
+  }
+  rates()
+  //console.log(alreadyRated)
+
 
   function ratingCalc(newRating, numOfRatings) {
     const ratingTotal = newRating.reduce((accumulator, currentValue) => accumulator + currentValue)
     const actualRating = ratingTotal / numOfRatings
     return actualRating.toFixed(1)
   }
-  //console.log(deciRate)
-  console.log('Local Storage', localStorage)
 
   async function handleComment(event) {
 
@@ -68,24 +90,30 @@ export default function singleCompany({ match, history }) {
       if (type === 'company-admin') {
         updateError('Companies cannot post comments!')
       } else {
-      updateError('Please login to post a comment')
+        updateError('Please login to post a comment')
       }
     }
   }
 
 
-  function handleRating(rating) {
+  async function handleRating(rating) {
 
-    axios.post(`/api/company/${id}/rating`, { rating }, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(resp => {
-
-        updateCompany(resp.data)
-        updateRated(true)
-        //return console.log('thank you')
-
+    try {
+      await axios.post(`/api/company/${id}/rating`, { rating }, {
+        headers: { Authorization: `Bearer ${token}` }
       })
+        .then(resp => {
+          updateCompany(resp.data)
+          updateRated(true)
+          //return console.log('thank you')
+        })
+    } catch (err) {
+      if (type === 'company-admin') {
+        updateRatingErr('Company admin cannot rate a company')
+      } else {
+        updateRatingErr('Please login to leave a rating')
+      }
+    }
 
   }
 
@@ -114,7 +142,6 @@ export default function singleCompany({ match, history }) {
         initialRating={rater(company)}
         readonly
       />
-
     </div>
     <div className="columns">
       <div className="column is-one-third-widescreen is-half-tablet is-multiline">
@@ -127,16 +154,21 @@ export default function singleCompany({ match, history }) {
           <div className="card-content">
             <strong>About: </strong>{company.about}
             {<br></br>}
-            <h1 className="title mt-6 is-6"> Rate this company (login required):</h1>
+            <h1 className="title mt-6 is-6"> Rate this company <small>(login required)</small>:</h1>
             <div className="subtitle is-5 has-text-danger">
-              <Rating
-                className={rated ? "rated" : "notrated"}
-                initialRating={0}
-                fractions={2}
-                onChange={updateRating}
-                onClick={handleRating}
-              />
-              <p className={rated ? "notrated" : "rated"}>Thank you for your rating!</p>
+              <p className={rated ? "notrated" : "rated"}>Thank you! You have rated this company.</p>
+              <p className={alreadyRated ? "visRate" : "hideRate"}>You've already rated this company!</p>
+              <div className={alreadyRated ? "hideRate" : "visRate"}>
+                <p className="error">{ratingErr}</p>
+                <Rating
+                  className={rated ? "rated" : "notrated"}
+                  initialRating={0}
+                  fractions={2}
+                  onChange={updateRating}
+                  onClick={handleRating}
+                />
+              </div>
+
             </div>
             <div>{isCreator(company.user._id) && <Link
               to={`/company/${id}/job`}
@@ -172,15 +204,11 @@ export default function singleCompany({ match, history }) {
         </div>
       </div>
 
-
       <div className="column is-two-thirds-widescreen">
         <h1 className="title has-text-danger has-text-centered">Jobs posted by {company.company} </h1>
         {company.jobs.map(job => {
-
           //! To parse posted HTML to show nicely in browser
           const html = parse(job.description)
-          // console.log(html)
-
           return <div className="card mb-2" key={job._id}>
             <div className="card-content">
               <h1 className="subtitle"><strong>{job.title}</strong></h1>
