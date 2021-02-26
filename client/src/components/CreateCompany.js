@@ -93,7 +93,7 @@ export default function CreateCompany({ history }) {
                     type="text"
                     name="about"
                     onChange={handleChange}
-                  />
+                    />
                 </div>
               </div>
               <div className="field">
