@@ -88,7 +88,7 @@ export default function Job({ match, location, history }) {
           <div className="card">
             <div className="card-image">
               <figure className="image is-4by3">
-                <img src={companyPost.logo} />
+                <img src={companyPost.logo} alt={`Logo and link for ${companyPost.name}`} />
               </figure>
             </div>
             <div className="card-content">

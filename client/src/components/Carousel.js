@@ -30,7 +30,7 @@ export default function AutoPlay() {
       {companies.map(company => {
         return <Link to={`/company/${company._id}`} key={company._id}>
           <div>
-            <img src={company.logo}></img>
+            <img src={company.logo} alt={`Logo and link for ${company.name}`}></img>
           </div>
         </Link>
       })}

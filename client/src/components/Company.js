@@ -148,7 +148,7 @@ export default function singleCompany({ match, history }) {
         <div className="card">
           <div className="card-image">
             <figure className="image is-4by3">
-              <img src={company.logo} />
+              <img src={company.logo} alt={`Logo and link for ${company.name}`} />
             </figure>
           </div>
           <div className="card-content">
