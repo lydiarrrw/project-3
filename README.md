@@ -204,10 +204,15 @@ As well as register and login, we had forms for posting a company and posting a 
 
 ### Improvements
 * I want to check out the CSS issues that are preventing styles on job post pages from showing.
-* Some of the styling for the job rating component isn't quite how I;d have liked it so I would update this given more time.
+* Some of the styling for the job rating component isn't quite how I'd have liked it so I would update this given more time.
 * With more time, we could have added more of an application process.
 * We need to consider local storage and different browsers usage of it - to prevent users facing issues.
 * We had planned to add a user profile but ran out of time for this.
+
+### Learnings
+* Commit and push to GitHub regularly! At the start, we had some unresolved conflicts in the package.json file that kept appearing and we weren't sure why, but we all committed and pushed to GitHub a few times and managed to resolve the issue.
+* React components are great, especially the well documented ones! I used several frameworks/libraries for this project and learning how to read the documents and gettingt them to work was great.
+* Think of the most simple way to solve a problem and build on it. I spent a long time trying to build the 'Post a job' form and after that period of time, realised that I had been overcomplicating it, then I was able to fly through the task and move on to the next one.
 
 ### Accessibility
 I've run Lighthouse and axe-core in the browser, which has picked up some issues we need to fix. I will be going through and auditing this for accessibility issues and will add a link to this when I've done it.
